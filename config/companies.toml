@@ -1,0 +1,1269 @@
+# Registry of the companies tracked by the economics dataset.
+#
+# Every [[company]] entry has a stable id (the join key company_id of the datasets companies,
+# wikipedia_pageviews, press_releases and text_annotations), a name, the main sector (Sector in
+# src/schema.py), the country of the headquarters, whether the shares are listed, and the date on
+# which it was added. Optional keys:
+#   aliases    further names under which the annotation resolves the company (brands, former names,
+#              short forms); every name belongs to one entry only
+#   isin       ISIN of the main share line of a listed company
+#   wikidata   Wikidata id; the German Wikipedia article is resolved at run time for the pageviews
+# Index memberships are not stored, because they change. The comment line above each entry holds
+# the title of the German Wikipedia article at the time of the verification.
+#
+# Rules (CLAUDE.md, section 9): ids are never changed or reused; a company that is no longer tracked
+# keeps its entry with removed = <date> and removed_reason = "..."; every new or changed identifier is
+# verified against the live source (Wikidata, German Wikipedia) before it is committed. The monthly
+# source review lists frequent company names of the annotations that are not in the registry.
+#
+# The initial entries were verified on 2026-10-25: the Wikidata ids of listed companies by their ISIN
+# (Wikidata property P946), the ISINs of the DAX members against the index composition, and the ISINs of
+# Qiagen, Schaeffler, Renk and Shell against the German Wikipedia, where Wikidata listed only former ISINs.
+
+# =============================================================================
+# Members of the DAX on 2026-10-25
+# =============================================================================
+
+# Adidas
+[[company]]
+id = "adidas"
+name = "Adidas"
+sector = "Consumer goods"
+country = "DE"
+listed = true
+isin = "DE000A1EWWW0"
+wikidata = "Q3895"
+added = 2026-10-25
+
+# Airbus
+[[company]]
+id = "airbus"
+name = "Airbus"
+sector = "Defense and aerospace"
+country = "NL"
+listed = true
+isin = "NL0000235190"
+wikidata = "Q2311"
+added = 2026-10-25
+
+# Allianz SE
+[[company]]
+id = "allianz"
+name = "Allianz"
+sector = "Insurance"
+country = "DE"
+listed = true
+isin = "DE0008404005"
+wikidata = "Q487292"
+added = 2026-10-25
+
+# BASF
+[[company]]
+id = "basf"
+name = "BASF"
+sector = "Chemicals"
+country = "DE"
+listed = true
+isin = "DE000BASF111"
+wikidata = "Q9401"
+added = 2026-10-25
+
+# Bayer AG
+[[company]]
+id = "bayer"
+name = "Bayer"
+sector = "Pharmaceuticals"
+country = "DE"
+listed = true
+isin = "DE000BAY0017"
+wikidata = "Q152051"
+added = 2026-10-25
+
+# Beiersdorf AG
+[[company]]
+id = "beiersdorf"
+name = "Beiersdorf"
+sector = "Consumer goods"
+country = "DE"
+listed = true
+isin = "DE0005200000"
+wikidata = "Q201691"
+added = 2026-10-25
+
+# BMW
+[[company]]
+id = "bmw"
+name = "BMW"
+aliases = ["Bayerische Motoren Werke"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE0005190003"
+wikidata = "Q26678"
+added = 2026-10-25
+
+# Brenntag
+[[company]]
+id = "brenntag"
+name = "Brenntag"
+sector = "Chemicals"
+country = "DE"
+listed = true
+isin = "DE000A1DAHH0"
+wikidata = "Q828445"
+added = 2026-10-25
+
+# Commerzbank
+[[company]]
+id = "commerzbank"
+name = "Commerzbank"
+sector = "Banking and financial services"
+country = "DE"
+listed = true
+isin = "DE000CBK1001"
+wikidata = "Q157617"
+added = 2026-10-25
+
+# Continental AG
+[[company]]
+id = "continental"
+name = "Continental"
+aliases = ["Conti"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE0005439004"
+wikidata = "Q163241"
+added = 2026-10-25
+
+# Daimler Truck
+[[company]]
+id = "daimler_truck"
+name = "Daimler Truck"
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000DTR0CK8"
+wikidata = "Q1157624"
+added = 2026-10-25
+
+# Deutsche Bank
+[[company]]
+id = "deutsche_bank"
+name = "Deutsche Bank"
+sector = "Banking and financial services"
+country = "DE"
+listed = true
+isin = "DE0005140008"
+wikidata = "Q66048"
+added = 2026-10-25
+
+# Deutsche Börse
+[[company]]
+id = "deutsche_boerse"
+name = "Deutsche Börse"
+sector = "Banking and financial services"
+country = "DE"
+listed = true
+isin = "DE0005810055"
+wikidata = "Q157852"
+added = 2026-10-25
+
+# Deutsche Telekom
+[[company]]
+id = "deutsche_telekom"
+name = "Deutsche Telekom"
+aliases = ["Telekom"]
+sector = "Telecommunications"
+country = "DE"
+listed = true
+isin = "DE0005557508"
+wikidata = "Q9396"
+added = 2026-10-25
+
+# DHL AG
+[[company]]
+id = "dhl_group"
+name = "DHL Group"
+aliases = ["DHL", "Deutsche Post", "Deutsche Post DHL"]
+sector = "Transport and logistics"
+country = "DE"
+listed = true
+isin = "DE0005552004"
+wikidata = "Q157645"
+added = 2026-10-25
+
+# E.ON
+[[company]]
+id = "eon"
+name = "E.ON"
+aliases = ["Eon"]
+sector = "Energy and utilities"
+country = "DE"
+listed = true
+isin = "DE000ENAG999"
+wikidata = "Q270223"
+added = 2026-10-25
+
+# Fresenius (Unternehmen)
+[[company]]
+id = "fresenius"
+name = "Fresenius"
+sector = "Health care"
+country = "DE"
+listed = true
+isin = "DE0005785604"
+wikidata = "Q705361"
+added = 2026-10-25
+
+# Fresenius Medical Care
+[[company]]
+id = "fresenius_medical_care"
+name = "Fresenius Medical Care"
+aliases = ["FMC"]
+sector = "Health care"
+country = "DE"
+listed = true
+isin = "DE0005785802"
+wikidata = "Q650259"
+added = 2026-10-25
+
+# GEA Group
+[[company]]
+id = "gea"
+name = "GEA Group"
+aliases = ["GEA"]
+sector = "Machinery and plant engineering"
+country = "DE"
+listed = true
+isin = "DE0006602006"
+wikidata = "Q446895"
+added = 2026-10-25
+
+# Hannover Rück
+[[company]]
+id = "hannover_rueck"
+name = "Hannover Rück"
+aliases = ["Hannover Re"]
+sector = "Insurance"
+country = "DE"
+listed = true
+isin = "DE0008402215"
+wikidata = "Q657359"
+added = 2026-10-25
+
+# Heidelberg Materials
+[[company]]
+id = "heidelberg_materials"
+name = "Heidelberg Materials"
+aliases = ["HeidelbergCement"]
+sector = "Construction"
+country = "DE"
+listed = true
+isin = "DE0006047004"
+wikidata = "Q632233"
+added = 2026-10-25
+
+# Henkel (Unternehmen)
+[[company]]
+id = "henkel"
+name = "Henkel"
+sector = "Consumer goods"
+country = "DE"
+listed = true
+isin = "DE0006048432"
+wikidata = "Q276507"
+added = 2026-10-25
+
+# Hochtief
+[[company]]
+id = "hochtief"
+name = "Hochtief"
+sector = "Construction"
+country = "DE"
+listed = true
+isin = "DE0006070006"
+wikidata = "Q136542"
+added = 2026-10-25
+
+# Infineon Technologies
+[[company]]
+id = "infineon"
+name = "Infineon"
+aliases = ["Infineon Technologies"]
+sector = "Electrical and electronics"
+country = "DE"
+listed = true
+isin = "DE0006231004"
+wikidata = "Q311394"
+added = 2026-10-25
+
+# Mercedes-Benz Group
+[[company]]
+id = "mercedes_benz"
+name = "Mercedes-Benz Group"
+aliases = ["Mercedes-Benz", "Mercedes", "Daimler"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE0007100000"
+wikidata = "Q27530"
+added = 2026-10-25
+
+# Merck KGaA
+[[company]]
+id = "merck"
+name = "Merck KGaA"
+sector = "Pharmaceuticals"
+country = "DE"
+listed = true
+isin = "DE0006599905"
+wikidata = "Q156959"
+added = 2026-10-25
+
+# MTU Aero Engines
+[[company]]
+id = "mtu_aero_engines"
+name = "MTU Aero Engines"
+aliases = ["MTU"]
+sector = "Defense and aerospace"
+country = "DE"
+listed = true
+isin = "DE000A0D9PT0"
+wikidata = "Q128929"
+added = 2026-10-25
+
+# Münchener Rück
+[[company]]
+id = "munich_re"
+name = "Münchener Rück"
+aliases = ["Munich Re", "Münchener Rückversicherungs-Gesellschaft"]
+sector = "Insurance"
+country = "DE"
+listed = true
+isin = "DE0008430026"
+wikidata = "Q166637"
+added = 2026-10-25
+
+# Qiagen
+[[company]]
+id = "qiagen"
+name = "Qiagen"
+sector = "Health care"
+country = "NL"
+listed = true
+isin = "NL0015002SN0"
+wikidata = "Q315287"
+added = 2026-10-25
+
+# Rheinmetall
+[[company]]
+id = "rheinmetall"
+name = "Rheinmetall"
+sector = "Defense and aerospace"
+country = "DE"
+listed = true
+isin = "DE0007030009"
+wikidata = "Q161544"
+added = 2026-10-25
+
+# RWE
+[[company]]
+id = "rwe"
+name = "RWE"
+sector = "Energy and utilities"
+country = "DE"
+listed = true
+isin = "DE0007037129"
+wikidata = "Q138133"
+added = 2026-10-25
+
+# SAP
+[[company]]
+id = "sap"
+name = "SAP"
+sector = "Software and IT services"
+country = "DE"
+listed = true
+isin = "DE0007164600"
+wikidata = "Q552581"
+added = 2026-10-25
+
+# Scout24 SE
+[[company]]
+id = "scout24"
+name = "Scout24"
+aliases = ["ImmoScout24"]
+sector = "Software and IT services"
+country = "DE"
+listed = true
+isin = "DE000A12DM80"
+wikidata = "Q2261455"
+added = 2026-10-25
+
+# Siemens
+[[company]]
+id = "siemens"
+name = "Siemens"
+sector = "Electrical and electronics"
+country = "DE"
+listed = true
+isin = "DE0007236101"
+wikidata = "Q81230"
+added = 2026-10-25
+
+# Siemens Energy
+[[company]]
+id = "siemens_energy"
+name = "Siemens Energy"
+aliases = ["Siemens Gamesa"]
+sector = "Electrical and electronics"
+country = "DE"
+listed = true
+isin = "DE000ENER6Y0"
+wikidata = "Q89189545"
+added = 2026-10-25
+
+# Siemens Healthineers
+[[company]]
+id = "siemens_healthineers"
+name = "Siemens Healthineers"
+sector = "Health care"
+country = "DE"
+listed = true
+isin = "DE000SHL1006"
+wikidata = "Q472451"
+added = 2026-10-25
+
+# Symrise
+[[company]]
+id = "symrise"
+name = "Symrise"
+sector = "Chemicals"
+country = "DE"
+listed = true
+isin = "DE000SYM9999"
+wikidata = "Q73251"
+added = 2026-10-25
+
+# Volkswagen AG
+[[company]]
+id = "volkswagen"
+name = "Volkswagen"
+aliases = ["VW", "Volkswagen Konzern"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE0007664039"
+wikidata = "Q156578"
+added = 2026-10-25
+
+# Vonovia
+[[company]]
+id = "vonovia"
+name = "Vonovia"
+sector = "Real estate"
+country = "DE"
+listed = true
+isin = "DE000A1ML7J1"
+wikidata = "Q1202053"
+added = 2026-10-25
+
+# Zalando
+[[company]]
+id = "zalando"
+name = "Zalando"
+sector = "Retail"
+country = "DE"
+listed = true
+isin = "DE000ZAL1111"
+wikidata = "Q136570"
+added = 2026-10-25
+
+# =============================================================================
+# Further listed German companies
+# =============================================================================
+
+# Aurubis
+[[company]]
+id = "aurubis"
+name = "Aurubis"
+sector = "Metals and steel"
+country = "DE"
+listed = true
+isin = "DE0006766504"
+wikidata = "Q486013"
+added = 2026-10-25
+
+# Ceconomy
+[[company]]
+id = "ceconomy"
+name = "Ceconomy"
+aliases = ["MediaMarktSaturn", "Media Markt", "Saturn"]
+sector = "Retail"
+country = "DE"
+listed = true
+isin = "DE0007257503"
+wikidata = "Q28858523"
+added = 2026-10-25
+
+# Delivery Hero
+[[company]]
+id = "delivery_hero"
+name = "Delivery Hero"
+sector = "Retail"
+country = "DE"
+listed = true
+isin = "DE000A2E4K43"
+wikidata = "Q23384493"
+added = 2026-10-25
+
+# EnBW Energie Baden-Württemberg
+[[company]]
+id = "enbw"
+name = "EnBW"
+aliases = ["EnBW Energie Baden-Württemberg"]
+sector = "Energy and utilities"
+country = "DE"
+listed = true
+isin = "DE0005220008"
+wikidata = "Q644304"
+added = 2026-10-25
+
+# Evonik Industries
+[[company]]
+id = "evonik"
+name = "Evonik"
+aliases = ["Evonik Industries"]
+sector = "Chemicals"
+country = "DE"
+listed = true
+isin = "DE000EVNK013"
+wikidata = "Q473513"
+added = 2026-10-25
+
+# Fraport
+[[company]]
+id = "fraport"
+name = "Fraport"
+sector = "Aviation"
+country = "DE"
+listed = true
+isin = "DE0005773303"
+wikidata = "Q643578"
+added = 2026-10-25
+
+# Hapag-Lloyd
+[[company]]
+id = "hapag_lloyd"
+name = "Hapag-Lloyd"
+sector = "Transport and logistics"
+country = "DE"
+listed = true
+isin = "DE000HLAG475"
+wikidata = "Q819094"
+added = 2026-10-25
+
+# Hensoldt (Unternehmensgruppe)
+[[company]]
+id = "hensoldt"
+name = "Hensoldt"
+sector = "Defense and aerospace"
+country = "DE"
+listed = true
+isin = "DE000HAG0005"
+wikidata = "Q21236526"
+added = 2026-10-25
+
+# K+S
+[[company]]
+id = "k_plus_s"
+name = "K+S"
+sector = "Mining and raw materials"
+country = "DE"
+listed = true
+isin = "DE000KSAG888"
+wikidata = "Q658173"
+added = 2026-10-25
+
+# Kion Group
+[[company]]
+id = "kion"
+name = "Kion Group"
+aliases = ["Kion"]
+sector = "Machinery and plant engineering"
+country = "DE"
+listed = true
+isin = "DE000KGX8881"
+wikidata = "Q1742326"
+added = 2026-10-25
+
+# Knorr-Bremse
+[[company]]
+id = "knorr_bremse"
+name = "Knorr-Bremse"
+sector = "Machinery and plant engineering"
+country = "DE"
+listed = true
+isin = "DE000KBX1006"
+wikidata = "Q256290"
+added = 2026-10-25
+
+# Lanxess
+[[company]]
+id = "lanxess"
+name = "Lanxess"
+sector = "Chemicals"
+country = "DE"
+listed = true
+isin = "DE0005470405"
+wikidata = "Q682992"
+added = 2026-10-25
+
+# LEG Immobilien
+[[company]]
+id = "leg_immobilien"
+name = "LEG Immobilien"
+sector = "Real estate"
+country = "DE"
+listed = true
+isin = "DE000LEG1110"
+wikidata = "Q1802165"
+added = 2026-10-25
+
+# Lufthansa Group
+[[company]]
+id = "lufthansa"
+name = "Lufthansa"
+aliases = ["Deutsche Lufthansa", "Lufthansa Group"]
+sector = "Aviation"
+country = "DE"
+listed = true
+isin = "DE0008232125"
+wikidata = "Q62589018"
+added = 2026-10-25
+
+# Nordex SE
+[[company]]
+id = "nordex"
+name = "Nordex"
+sector = "Machinery and plant engineering"
+country = "DE"
+listed = true
+isin = "DE000A0D6554"
+wikidata = "Q571700"
+added = 2026-10-25
+
+# Porsche
+[[company]]
+id = "porsche_ag"
+name = "Porsche"
+aliases = ["Porsche AG", "Dr. Ing. h.c. F. Porsche"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000PAG9113"
+wikidata = "Q40993"
+added = 2026-10-25
+
+# Porsche Automobil Holding
+[[company]]
+id = "porsche_se"
+name = "Porsche SE"
+aliases = ["Porsche Automobil Holding"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000PAH0038"
+wikidata = "Q2104551"
+added = 2026-10-25
+
+# Puma (Sportartikelhersteller)
+[[company]]
+id = "puma"
+name = "Puma"
+sector = "Consumer goods"
+country = "DE"
+listed = true
+isin = "DE0006969603"
+wikidata = "Q157064"
+added = 2026-10-25
+
+# Renk Group
+[[company]]
+id = "renk"
+name = "Renk"
+sector = "Defense and aerospace"
+country = "DE"
+listed = true
+isin = "DE000RENK730"
+wikidata = "Q2144015"
+added = 2026-10-25
+
+# Salzgitter AG
+[[company]]
+id = "salzgitter"
+name = "Salzgitter"
+aliases = ["Salzgitter AG"]
+sector = "Metals and steel"
+country = "DE"
+listed = true
+isin = "DE0006202005"
+wikidata = "Q652442"
+added = 2026-10-25
+
+# Sartorius (Unternehmen)
+[[company]]
+id = "sartorius"
+name = "Sartorius"
+sector = "Health care"
+country = "DE"
+listed = true
+isin = "DE0007165631"
+wikidata = "Q175835"
+added = 2026-10-25
+
+# Schaeffler-Gruppe
+[[company]]
+id = "schaeffler"
+name = "Schaeffler"
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000SHA0100"
+wikidata = "Q459367"
+added = 2026-10-25
+
+# Talanx
+[[company]]
+id = "talanx"
+name = "Talanx"
+sector = "Insurance"
+country = "DE"
+listed = true
+isin = "DE000TLX1005"
+wikidata = "Q2389856"
+added = 2026-10-25
+
+# Thyssenkrupp
+[[company]]
+id = "thyssenkrupp"
+name = "Thyssenkrupp"
+aliases = ["Thyssenkrupp Steel"]
+sector = "Metals and steel"
+country = "DE"
+listed = true
+isin = "DE0007500001"
+wikidata = "Q137910"
+added = 2026-10-25
+
+# Traton
+[[company]]
+id = "traton"
+name = "Traton"
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000TRAT0N7"
+wikidata = "Q28228137"
+added = 2026-10-25
+
+# TUI (Touristikunternehmen)
+[[company]]
+id = "tui"
+name = "TUI"
+sector = "Tourism and hospitality"
+country = "DE"
+listed = true
+isin = "DE000TUAG505"
+wikidata = "Q573103"
+added = 2026-10-25
+
+# Uniper
+[[company]]
+id = "uniper"
+name = "Uniper"
+sector = "Energy and utilities"
+country = "DE"
+listed = true
+isin = "DE000UNSE026"
+wikidata = "Q19839259"
+added = 2026-10-25
+
+# Wacker Chemie
+[[company]]
+id = "wacker_chemie"
+name = "Wacker Chemie"
+aliases = ["Wacker"]
+sector = "Chemicals"
+country = "DE"
+listed = true
+isin = "DE000WCH8881"
+wikidata = "Q535517"
+added = 2026-10-25
+
+# =============================================================================
+# Unlisted German companies
+# =============================================================================
+
+# Aldi Nord
+[[company]]
+id = "aldi_nord"
+name = "Aldi Nord"
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q41171373"
+added = 2026-10-25
+
+# Aldi Süd
+[[company]]
+id = "aldi_sued"
+name = "Aldi Süd"
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q41171672"
+added = 2026-10-25
+
+# Bertelsmann
+[[company]]
+id = "bertelsmann"
+name = "Bertelsmann"
+sector = "Media and entertainment"
+country = "DE"
+listed = false
+wikidata = "Q156913"
+added = 2026-10-25
+
+# Boehringer Ingelheim
+[[company]]
+id = "boehringer_ingelheim"
+name = "Boehringer Ingelheim"
+sector = "Pharmaceuticals"
+country = "DE"
+listed = false
+wikidata = "Q699532"
+added = 2026-10-25
+
+# Robert Bosch GmbH
+[[company]]
+id = "bosch"
+name = "Bosch"
+aliases = ["Robert Bosch"]
+sector = "Automotive"
+country = "DE"
+listed = false
+wikidata = "Q234021"
+added = 2026-10-25
+
+# Deutsche Bahn
+[[company]]
+id = "deutsche_bahn"
+name = "Deutsche Bahn"
+aliases = ["DB"]
+sector = "Transport and logistics"
+country = "DE"
+listed = false
+wikidata = "Q9322"
+added = 2026-10-25
+
+# Dm-drogerie markt
+[[company]]
+id = "dm_drogerie_markt"
+name = "dm-drogerie markt"
+aliases = ["dm"]
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q266572"
+added = 2026-10-25
+
+# DZ Bank
+[[company]]
+id = "dz_bank"
+name = "DZ Bank"
+sector = "Banking and financial services"
+country = "DE"
+listed = false
+wikidata = "Q524424"
+added = 2026-10-25
+
+# Edeka
+[[company]]
+id = "edeka"
+name = "Edeka"
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q701755"
+added = 2026-10-25
+
+# Mahle (Unternehmen)
+[[company]]
+id = "mahle"
+name = "Mahle"
+sector = "Automotive"
+country = "DE"
+listed = false
+wikidata = "Q659379"
+added = 2026-10-25
+
+# Otto Group
+[[company]]
+id = "otto_group"
+name = "Otto Group"
+aliases = ["Otto"]
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q466688"
+added = 2026-10-25
+
+# Rewe Group
+[[company]]
+id = "rewe_group"
+name = "Rewe Group"
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q573266"
+added = 2026-10-25
+
+# Schwarz-Gruppe
+[[company]]
+id = "schwarz_gruppe"
+name = "Schwarz Gruppe"
+aliases = ["Lidl", "Kaufland"]
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q712034"
+added = 2026-10-25
+
+# Trumpf (Unternehmen)
+[[company]]
+id = "trumpf"
+name = "Trumpf"
+sector = "Machinery and plant engineering"
+country = "DE"
+listed = false
+wikidata = "Q724429"
+added = 2026-10-25
+
+# Würth-Gruppe
+[[company]]
+id = "wuerth"
+name = "Würth"
+sector = "Wholesale"
+country = "DE"
+listed = false
+wikidata = "Q679750"
+added = 2026-10-25
+
+# ZF Friedrichshafen
+[[company]]
+id = "zf_friedrichshafen"
+name = "ZF Friedrichshafen"
+aliases = ["ZF"]
+sector = "Automotive"
+country = "DE"
+listed = false
+wikidata = "Q136119"
+added = 2026-10-25
+
+# =============================================================================
+# Foreign companies with a strong presence in German economic news
+# =============================================================================
+
+# Alibaba Group
+[[company]]
+id = "alibaba"
+name = "Alibaba"
+aliases = ["AliExpress"]
+sector = "Retail"
+country = "CN"
+listed = true
+isin = "US01609W1027"
+wikidata = "Q1359568"
+added = 2026-10-25
+
+# Alphabet Inc.
+[[company]]
+id = "alphabet"
+name = "Alphabet"
+aliases = ["Google"]
+sector = "Software and IT services"
+country = "US"
+listed = true
+isin = "US02079K3059"
+wikidata = "Q20800404"
+added = 2026-10-25
+
+# Amazon
+[[company]]
+id = "amazon"
+name = "Amazon"
+aliases = ["Amazon.com"]
+sector = "Retail"
+country = "US"
+listed = true
+isin = "US0231351067"
+wikidata = "Q3884"
+added = 2026-10-25
+
+# Apple
+[[company]]
+id = "apple"
+name = "Apple"
+sector = "Electrical and electronics"
+country = "US"
+listed = true
+isin = "US0378331005"
+wikidata = "Q312"
+added = 2026-10-25
+
+# ArcelorMittal
+[[company]]
+id = "arcelormittal"
+name = "ArcelorMittal"
+sector = "Metals and steel"
+country = "LU"
+listed = true
+isin = "LU1598757687"
+wikidata = "Q27893"
+added = 2026-10-25
+
+# ASML
+[[company]]
+id = "asml"
+name = "ASML"
+sector = "Machinery and plant engineering"
+country = "NL"
+listed = true
+isin = "NL0010273215"
+wikidata = "Q297879"
+added = 2026-10-25
+
+# Boeing
+[[company]]
+id = "boeing"
+name = "Boeing"
+sector = "Defense and aerospace"
+country = "US"
+listed = true
+isin = "US0970231058"
+wikidata = "Q66"
+added = 2026-10-25
+
+# BYD
+[[company]]
+id = "byd"
+name = "BYD"
+sector = "Automotive"
+country = "CN"
+listed = true
+isin = "CNE100000296"
+wikidata = "Q2608329"
+added = 2026-10-25
+
+# Ford
+[[company]]
+id = "ford"
+name = "Ford"
+aliases = ["Ford-Werke"]
+sector = "Automotive"
+country = "US"
+listed = true
+isin = "US3453708600"
+wikidata = "Q44294"
+added = 2026-10-25
+
+# Huawei
+[[company]]
+id = "huawei"
+name = "Huawei"
+sector = "Electrical and electronics"
+country = "CN"
+listed = false
+wikidata = "Q160120"
+added = 2026-10-25
+
+# Intel
+[[company]]
+id = "intel"
+name = "Intel"
+sector = "Electrical and electronics"
+country = "US"
+listed = true
+isin = "US4581401001"
+wikidata = "Q248"
+added = 2026-10-25
+
+# Meta Platforms
+[[company]]
+id = "meta_platforms"
+name = "Meta"
+aliases = ["Meta Platforms", "Facebook"]
+sector = "Software and IT services"
+country = "US"
+listed = true
+isin = "US30303M1027"
+wikidata = "Q380"
+added = 2026-10-25
+
+# Microsoft
+[[company]]
+id = "microsoft"
+name = "Microsoft"
+sector = "Software and IT services"
+country = "US"
+listed = true
+isin = "US5949181045"
+wikidata = "Q2283"
+added = 2026-10-25
+
+# Nestlé
+[[company]]
+id = "nestle"
+name = "Nestlé"
+sector = "Agriculture and food"
+country = "CH"
+listed = true
+isin = "CH0038863350"
+wikidata = "Q160746"
+added = 2026-10-25
+
+# Novo Nordisk
+[[company]]
+id = "novo_nordisk"
+name = "Novo Nordisk"
+sector = "Pharmaceuticals"
+country = "DK"
+listed = true
+isin = "DK0062498333"
+wikidata = "Q818846"
+added = 2026-10-25
+
+# Nvidia
+[[company]]
+id = "nvidia"
+name = "Nvidia"
+sector = "Electrical and electronics"
+country = "US"
+listed = true
+isin = "US67066G1040"
+wikidata = "Q182477"
+added = 2026-10-25
+
+# OpenAI
+[[company]]
+id = "openai"
+name = "OpenAI"
+sector = "Software and IT services"
+country = "US"
+listed = false
+wikidata = "Q21708200"
+added = 2026-10-25
+
+# Samsung Electronics
+[[company]]
+id = "samsung_electronics"
+name = "Samsung Electronics"
+aliases = ["Samsung"]
+sector = "Electrical and electronics"
+country = "KR"
+listed = true
+isin = "KR7005930003"
+wikidata = "Q20718"
+added = 2026-10-25
+
+# Shein
+[[company]]
+id = "shein"
+name = "Shein"
+sector = "Retail"
+country = "SG"
+listed = false
+wikidata = "Q107377209"
+added = 2026-10-25
+
+# Shell plc
+[[company]]
+id = "shell"
+name = "Shell"
+sector = "Energy and utilities"
+country = "GB"
+listed = true
+isin = "GB00BP6MXD84"
+wikidata = "Q154950"
+added = 2026-10-25
+
+# Stellantis
+[[company]]
+id = "stellantis"
+name = "Stellantis"
+aliases = ["Opel"]
+sector = "Automotive"
+country = "NL"
+listed = true
+isin = "NL00150001Q9"
+wikidata = "Q97439162"
+added = 2026-10-25
+
+# Temu (Online-Marktplatz)
+[[company]]
+id = "temu"
+name = "Temu"
+aliases = ["PDD Holdings", "Pinduoduo"]
+sector = "Retail"
+country = "IE"
+listed = false
+wikidata = "Q114258161"
+added = 2026-10-25
+
+# Tesla, Inc.
+[[company]]
+id = "tesla"
+name = "Tesla"
+sector = "Automotive"
+country = "US"
+listed = true
+isin = "US88160R1014"
+wikidata = "Q478214"
+added = 2026-10-25
+
+# Toyota
+[[company]]
+id = "toyota"
+name = "Toyota"
+sector = "Automotive"
+country = "JP"
+listed = true
+isin = "JP3633400001"
+wikidata = "Q53268"
+added = 2026-10-25
+
+# TSMC
+[[company]]
+id = "tsmc"
+name = "TSMC"
+aliases = ["Taiwan Semiconductor Manufacturing", "ESMC"]
+sector = "Electrical and electronics"
+country = "TW"
+listed = true
+isin = "TW0002330008"
+wikidata = "Q713418"
+added = 2026-10-25
+
+# Unicredit
+[[company]]
+id = "unicredit"
+name = "UniCredit"
+aliases = ["HypoVereinsbank", "HVB"]
+sector = "Banking and financial services"
+country = "IT"
+listed = true
+isin = "IT0005239360"
+wikidata = "Q45568"
+added = 2026-10-25

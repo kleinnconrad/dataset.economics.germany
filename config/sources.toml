@@ -1,0 +1,1318 @@
+# Curated sources of the pipeline. Verified on 2026-10-25 (robots.txt, TDM reservation, bot protection, feed content).
+# The monthly source review (src/source_review.py, workflow source_review.yml) proposes changes as a pull request.
+# The comment line above each entry records the result of the check: the time span of the items of each feed and
+# news sitemap in hours, and the reasons for fetch_pages.
+# Lifecycle keys of every source:
+#   added = YYYY-MM-DD           day on which the source was added to the list
+#   removed = YYYY-MM-DD         day on which the source was removed; the entry stays, so that its coverage period is known
+#   removed_reason = "..."       why the source was removed
+#   keep = true                  the review does not propose a removal for low yield
+# Outlets have an outlet_type, the publisher group (owner_group), the paywall model, the state of a regional outlet
+# (home_state) and the sector of a trade publication (sector). Press sources have an actor_type, a jurisdiction (DE, a
+# state code, EU or INT) and, for companies, the company_id of config/companies.toml.
+# [[excluded]] entries at the end are candidates that were checked and not admitted. The search does not propose
+# them again. Status blocked, tdm_reserved, duplicate and not_relevant are permanent; entries with no_feed, inactive
+# or robots and a kind are checked again by every review and added when they pass.
+
+# =============================================================================
+# News outlets
+# =============================================================================
+
+# feeds: 103 h, 1393 h, 343 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "tagesschau"
+name = "tagesschau.de"
+homepage = "https://www.tagesschau.de/"
+outlet_type = "public_broadcaster_national"
+owner_group = "public"
+paywall_model = "free"
+feeds = ["https://www.tagesschau.de/wirtschaft/index~rss2.xml", "https://www.tagesschau.de/wirtschaft/konjunktur/index~rss2.xml", "https://www.tagesschau.de/wirtschaft/unternehmen/index~rss2.xml"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 10178 h; news sitemap: none; robots.txt crawl-delay 5 s
+[[outlet]]
+id = "deutschlandfunk"
+name = "Deutschlandfunk"
+homepage = "https://www.deutschlandfunk.de/"
+outlet_type = "public_broadcaster_national"
+owner_group = "public"
+paywall_model = "free"
+feeds = ["https://www.deutschlandfunk.de/wirtschaft-106.rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 1605 h; news sitemap: none
+[[outlet]]
+id = "zdfheute"
+name = "ZDFheute"
+homepage = "https://www.zdfheute.de/"
+outlet_type = "public_broadcaster_national"
+owner_group = "public"
+paywall_model = "free"
+feeds = ["https://www.zdfheute.de/rss/zdf/nachrichten/wirtschaft"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: none; news sitemap: 49 h (21 of 95 items economic); robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; no RSS feed, news sitemap only
+[[outlet]]
+id = "br24"
+name = "BR24"
+homepage = "https://www.br.de/nachrichten/"
+outlet_type = "public_broadcaster_regional"
+owner_group = "public"
+home_state = "DE-BY"
+paywall_model = "free"
+feeds = []
+news_sitemap = "https://www.br.de/nachrichten/newsSitemap"
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 10766 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; covers SN, ST, TH
+[[outlet]]
+id = "mdr"
+name = "MDR"
+homepage = "https://www.mdr.de/nachrichten/index.html"
+outlet_type = "public_broadcaster_regional"
+owner_group = "public"
+home_state = "DE-SN"
+paywall_model = "free"
+feeds = ["https://www.mdr.de/nachrichten/deutschland/wirtschaft/index~rss2.xml"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 24578 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "wdr"
+name = "WDR"
+homepage = "https://www1.wdr.de/nachrichten/index.html"
+outlet_type = "public_broadcaster_regional"
+owner_group = "public"
+home_state = "DE-NW"
+paywall_model = "free"
+feeds = ["https://www1.wdr.de/wirtschaft/uebersicht-wirtschaft-100.feed"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 455 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "hessenschau"
+name = "hessenschau.de"
+homepage = "https://www.hessenschau.de/"
+outlet_type = "public_broadcaster_regional"
+owner_group = "public"
+home_state = "DE-HE"
+paywall_model = "free"
+feeds = ["https://www.hessenschau.de/wirtschaft/index.rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 7363 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; covers BE, BB
+[[outlet]]
+id = "rbb24"
+name = "rbb24"
+homepage = "https://www.rbb24.de/"
+outlet_type = "public_broadcaster_regional"
+owner_group = "public"
+home_state = "DE-BE"
+paywall_model = "free"
+feeds = ["https://www.rbb24.de/wirtschaft/index.xml/feed=rss.xml"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 50 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "sueddeutsche"
+name = "Süddeutsche Zeitung"
+homepage = "https://www.sueddeutsche.de/"
+outlet_type = "national_daily"
+owner_group = "Südwestdeutsche Medienholding"
+paywall_model = "mixed"
+feeds = ["https://rss.sueddeutsche.de/rss/Wirtschaft"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 72 h, 460 h; news sitemap: 52 h (205 of 1000 items economic)
+[[outlet]]
+id = "welt"
+name = "Die Welt"
+homepage = "https://www.welt.de/"
+outlet_type = "national_daily"
+owner_group = "Axel Springer"
+paywall_model = "mixed"
+feeds = ["https://www.welt.de/feeds/section/wirtschaft.rss", "https://www.welt.de/feeds/section/finanzen.rss"]
+news_sitemap = "https://www.welt.de/sitemaps/newssitemap/newssitemap.xml"
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 151 h, 427 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "taz"
+name = "taz"
+homepage = "https://taz.de/"
+outlet_type = "national_daily"
+owner_group = "taz Verlagsgenossenschaft"
+paywall_model = "free"
+feeds = ["https://taz.de/Oeko/!p4610;rss/", "https://taz.de/Oeko/Oekonomie/!p4623;rss/"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 122 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "tagesspiegel"
+name = "Der Tagesspiegel"
+homepage = "https://www.tagesspiegel.de/"
+outlet_type = "national_daily"
+owner_group = "Dieter von Holtzbrinck Medien"
+paywall_model = "mixed"
+feeds = ["https://www.tagesspiegel.de/contentexport/feed/wirtschaft"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 25 h, 56 h, 70 h; news sitemap: 47 h
+[[outlet]]
+id = "handelsblatt"
+name = "Handelsblatt"
+homepage = "https://www.handelsblatt.com/"
+outlet_type = "business_daily"
+owner_group = "Dieter von Holtzbrinck Medien"
+paywall_model = "hard"
+feeds = ["https://feeds.cms.handelsblatt.com/schlagzeilen", "https://feeds.cms.handelsblatt.com/unternehmen", "https://feeds.cms.handelsblatt.com/finanzen"]
+news_sitemap = "https://www.handelsblatt.com/sitemapExternal/news.xml"
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 112 h; news sitemap: none (gzip only); the feed is listed in the robots.txt of boersen-zeitung.de
+[[outlet]]
+id = "boersen_zeitung"
+name = "Börsen-Zeitung"
+homepage = "https://www.boersen-zeitung.de/"
+outlet_type = "business_daily"
+owner_group = "WM Gruppe"
+paywall_model = "hard"
+feeds = ["https://feeds.purplemanager.com/3bb5104f-f2d6-4138-b889-ac5e5ca06778/alle-news-ohne-agenturmeldungen"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 25 h, 51 h, 52 h; news sitemap: none
+[[outlet]]
+id = "wiwo"
+name = "WirtschaftsWoche"
+homepage = "https://www.wiwo.de/"
+outlet_type = "business_magazine"
+owner_group = "Dieter von Holtzbrinck Medien"
+paywall_model = "hard"
+feeds = ["https://feeds.cms.wiwo.de/rss/schlagzeilen", "https://feeds.cms.wiwo.de/rss/unternehmen", "https://feeds.cms.wiwo.de/rss/finanzen"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 815 h, 51 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "manager_magazin"
+name = "manager magazin"
+homepage = "https://www.manager-magazin.de/"
+outlet_type = "business_magazine"
+owner_group = "Spiegel-Verlag"
+paywall_model = "mixed"
+feeds = ["https://www.manager-magazin.de/index.rss", "https://www.manager-magazin.de/unternehmen/index.rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 52 h; news sitemap: none
+[[outlet]]
+id = "capital"
+name = "Capital"
+homepage = "https://www.capital.de/"
+outlet_type = "business_magazine"
+owner_group = "RTL Deutschland"
+paywall_model = "mixed"
+feeds = ["https://www.capital.de/feed/standard/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 70 h, 138 h, 538 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "spiegel"
+name = "Der Spiegel"
+homepage = "https://www.spiegel.de/"
+outlet_type = "weekly_magazine"
+owner_group = "Spiegel-Verlag"
+paywall_model = "mixed"
+feeds = ["https://www.spiegel.de/wirtschaft/index.rss", "https://www.spiegel.de/wirtschaft/unternehmen/index.rss", "https://www.spiegel.de/wirtschaft/soziales/index.rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 838 h, 3090 h; news sitemap: none; feed finanzen/boerse/rss omitted: newest item 202 h old
+[[outlet]]
+id = "focus"
+name = "Focus Online"
+homepage = "https://www.focus.de/"
+outlet_type = "weekly_magazine"
+owner_group = "Hubert Burda Media"
+paywall_model = "free"
+feeds = ["https://www.focus.de/finanzen/rss", "https://www.focus.de/finanzen/news/rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 48 h; news sitemap: none
+[[outlet]]
+id = "stern"
+name = "Stern"
+homepage = "https://www.stern.de/"
+outlet_type = "weekly_magazine"
+owner_group = "RTL Deutschland"
+paywall_model = "free"
+feeds = ["https://www.stern.de/feed/standard/wirtschaft/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 30716 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "t_online"
+name = "t-online"
+homepage = "https://www.t-online.de/"
+outlet_type = "online_only"
+owner_group = "Ströer"
+paywall_model = "free"
+feeds = ["https://www.t-online.de/finanzen/feed.rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 72 h, 72 h; news sitemap: none
+[[outlet]]
+id = "n_tv"
+name = "n-tv.de"
+homepage = "https://www.n-tv.de/"
+outlet_type = "online_only"
+owner_group = "RTL Deutschland"
+paywall_model = "free"
+feeds = ["https://www.n-tv.de/wirtschaft/rss", "https://www.n-tv.de/wirtschaft/boerse/rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 1649 h; news sitemap: none
+[[outlet]]
+id = "bild"
+name = "Bild"
+homepage = "https://www.bild.de/"
+outlet_type = "tabloid"
+owner_group = "Axel Springer"
+paywall_model = "mixed"
+feeds = ["https://www.bild.de/feed/geld.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 58 h (28 of 100 items economic); news sitemap: none; the economy section has no feed
+[[outlet]]
+id = "berliner_zeitung"
+name = "Berliner Zeitung"
+homepage = "https://www.berliner-zeitung.de/"
+outlet_type = "regional_daily"
+owner_group = "Berliner Verlag"
+home_state = "DE-BE"
+paywall_model = "mixed"
+feeds = ["https://www.berliner-zeitung.de/feed.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: none; news sitemap: 48 h (43 of 257 items economic); robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; no RSS feed, news sitemap only
+[[outlet]]
+id = "stuttgarter_zeitung"
+name = "Stuttgarter Zeitung"
+homepage = "https://www.stuttgarter-zeitung.de/"
+outlet_type = "regional_daily"
+owner_group = "Südwestdeutsche Medienholding"
+home_state = "DE-BW"
+paywall_model = "mixed"
+feeds = []
+news_sitemap = "https://www.stuttgarter-zeitung.de/sitemap-news.xml"
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 2981 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "augsburger_allgemeine"
+name = "Augsburger Allgemeine"
+homepage = "https://www.augsburger-allgemeine.de/"
+outlet_type = "regional_daily"
+owner_group = "Mediengruppe Pressedruck"
+home_state = "DE-BY"
+paywall_model = "mixed"
+feeds = ["https://www.augsburger-allgemeine.de/wirtschaft/rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 58 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "weser_kurier"
+name = "Weser-Kurier"
+homepage = "https://www.weser-kurier.de/"
+outlet_type = "regional_daily"
+owner_group = "Bremer Tageszeitungen"
+home_state = "DE-HB"
+paywall_model = "mixed"
+feeds = ["https://www.weser-kurier.de/wirtschaft/?view=rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 290 h; news sitemap: none
+[[outlet]]
+id = "abendblatt"
+name = "Hamburger Abendblatt"
+homepage = "https://www.abendblatt.de/"
+outlet_type = "regional_daily"
+owner_group = "Funke"
+home_state = "DE-HH"
+paywall_model = "mixed"
+feeds = ["https://www.abendblatt.de/wirtschaft/rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 55 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "noz"
+name = "Neue Osnabrücker Zeitung"
+homepage = "https://www.noz.de/"
+outlet_type = "regional_daily"
+owner_group = "NOZ/mh:n Medien"
+home_state = "DE-NI"
+paywall_model = "mixed"
+feeds = ["https://www.noz.de/deutschland-welt/wirtschaft/rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 78 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "rp_online"
+name = "Rheinische Post"
+homepage = "https://rp-online.de/"
+outlet_type = "regional_daily"
+owner_group = "Rheinische Post Mediengruppe"
+home_state = "DE-NW"
+paywall_model = "mixed"
+feeds = ["https://rp-online.de/wirtschaft/feed.rss"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 262 h; news sitemap: none
+[[outlet]]
+id = "waz"
+name = "WAZ"
+homepage = "https://www.waz.de/"
+outlet_type = "regional_daily"
+owner_group = "Funke"
+home_state = "DE-NW"
+paywall_model = "mixed"
+feeds = ["https://www.waz.de/wirtschaft/rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 251 h; news sitemap: none
+[[outlet]]
+id = "ksta"
+name = "Kölner Stadt-Anzeiger"
+homepage = "https://www.ksta.de/"
+outlet_type = "regional_daily"
+owner_group = "DuMont"
+home_state = "DE-NW"
+paywall_model = "mixed"
+feeds = ["https://feed.ksta.de/feed/rss/wirtschaft/index.rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 10 h (19 of 50 items economic); news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; the economy section has no valid feed
+[[outlet]]
+id = "freiepresse"
+name = "Freie Presse"
+homepage = "https://www.freiepresse.de/"
+outlet_type = "regional_daily"
+owner_group = "Medien Union"
+home_state = "DE-SN"
+paywall_model = "mixed"
+feeds = ["https://www.freiepresse.de/feed.atom"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 294 h; news sitemap: none
+[[outlet]]
+id = "thueringer_allgemeine"
+name = "Thüringer Allgemeine"
+homepage = "https://www.thueringer-allgemeine.de/"
+outlet_type = "regional_daily"
+owner_group = "Funke"
+home_state = "DE-TH"
+paywall_model = "mixed"
+feeds = ["https://www.thueringer-allgemeine.de/wirtschaft/rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 73 h; news sitemap: none; robots.txt crawl-delay 20 s, therefore fetch_pages = false
+[[outlet]]
+id = "onvista"
+name = "onvista"
+homepage = "https://www.onvista.de/"
+outlet_type = "financial_portal"
+owner_group = "Commerzbank"
+paywall_model = "free"
+feeds = ["https://www.onvista.de/news/feed/rss.xml"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 100 h; news sitemap: none
+[[outlet]]
+id = "wallstreet_online"
+name = "wallstreet-online"
+homepage = "https://www.wallstreet-online.de/"
+outlet_type = "financial_portal"
+owner_group = "wallstreet:online"
+paywall_model = "free"
+feeds = ["https://www.wallstreet-online.de/rss/nachrichten-alle.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 60 h; news sitemap: none; ad-hoc disclosures of listed companies (Art. 17 MAR); the general news feed covers 2 h and is omitted
+[[outlet]]
+id = "finanznachrichten"
+name = "FinanzNachrichten.de"
+homepage = "https://www.finanznachrichten.de/"
+outlet_type = "financial_portal"
+owner_group = "unknown"
+paywall_model = "free"
+feeds = ["https://www.finanznachrichten.de/rss-aktien-adhoc/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 382 h; news sitemap: omitted (4 items); robots.txt crawl-delay 10 s
+[[outlet]]
+id = "automobilwoche"
+name = "Automobilwoche"
+homepage = "https://www.automobilwoche.de/"
+outlet_type = "trade_press"
+owner_group = "Crain Communications"
+sector = "Automotive"
+paywall_model = "mixed"
+feeds = ["https://www.automobilwoche.de/arc/outboundfeeds/rss/?outputType=xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 194 h; news sitemap: none
+[[outlet]]
+id = "vdi_nachrichten"
+name = "VDI nachrichten"
+homepage = "https://www.vdi-nachrichten.com/"
+outlet_type = "trade_press"
+owner_group = "VDI Verlag"
+sector = "Machinery and plant engineering"
+paywall_model = "mixed"
+feeds = ["https://www.vdi-nachrichten.com/feed/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 367 h; news sitemap: none
+[[outlet]]
+id = "chemanager"
+name = "CHEManager"
+homepage = "https://chemanager-online.com/de/"
+outlet_type = "trade_press"
+owner_group = "Wiley-VCH"
+sector = "Chemicals"
+paywall_model = "free"
+feeds = ["https://chemanager-online.com/de/rss/type/news/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 26 h; news sitemap: none
+[[outlet]]
+id = "pv_magazine"
+name = "pv magazine Deutschland"
+homepage = "https://www.pv-magazine.de/"
+outlet_type = "trade_press"
+owner_group = "pv magazine group"
+sector = "Energy and utilities"
+paywall_model = "free"
+feeds = ["https://www.pv-magazine.de/feed/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 22 h, 78 h, 194 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; the tdm-reservation meta tag of the homepage is empty
+[[outlet]]
+id = "immobilien_zeitung"
+name = "Immobilien Zeitung"
+homepage = "https://www.iz.de/"
+outlet_type = "trade_press"
+owner_group = "dfv Mediengruppe"
+sector = "Real estate"
+paywall_model = "mixed"
+feeds = ["https://www.iz.de/news/feed/", "https://www.iz.de/news/feed/unternehmen/", "https://www.iz.de/news/feed/maerkte/"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 514 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "deutsche_handwerks_zeitung"
+name = "Deutsche Handwerks Zeitung"
+homepage = "https://www.deutsche-handwerks-zeitung.de/"
+outlet_type = "trade_press"
+owner_group = "Holzmann Medien"
+sector = "Construction"
+paywall_model = "free"
+feeds = ["https://www.deutsche-handwerks-zeitung.de/feed/"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 20 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "t3n"
+name = "t3n"
+homepage = "https://t3n.de/"
+outlet_type = "trade_press"
+owner_group = "Heise Gruppe"
+sector = "Software and IT services"
+paywall_model = "mixed"
+feeds = ["https://t3n.de/rss.xml"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 75 h; news sitemap: none
+[[outlet]]
+id = "airliners_de"
+name = "airliners.de"
+homepage = "https://www.airliners.de/"
+outlet_type = "trade_press"
+owner_group = "unknown"
+sector = "Aviation"
+paywall_model = "mixed"
+feeds = ["https://www.airliners.de/rss/nachrichten.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 86 h; news sitemap: none
+[[outlet]]
+id = "versicherungswirtschaft_heute"
+name = "Versicherungswirtschaft heute"
+homepage = "https://versicherungswirtschaft-heute.de/"
+outlet_type = "trade_press"
+owner_group = "VVW"
+sector = "Insurance"
+paywall_model = "free"
+feeds = ["https://versicherungswirtschaft-heute.de/feed/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 49 h; news sitemap: none
+[[outlet]]
+id = "esut"
+name = "ES&T"
+homepage = "https://esut.de/"
+outlet_type = "trade_press"
+owner_group = "Mittler Report Verlag"
+sector = "Defense and aerospace"
+paywall_model = "free"
+feeds = ["https://esut.de/feed/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 71 h; news sitemap: none
+[[outlet]]
+id = "dwdl"
+name = "DWDL.de"
+homepage = "https://www.dwdl.de/"
+outlet_type = "trade_press"
+owner_group = "DWDL.de"
+sector = "Media and entertainment"
+paywall_model = "free"
+feeds = ["https://www.dwdl.de/rss/allethemen.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 27 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "teltarif"
+name = "teltarif.de"
+homepage = "https://www.teltarif.de/"
+outlet_type = "trade_press"
+owner_group = "teltarif.de Onlineverlag"
+sector = "Telecommunications"
+paywall_model = "free"
+feeds = ["https://www.teltarif.de/feed/news/20.rss2"]
+fetch_pages = false
+added = 2026-10-25
+
+# feeds: 50 h, 174 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false; the tdm-reservation meta tag of the homepage is empty
+[[outlet]]
+id = "agrarzeitung"
+name = "agrarzeitung"
+homepage = "https://www.agrarzeitung.de/"
+outlet_type = "trade_press"
+owner_group = "dfv Mediengruppe"
+sector = "Agriculture and food"
+paywall_model = "mixed"
+feeds = ["https://www.agrarzeitung.de/news/feed/", "https://www.agrarzeitung.de/news/feed/markt/"]
+fetch_pages = false
+added = 2026-10-25
+
+# source review 2026-10-25: 30 economic items in the last 7 days; robots.txt states a TDM reservation in natural language, therefore fetch_pages = false
+[[outlet]]
+id = "pharmazeutische_zeitung"
+name = "Pharmazeutische Zeitung"
+homepage = "https://www.pharmazeutische-zeitung.de/"
+outlet_type = "trade_press"
+owner_group = "Avoxa"
+sector = "Pharmaceuticals"
+paywall_model = "mixed"
+feeds = ["https://www.pharmazeutische-zeitung.de/fileadmin/rss/pz_online_rss.php"]
+fetch_pages = false
+added = 2026-10-25
+
+# =============================================================================
+# Press-release sources
+# =============================================================================
+
+# feeds: 72 h (press releases), 391 h (speeches, interviews and guest articles)
+[[press_source]]
+id = "bundesbank"
+name = "Deutsche Bundesbank"
+homepage = "https://www.bundesbank.de/de"
+actor_type = "central_bank"
+jurisdiction = "DE"
+feeds = ["https://www.bundesbank.de/service/rss/de/633286/feed.rss", "https://www.bundesbank.de/service/rss/de/633282/feed.rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 431 h; robots.txt crawl-delay 5 s; English press releases
+[[press_source]]
+id = "ecb"
+name = "Europäische Zentralbank"
+homepage = "https://www.ecb.europa.eu/"
+actor_type = "central_bank"
+jurisdiction = "EU"
+feeds = ["https://www.ecb.europa.eu/rss/press.html"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 97 h (press releases), 930 h (supervisory measures); found on the overview page of the feeds
+[[press_source]]
+id = "bafin"
+name = "Bundesanstalt für Finanzdienstleistungsaufsicht"
+homepage = "https://www.bafin.de/"
+actor_type = "public_agency"
+jurisdiction = "DE"
+feeds = ["https://www.bafin.de/DE/service/rss/_function/RSS_Presse.xml?nn=150166", "https://www.bafin.de/DE/service/rss/_function/RSS_Massnahmen.xml?nn=150166"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 8087 h
+[[press_source]]
+id = "svr"
+name = "Sachverständigenrat zur Begutachtung der gesamtwirtschaftlichen Entwicklung"
+homepage = "https://www.sachverstaendigenrat-wirtschaft.de/"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["https://www.sachverstaendigenrat-wirtschaft.de/rss.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 1392 h; found on the press page
+[[press_source]]
+id = "ifo"
+name = "ifo Institut"
+homepage = "https://www.ifo.de/"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["https://www.ifo.de/pressemitteilungen/rss.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 910 h, 1151 h, 2279 h; the complete feed iw-komplett.xml omitted: it lists future events with their date
+[[press_source]]
+id = "iw"
+name = "Institut der deutschen Wirtschaft"
+homepage = "https://www.iwkoeln.de/"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["https://www.iwkoeln.de/rss/arbeitsmarkt.xml", "https://www.iwkoeln.de/rss/einkommen-und-vermoegen.xml", "https://www.iwkoeln.de/rss/immobilienmaerkte.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 50298 h; the publication feed has no dates and is omitted
+[[press_source]]
+id = "rwi"
+name = "RWI - Leibniz-Institut für Wirtschaftsforschung"
+homepage = "https://www.rwi-essen.de/"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["https://www.rwi-essen.de/rss-standpunkte.feed"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 696 h
+[[press_source]]
+id = "iab"
+name = "Institut für Arbeitsmarkt- und Berufsforschung"
+homepage = "https://iab.de/"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["https://iab.de/feed/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 139 h
+[[press_source]]
+id = "hde"
+name = "Handelsverband Deutschland"
+homepage = "https://einzelhandel.de/"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://einzelhandel.de/index.php?format=feed&type=rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 1173 h; the second feed lists future events and is omitted
+[[press_source]]
+id = "gdv"
+name = "Gesamtverband der Deutschen Versicherungswirtschaft"
+homepage = "https://www.gdv.de/"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.gdv.de/service/rss/gdv/92670/feed.rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 49538 h (press releases), 24192 h (wage agreements and strikes)
+[[press_source]]
+id = "dgb"
+name = "Deutscher Gewerkschaftsbund"
+homepage = "https://www.dgb.de/"
+actor_type = "trade_union"
+jurisdiction = "DE"
+feeds = ["https://www.dgb.de/pressemitteilungen-rss-feed.xml", "https://www.dgb.de/tarifmeldungen-rss-feed.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 293 h; found on the overview page of the feeds
+[[press_source]]
+id = "bmw_press"
+name = "BMW Group"
+homepage = "https://www.press.bmwgroup.com/deutschland"
+actor_type = "company"
+company_id = "bmw"
+jurisdiction = "DE"
+feeds = ["https://www.press.bmwgroup.com/deutschland/rss"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 960 h; English press releases
+[[press_source]]
+id = "continental_press"
+name = "Continental"
+homepage = "https://www.continental.com/de/presse/"
+actor_type = "company"
+company_id = "continental"
+jurisdiction = "DE"
+feeds = ["https://www.continental.com/en/general/rss/press-releases/"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 336 h
+[[press_source]]
+id = "deutsche_telekom_press"
+name = "Deutsche Telekom"
+homepage = "https://www.telekom.com/de/newsroom/aktuelles/medieninformationen"
+actor_type = "company"
+company_id = "deutsche_telekom"
+jurisdiction = "DE"
+feeds = ["https://www.telekom.com/de/newsroom/aktuelles/medieninformationen.rss.feed.391798.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 1680 h
+[[press_source]]
+id = "henkel_press"
+name = "Henkel"
+homepage = "https://www.henkel.de/presse-und-medien"
+actor_type = "company"
+company_id = "henkel"
+jurisdiction = "DE"
+feeds = ["https://www.henkel.de/service/de/197842/asFeed/index.xml"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 2397 h
+[[press_source]]
+id = "lufthansa_press"
+name = "Lufthansa Group"
+homepage = "https://newsroom.lufthansagroup.com/"
+actor_type = "company"
+company_id = "lufthansa"
+jurisdiction = "DE"
+feeds = ["https://newsroom.lufthansagroup.com/feed/de"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 3896 h; found on the overview page of the feeds
+[[press_source]]
+id = "thyssenkrupp_press"
+name = "thyssenkrupp"
+homepage = "https://www.thyssenkrupp.com/de/newsroom"
+actor_type = "company"
+company_id = "thyssenkrupp"
+jurisdiction = "DE"
+feeds = ["https://www.thyssenkrupp.com/de/rss-newsfeed/alle-aktuellen-pressemitteilungen"]
+fetch_pages = true
+added = 2026-10-25
+
+# feeds: 13488 h
+[[press_source]]
+id = "volkswagen_press"
+name = "Volkswagen Group"
+homepage = "https://www.volkswagen-group.com/de/pressemitteilungen"
+actor_type = "company"
+company_id = "volkswagen"
+jurisdiction = "DE"
+feeds = ["https://www.volkswagen-group.com/de/feeds/pressemitteilungen"]
+fetch_pages = true
+added = 2026-10-25
+
+# Candidates that were checked and not admitted.
+
+[[excluded]]
+id = "faz"
+name = "Frankfurter Allgemeine Zeitung"
+homepage = "https://www.faz.net/"
+kind = "outlet"
+outlet_type = "national_daily"
+owner_group = "Frankfurter Allgemeine Zeitung"
+paywall_model = "mixed"
+feeds = ["https://www.faz.net/rss/aktuell/wirtschaft/"]
+status = "tdm_reserved"
+reason = "TDM reservation (meta tag)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "zeit"
+name = "Die Zeit"
+homepage = "https://www.zeit.de/"
+kind = "outlet"
+outlet_type = "weekly_magazine"
+owner_group = "Dieter von Holtzbrinck Medien"
+paywall_model = "mixed"
+feeds = ["https://newsfeed.zeit.de/wirtschaft/index"]
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "finanzen_net"
+name = "finanzen.net"
+homepage = "https://www.finanzen.net/"
+kind = "outlet"
+outlet_type = "financial_portal"
+owner_group = "finanzen.net"
+paywall_model = "free"
+feeds = ["https://www.finanzen.net/rss/news"]
+status = "blocked"
+reason = "homepage and feeds blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "boerse_de"
+name = "boerse.de"
+homepage = "https://www.boerse.de/"
+kind = "outlet"
+outlet_type = "financial_portal"
+owner_group = "boerse.de"
+paywall_model = "free"
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "elektroniknet"
+name = "elektroniknet.de"
+homepage = "https://www.elektroniknet.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "WEKA FACHMEDIEN"
+sector = "Electrical and electronics"
+paywall_model = "mixed"
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "energate"
+name = "energate messenger"
+homepage = "https://www.energate-messenger.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "energate"
+sector = "Energy and utilities"
+paywall_model = "hard"
+status = "tdm_reserved"
+reason = "TDM reservation (tdmrep.json and header)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "lebensmittel_zeitung"
+name = "Lebensmittel Zeitung"
+homepage = "https://www.lebensmittelzeitung.net/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "dfv Mediengruppe"
+sector = "Retail"
+paywall_model = "hard"
+feeds = ["https://www.lebensmittelzeitung.net/news/feed/"]
+status = "tdm_reserved"
+reason = "TDM reservation (meta tag)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "fvw"
+name = "fvw"
+homepage = "https://www.fvw.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "dfv Mediengruppe"
+sector = "Tourism and hospitality"
+paywall_model = "mixed"
+feeds = ["https://www.fvw.de/news/feed/"]
+status = "tdm_reserved"
+reason = "TDM reservation (meta tag)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "heise"
+name = "heise online"
+homepage = "https://www.heise.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Heise Gruppe"
+sector = "Software and IT services"
+paywall_model = "mixed"
+feeds = ["https://www.heise.de/rss/heise-atom.xml"]
+status = "not_relevant"
+reason = "mostly IT product and security news; technology topics are covered by dataset.technology"
+checked = 2026-10-25
+
+[[excluded]]
+id = "merkur"
+name = "Merkur"
+homepage = "https://www.merkur.de/"
+kind = "outlet"
+outlet_type = "regional_daily"
+owner_group = "Ippen"
+home_state = "DE-BY"
+paywall_model = "mixed"
+feeds = ["https://www.merkur.de/wirtschaft/rssfeed.rdf"]
+status = "robots"
+reason = "the feeds are disallowed by robots.txt"
+checked = 2026-10-25
+
+[[excluded]]
+id = "fr"
+name = "Frankfurter Rundschau"
+homepage = "https://www.fr.de/"
+kind = "outlet"
+outlet_type = "regional_daily"
+owner_group = "Ippen"
+home_state = "DE-HE"
+paywall_model = "mixed"
+feeds = ["https://www.fr.de/wirtschaft/rssfeed.rdf"]
+status = "robots"
+reason = "the feeds are disallowed by robots.txt"
+checked = 2026-10-25
+
+[[excluded]]
+id = "ariva"
+name = "ariva.de"
+homepage = "https://www.ariva.de/"
+kind = "outlet"
+outlet_type = "financial_portal"
+owner_group = "ARIVA.DE"
+paywall_model = "free"
+feeds = ["https://www.ariva.de/news/finanznachrichten/rss"]
+status = "robots"
+reason = "the feed is disallowed by robots.txt"
+checked = 2026-10-25
+
+[[excluded]]
+id = "telecom_handel"
+name = "Telecom Handel"
+homepage = "https://www.telecom-handel.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Ebner Media Group"
+sector = "Telecommunications"
+paywall_model = "free"
+feeds = ["https://www.telecom-handel.de/feed/rss"]
+status = "robots"
+reason = "the feeds are disallowed by robots.txt"
+checked = 2026-10-25
+
+[[excluded]]
+id = "dvz"
+name = "DVZ Deutsche Verkehrs-Zeitung"
+homepage = "https://www.dvz.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "DVV Media Group"
+sector = "Transport and logistics"
+paywall_model = "hard"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "verkehrsrundschau"
+name = "VerkehrsRundschau"
+homepage = "https://www.verkehrsrundschau.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Springer Fachmedien München"
+sector = "Transport and logistics"
+paywall_model = "mixed"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "finanz_szene"
+name = "Finanz-Szene"
+homepage = "https://finanz-szene.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Finanz-Szene"
+sector = "Banking and financial services"
+paywall_model = "hard"
+feeds = ["https://finanz-szene.de/feed/"]
+status = "no_feed"
+reason = "the feed returned HTTP 500"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bmf"
+name = "Bundesministerium der Finanzen"
+homepage = "https://www.bundesfinanzministerium.de/"
+kind = "press_source"
+actor_type = "federal_ministry"
+jurisdiction = "DE"
+status = "robots"
+reason = "robots.txt crawl delay 180 s"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bmas"
+name = "Bundesministerium für Arbeit und Soziales"
+homepage = "https://www.bmas.de/"
+kind = "press_source"
+actor_type = "federal_ministry"
+jurisdiction = "DE"
+status = "robots"
+reason = "robots.txt crawl delay 180 s"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bundeskartellamt"
+name = "Bundeskartellamt"
+homepage = "https://www.bundeskartellamt.de/"
+kind = "press_source"
+actor_type = "public_agency"
+jurisdiction = "DE"
+feeds = ["https://www.bundeskartellamt.de/DE/Service/RSS/_documents/rssnewsfeed.xml"]
+status = "robots"
+reason = "the feeds are disallowed by robots.txt"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bmwe"
+name = "Bundesministerium für Wirtschaft und Energie"
+homepage = "https://www.bundeswirtschaftsministerium.de/"
+kind = "press_source"
+actor_type = "federal_ministry"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "destatis"
+name = "Statistisches Bundesamt"
+homepage = "https://www.destatis.de/"
+kind = "press_source"
+actor_type = "statistical_office"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "the overview page of the feeds links no readable feed"
+checked = 2026-10-25
+
+[[excluded]]
+id = "arbeitsagentur"
+name = "Bundesagentur für Arbeit"
+homepage = "https://www.arbeitsagentur.de/presse"
+kind = "press_source"
+actor_type = "public_agency"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bundesnetzagentur"
+name = "Bundesnetzagentur"
+homepage = "https://www.bundesnetzagentur.de/"
+kind = "press_source"
+actor_type = "public_agency"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "the linked feed page returns HTTP 404"
+checked = 2026-10-25
+
+[[excluded]]
+id = "diw"
+name = "DIW Berlin"
+homepage = "https://www.diw.de/"
+kind = "press_source"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["https://www.diw.de/de/rss_press.xml"]
+status = "no_feed"
+reason = "the feeds return empty HTML pages"
+checked = 2026-10-25
+
+[[excluded]]
+id = "kielinstitut"
+name = "Kiel Institut für Weltwirtschaft"
+homepage = "https://www.kielinstitut.de/de/"
+kind = "press_source"
+actor_type = "research_institute"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "zew"
+name = "ZEW - Leibniz-Zentrum für Europäische Wirtschaftsforschung"
+homepage = "https://www.zew.de/"
+kind = "press_source"
+actor_type = "research_institute"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bdi"
+name = "Bundesverband der Deutschen Industrie"
+homepage = "https://bdi.eu/"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "vda"
+name = "Verband der Automobilindustrie"
+homepage = "https://www.vda.de/"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "igmetall"
+name = "IG Metall"
+homepage = "https://www.igmetall.de/"
+kind = "press_source"
+actor_type = "trade_union"
+jurisdiction = "DE"
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-10-25
+
+[[excluded]]
+id = "oecd"
+name = "OECD"
+homepage = "https://www.oecd.org/"
+kind = "press_source"
+actor_type = "international_organization"
+jurisdiction = "INT"
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "bayer_press"
+name = "Bayer"
+homepage = "https://www.bayer.com/media/"
+kind = "press_source"
+actor_type = "company"
+company_id = "bayer"
+jurisdiction = "DE"
+status = "blocked"
+reason = "press page blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "mercedes_benz_press"
+name = "Mercedes-Benz Group"
+homepage = "https://group.mercedes-benz.com/unternehmen/news/"
+kind = "press_source"
+actor_type = "company"
+company_id = "mercedes_benz"
+jurisdiction = "DE"
+status = "blocked"
+reason = "press page blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "eon_press"
+name = "E.ON"
+homepage = "https://www.eon.com/de/ueber-uns/presse.html"
+kind = "press_source"
+actor_type = "company"
+company_id = "eon"
+jurisdiction = "DE"
+status = "blocked"
+reason = "press page blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "merck_press"
+name = "Merck"
+homepage = "https://www.merckgroup.com/de/news.html"
+kind = "press_source"
+actor_type = "company"
+company_id = "merck"
+jurisdiction = "DE"
+status = "blocked"
+reason = "press page blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "zf_press"
+name = "ZF Friedrichshafen"
+homepage = "https://www.zf.com/mobile/de/newsroom/"
+kind = "press_source"
+actor_type = "company"
+company_id = "zf_friedrichshafen"
+jurisdiction = "DE"
+status = "blocked"
+reason = "press page blocked (HTTP 403)"
+checked = 2026-10-25
+
+[[excluded]]
+id = "sap_press"
+name = "SAP"
+homepage = "https://news.sap.com/germany/"
+kind = "press_source"
+actor_type = "company"
+company_id = "sap"
+jurisdiction = "DE"
+status = "robots"
+reason = "the newsroom is disallowed by robots.txt"
+checked = 2026-10-25

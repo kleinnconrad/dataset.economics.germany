@@ -1,0 +1,36 @@
+# Sources of the feeds collector tests.
+
+[[outlet]]
+id = "news_example"
+name = "News Example"
+homepage = "https://news.example/"
+outlet_type = "national_daily"
+owner_group = "Example Group"
+paywall_model = "mixed"
+feeds = ["https://news.example/wirtschaft/index.rss"]
+news_sitemap = "https://news.example/sitemap-news.xml"
+fetch_pages = true
+added = 2026-10-25
+
+[[outlet]]
+id = "trade_example"
+name = "Trade Example"
+homepage = "https://trade.example/"
+outlet_type = "trade_press"
+owner_group = "Trade Media"
+sector = "Automotive"
+paywall_model = "free"
+feeds = ["https://trade.example/feed/"]
+fetch_pages = false
+added = 2026-10-25
+
+[[press_source]]
+id = "vw_press"
+name = "Volkswagen Group"
+homepage = "https://press.example/"
+actor_type = "company"
+company_id = "volkswagen"
+jurisdiction = "DE"
+feeds = ["https://press.example/presse.rss"]
+fetch_pages = false
+added = 2026-10-25

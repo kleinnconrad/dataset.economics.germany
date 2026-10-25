@@ -1,0 +1,88 @@
+# Series catalog of the tests: one entry per provider.
+
+[[series]]
+concept = "hicp_inflation_yoy"
+name = "HICP, all items, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.TOTAL.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "eur_usd"
+name = "ECB euro reference exchange rate, US dollar per euro"
+topic = "exchange_rates"
+frequency = "D"
+unit = "US dollar per euro"
+provider = "ecb"
+flow = "EXR"
+key = "D.USD.EUR.SP00.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "bund_yield_10y"
+name = "Yield of listed Federal securities, 10-year residual maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "bundesbank"
+flow = "BBSIS"
+key = "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "brent_crude_oil_price"
+name = "Crude oil, UK Brent, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per barrel"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Crude oil, Brent"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_energy"
+name = "World Bank commodity price index, energy"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Energy"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "day_ahead_power_price"
+name = "Day-ahead wholesale electricity price, Germany/Luxembourg, daily average"
+topic = "energy"
+frequency = "D"
+unit = "euro per MWh"
+provider = "smard"
+flow = "chart_data"
+key = "4169/DE-LU"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "old_series"
+name = "A series that is no longer collected"
+topic = "prices"
+frequency = "M"
+unit = "percent"
+provider = "eurostat"
+flow = "prc_hicp_manr"
+key = "M.RCH_A.CP00.DE"
+geo = "DE"
+added = 2026-10-25
+removed = 2026-10-26
+removed_reason = "dataset discontinued"

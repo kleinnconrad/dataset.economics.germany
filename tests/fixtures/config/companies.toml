@@ -1,0 +1,53 @@
+# Company registry of the tests.
+
+[[company]]
+id = "volkswagen"
+name = "Volkswagen"
+aliases = ["VW"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE0007664039"
+wikidata = "Q156578"
+added = 2026-10-25
+
+[[company]]
+id = "porsche_ag"
+name = "Porsche"
+aliases = ["Porsche AG"]
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000PAG9113"
+wikidata = "Q40993"
+added = 2026-10-25
+
+[[company]]
+id = "porsche_se"
+name = "Porsche SE"
+sector = "Automotive"
+country = "DE"
+listed = true
+isin = "DE000PAH0038"
+wikidata = "Q2104551"
+added = 2026-10-25
+
+[[company]]
+id = "schwarz_gruppe"
+name = "Schwarz Gruppe"
+aliases = ["Lidl", "Kaufland"]
+sector = "Retail"
+country = "DE"
+listed = false
+wikidata = "Q712034"
+added = 2026-10-25
+
+[[company]]
+id = "old_company"
+name = "Old Company"
+sector = "Other"
+country = "DE"
+listed = false
+added = 2026-10-25
+removed = 2026-10-26
+removed_reason = "merged"

@@ -1,0 +1,1991 @@
+# Catalog of the statistical series collected by the economics dataset.
+#
+# Every [[series]] entry describes one concept at one provider:
+#   concept         what the series measures, independent of the country (lower-case snake_case)
+#   name            name of the series
+#   topic           topic group (SeriesTopic in src/schema.py)
+#   frequency       D daily, W weekly, M monthly, Q quarterly, S half-yearly, A annual
+#   unit            unit of the values
+#   provider        eurostat, ecb, bundesbank (SDMX 2.1 REST), worldbank_cmo (Pink Sheet), smard
+#   flow            dataset or dataflow; for worldbank_cmo the sheet, for smard "chart_data"
+#   key             series key; {geo} is replaced by every code in geos; for worldbank_cmo the column
+#                   header, for smard "<filter>/<region>"
+#   geo / geos      country or area: Eurostat country codes, EA (euro area, changing composition),
+#                   EU27_2020, WLD (world prices); in ECB keys EA is written as U2
+#   geo_codes       optional codes of the provider for single geos, e.g. { EA = "EA21" } for Eurostat datasets
+#                   that publish the euro area only in fixed compositions (EA21: the 21 members since 2026,
+#                   computed back for the whole series)
+#   added           day on which the entry was added; start of collection
+#   notes           optional remarks
+# Each geo of an entry is a series with the id <concept>.<geo>, the join key series_id of the datasets
+# economic_series and series_catalog.
+#
+# Rules (CLAUDE.md, section 9): series ids are never changed or reused for another meaning; a series that is
+# no longer collected keeps its entry with removed = <date> and removed_reason = "..."; every new or changed
+# key is verified against the live provider before it is committed; every change of a key, unit or provider
+# is recorded in the measurement log of project_architecture.md.
+#
+# All keys of the initial entries were verified on 2026-10-25.
+
+# =============================================================================
+# Output and demand (Eurostat, national accounts, seasonally and calendar adjusted)
+# =============================================================================
+
+[[series]]
+concept = "gdp_real_qoq"
+name = "Gross domestic product, chain-linked volumes, change on the previous quarter"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_PRE.SCA.B1GQ.{geo}"
+geos = ["DE", "EA", "FR", "IT", "ES", "NL", "PL", "AT"]
+added = 2026-10-25
+
+[[series]]
+concept = "gdp_real_yoy"
+name = "Gross domestic product, chain-linked volumes, change on the same quarter of the previous year"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the same quarter of the previous year"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_SM.SCA.B1GQ.{geo}"
+geos = ["DE", "EA", "FR", "IT", "ES", "NL", "PL", "AT"]
+added = 2026-10-25
+
+[[series]]
+concept = "gdp_real_level"
+name = "Gross domestic product, chain-linked volumes (2020)"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "million euro, chain-linked volumes (2020)"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV20_MEUR.SCA.B1GQ.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "gdp_nominal_level"
+name = "Gross domestic product at current prices"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "million euro, current prices"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CP_MEUR.SCA.B1GQ.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "household_consumption_real_qoq"
+name = "Final consumption expenditure of households and NPISH, chain-linked volumes, change on the previous quarter"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_PRE.SCA.P31_S14_S15.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "government_consumption_real_qoq"
+name = "Final consumption expenditure of general government, chain-linked volumes, change on the previous quarter"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_PRE.SCA.P3_S13.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "fixed_investment_real_qoq"
+name = "Gross fixed capital formation, chain-linked volumes, change on the previous quarter"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_PRE.SCA.P51G.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "exports_real_qoq"
+name = "Exports of goods and services, chain-linked volumes, change on the previous quarter"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_PRE.SCA.P6.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "imports_real_qoq"
+name = "Imports of goods and services, chain-linked volumes, change on the previous quarter"
+topic = "output_and_demand"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_gdp"
+key = "Q.CLV_PCH_PRE.SCA.P7.DE"
+geo = "DE"
+added = 2026-10-25
+
+# =============================================================================
+# Production, orders and high-frequency activity
+# =============================================================================
+
+[[series]]
+concept = "industrial_production_index"
+name = "Production in industry (mining, manufacturing, energy), volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpr_m"
+key = "M.PRD.B-D.SCA.I21.{geo}"
+geos = ["DE", "EA", "FR", "IT"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "manufacturing_production_index"
+name = "Production in manufacturing, volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpr_m"
+key = "M.PRD.C.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "automotive_production_index"
+name = "Production of motor vehicles, trailers and semi-trailers (NACE C29), volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpr_m"
+key = "M.PRD.C29.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "chemicals_production_index"
+name = "Production of chemicals and chemical products (NACE C20), volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpr_m"
+key = "M.PRD.C20.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "machinery_production_index"
+name = "Production of machinery and equipment n.e.c. (NACE C28), volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpr_m"
+key = "M.PRD.C28.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "basic_metals_production_index"
+name = "Manufacture of basic metals (NACE C24), volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpr_m"
+key = "M.PRD.C24.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "construction_production_index"
+name = "Production in construction, volume index, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_copr_m"
+key = "M.PRD.F.SCA.I21.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "retail_sales_volume_index"
+name = "Retail trade except motor vehicles (NACE G47), volume of sales, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_trtu_m"
+key = "M.VOL_SLS.G47.SCA.I21.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "manufacturing_new_orders_index"
+name = "New orders in manufacturing (industry), constant prices, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "bundesbank"
+flow = "BBDE1"
+key = "M.DE.Y.AEA1.A2P300000.F.C.I21.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "manufacturing_new_orders_ex_large_index"
+name = "New orders in manufacturing (industry) excluding large orders, constant prices, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "bundesbank"
+flow = "BBDE1"
+key = "M.DE.Y.AEM1.A2P300000.F.C.I21.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "manufacturing_new_orders_domestic_index"
+name = "Domestic new orders in manufacturing (industry), constant prices, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "bundesbank"
+flow = "BBDE1"
+key = "M.DE.Y.AEB1.A2P300000.F.C.I21.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "manufacturing_new_orders_foreign_index"
+name = "Foreign new orders in manufacturing (industry), constant prices, seasonally and calendar adjusted"
+topic = "production_and_orders"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "bundesbank"
+flow = "BBDE1"
+key = "M.DE.Y.AEB5.A2P300000.F.C.I21.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "capacity_utilization_industry"
+name = "Current level of capacity utilization in manufacturing (business survey)"
+topic = "production_and_orders"
+frequency = "Q"
+unit = "percent"
+provider = "eurostat"
+flow = "ei_bsin_q_r2"
+key = "Q.BS-ICU-PC.SA.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "truck_toll_mileage_index"
+name = "Truck toll mileage index: kilometres of toll trucks with four or more axles on motorways, seasonally and calendar adjusted"
+topic = "high_frequency_activity"
+frequency = "D"
+unit = "index, 2021 = 100"
+provider = "bundesbank"
+flow = "BBDE1"
+key = "D.DE.Y.UC01.P2XH49800.W.C.I21.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "weekly_activity_index"
+name = "Weekly activity index of the Bundesbank (real economic activity, 13-week growth rate)"
+topic = "high_frequency_activity"
+frequency = "W"
+unit = "percent"
+provider = "bundesbank"
+flow = "BBDE1"
+key = "W.DE.Y.WAI.A2N400000.A.N.R00.A"
+geo = "DE"
+added = 2026-10-25
+
+# =============================================================================
+# Prices
+# =============================================================================
+
+[[series]]
+concept = "hicp_inflation_yoy"
+name = "Harmonised index of consumer prices (ECOICOP ver. 2), all items, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.TOTAL.{geo}"
+geos = ["DE", "EA", "FR", "IT", "ES", "NL", "PL", "AT"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_inflation_mom"
+name = "Harmonised index of consumer prices (ECOICOP ver. 2), all items, monthly rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the previous month"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_M.TOTAL.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_index"
+name = "Harmonised index of consumer prices (ECOICOP ver. 2), all items"
+topic = "prices"
+frequency = "M"
+unit = "index, 2025 = 100"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.I25.TOTAL.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_core_inflation_yoy"
+name = "Harmonised index of consumer prices, overall index excluding energy, food, alcohol and tobacco, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.TOT_X_NRG_FOOD.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_energy_inflation_yoy"
+name = "Harmonised index of consumer prices, energy, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.NRG.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_food_inflation_yoy"
+name = "Harmonised index of consumer prices, food including alcohol and tobacco, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.FOOD.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_services_inflation_yoy"
+name = "Harmonised index of consumer prices, services, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.SERV.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "hicp_non_energy_goods_inflation_yoy"
+name = "Harmonised index of consumer prices, non-energy industrial goods, annual rate of change"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "prc_hicp_minr"
+key = "M.RCH_A.IGD_NNRG.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "cpi_inflation_yoy"
+name = "Consumer price index (national definition, Destatis), all items, change on the same month of the previous year"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "bundesbank"
+flow = "BBDP1"
+key = "M.DE.N.VPI.C.A00000.VGJ.LV"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "cpi_index"
+name = "Consumer price index (national definition, Destatis), all items"
+topic = "prices"
+frequency = "M"
+unit = "index, 2020 = 100"
+provider = "bundesbank"
+flow = "BBDP1"
+key = "M.DE.N.VPI.C.A00000.I20.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "producer_prices_yoy"
+name = "Producer prices in industry (except construction, sewerage, waste management), domestic market, change on the same month of the previous year"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "sts_inpp_m"
+key = "M.PRC_PRR.B-E36.NSA.PCH_SM.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "producer_prices_index"
+name = "Producer prices in industry (except construction, sewerage, waste management)"
+topic = "prices"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_inpp_m"
+key = "M.PRC_PRR.B-E36.NSA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "producer_prices_energy_yoy"
+name = "Producer prices, main industrial grouping energy, change on the same month of the previous year"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "sts_inpp_m"
+key = "M.PRC_PRR.MIG_NRG.NSA.PCH_SM.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "import_prices_yoy"
+name = "Import prices of mining and manufactured products, change on the same month of the previous year"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "sts_inpi_m"
+key = "M.PRC_IMP.CPA_B-E36.NSA.PCH_SM.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "import_prices_energy_yoy"
+name = "Import prices, main industrial grouping energy (except section E), change on the same month of the previous year"
+topic = "prices"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "eurostat"
+flow = "sts_inpi_m"
+key = "M.PRC_IMP.CPA_MIG_NRG_X_E.NSA.PCH_SM.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "household_electricity_price"
+name = "Electricity price for household consumers, consumption band 2,500 to 4,999 kWh, all taxes and levies included"
+topic = "prices"
+frequency = "S"
+unit = "euro per kWh"
+provider = "eurostat"
+flow = "nrg_pc_204"
+key = "S.E7000.KWH2500-4999.KWH.I_TAX.EUR.{geo}"
+geos = ["DE", "EA", "FR", "IT", "EU27_2020"]
+added = 2026-10-25
+
+[[series]]
+concept = "industrial_electricity_price"
+name = "Electricity price for non-household consumers, consumption band 2,000 to 19,999 MWh, excluding VAT and other recoverable taxes"
+topic = "prices"
+frequency = "S"
+unit = "euro per kWh"
+provider = "eurostat"
+flow = "nrg_pc_205"
+key = "S.E7000.MWH2000-19999.KWH.X_VAT.EUR.{geo}"
+geos = ["DE", "EA", "FR", "IT", "EU27_2020"]
+added = 2026-10-25
+
+[[series]]
+concept = "household_gas_price"
+name = "Natural gas price for household consumers, consumption band 20 to 199 GJ, all taxes and levies included"
+topic = "prices"
+frequency = "S"
+unit = "euro per kWh"
+provider = "eurostat"
+flow = "nrg_pc_202"
+key = "S.G3000.GJ20-199.KWH.I_TAX.EUR.{geo}"
+geos = ["DE", "EA", "EU27_2020"]
+added = 2026-10-25
+
+[[series]]
+concept = "industrial_gas_price"
+name = "Natural gas price for non-household consumers, consumption band 10,000 to 99,999 GJ, excluding VAT and other recoverable taxes"
+topic = "prices"
+frequency = "S"
+unit = "euro per kWh"
+provider = "eurostat"
+flow = "nrg_pc_203"
+key = "S.G3000.GJ10000-99999.KWH.X_VAT.EUR.{geo}"
+geos = ["DE", "EA", "EU27_2020"]
+added = 2026-10-25
+
+# =============================================================================
+# Wages and labour costs
+# =============================================================================
+
+[[series]]
+concept = "negotiated_wages_index"
+name = "Negotiated wages, whole economy, all monetary agreements, monthly basis"
+topic = "wages_and_labour_costs"
+frequency = "M"
+unit = "index, 2020 = 100"
+provider = "bundesbank"
+flow = "BBWCAF1"
+key = "M.GESAMTWIRT.G.0000.DE._T.A._GA.EB.I20"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "labour_cost_index_yoy"
+name = "Labour cost index, industry, construction and services, total labour costs, seasonally and calendar adjusted"
+topic = "wages_and_labour_costs"
+frequency = "Q"
+unit = "percent change on the same quarter of the previous year"
+provider = "eurostat"
+flow = "lc_lci_r2_q"
+key = "Q.SCA.PCH_SM.B-S.D1_D4_MD5.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+# =============================================================================
+# Labour market
+# =============================================================================
+
+[[series]]
+concept = "unemployment_rate"
+name = "Unemployment rate (ILO definition), total, seasonally adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "percent of the labour force"
+provider = "eurostat"
+flow = "une_rt_m"
+key = "M.SA.TOTAL.PC_ACT.T.{geo}"
+geos = ["DE", "EA", "FR", "IT", "ES", "NL", "PL", "AT"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "youth_unemployment_rate"
+name = "Unemployment rate (ILO definition), persons under 25 years, seasonally adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "percent of the labour force"
+provider = "eurostat"
+flow = "une_rt_m"
+key = "M.SA.Y_LT25.PC_ACT.T.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "registered_unemployed"
+name = "Registered unemployed persons (Federal Employment Agency, SGB III and SGB II), seasonally and calendar adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "thousand persons"
+provider = "bundesbank"
+flow = "BBDL1"
+key = "M.DE.Y.UNE.UBA000.A0000.A01.D00.0.ABA.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "registered_unemployment_rate"
+name = "Registered unemployment rate (Federal Employment Agency), seasonally and calendar adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "percent of the civilian labour force"
+provider = "bundesbank"
+flow = "BBDL1"
+key = "M.DE.Y.UNE.UBA000.A0000.A01.D00.0.R00.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "registered_vacancies"
+name = "Vacancies registered with the Federal Employment Agency, seasonally and calendar adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "thousand"
+provider = "bundesbank"
+flow = "BBDL1"
+key = "M.DE.Y.VAC.VBA000.A0000.A00.D00.0.ABA.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "short_time_workers"
+name = "Short-time workers for economic reasons (section 96 SGB III), seasonally and calendar adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "persons"
+provider = "bundesbank"
+flow = "BBDL1"
+key = "M.DE.Y.LMP.LKA100.A0000.A02.D00.0.ABA.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "employment_persons"
+name = "Persons in employment (national accounts, domestic concept), seasonally and calendar adjusted"
+topic = "labour_market"
+frequency = "M"
+unit = "thousand persons"
+provider = "bundesbank"
+flow = "BBDL1"
+key = "M.DE.Y.EMP.EAA000.A0000.A00.D10.0.ABA.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "employment_qoq"
+name = "Total employment (national accounts, domestic concept), change on the previous quarter, seasonally and calendar adjusted"
+topic = "labour_market"
+frequency = "Q"
+unit = "percent change on the previous quarter"
+provider = "eurostat"
+flow = "namq_10_pe"
+key = "Q.PCH_PRE_PER.SCA.EMP_DC.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "job_vacancy_rate"
+name = "Job vacancy rate, industry, construction and services (NACE Rev. 2.1 B-T), not seasonally adjusted"
+topic = "labour_market"
+frequency = "Q"
+unit = "percent of occupied and vacant posts"
+provider = "eurostat"
+flow = "jvs_q_r21"
+key = "Q.B-T.TOTAL.NSA.JVR.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+# =============================================================================
+# Interest rates
+# =============================================================================
+
+[[series]]
+concept = "ecb_deposit_facility_rate"
+name = "ECB deposit facility rate (dates of changes)"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "ecb"
+flow = "FM"
+key = "B.U2.EUR.4F.KR.DFR.LEV"
+geo = "EA"
+added = 2026-10-25
+notes = "Observations are the dates on which the rate changed; the rate applies until the next observation."
+
+[[series]]
+concept = "ecb_main_refinancing_rate"
+name = "ECB main refinancing operations, fixed rate (dates of changes)"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "ecb"
+flow = "FM"
+key = "B.U2.EUR.4F.KR.MRR_FR.LEV"
+geo = "EA"
+added = 2026-10-25
+notes = "Observations are the dates on which the rate changed; the rate applies until the next observation."
+
+[[series]]
+concept = "ecb_marginal_lending_rate"
+name = "ECB marginal lending facility rate (dates of changes)"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "ecb"
+flow = "FM"
+key = "B.U2.EUR.4F.KR.MLFR.LEV"
+geo = "EA"
+added = 2026-10-25
+notes = "Observations are the dates on which the rate changed; the rate applies until the next observation."
+
+[[series]]
+concept = "euro_short_term_rate"
+name = "Euro short-term rate (euro STR), volume-weighted trimmed mean rate"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "ecb"
+flow = "EST"
+key = "B.EU000A2X2A25.WT"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "euribor_3m"
+name = "Euribor 3-month, monthly average"
+topic = "interest_rates"
+frequency = "M"
+unit = "percent per annum"
+provider = "ecb"
+flow = "FM"
+key = "M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "euribor_12m"
+name = "Euribor 1-year, monthly average"
+topic = "interest_rates"
+frequency = "M"
+unit = "percent per annum"
+provider = "ecb"
+flow = "FM"
+key = "M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "euro_area_aaa_yield_2y"
+name = "Euro area yield curve, AAA-rated central government bonds, spot rate, 2-year maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "ecb"
+flow = "YC"
+key = "B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "euro_area_aaa_yield_10y"
+name = "Euro area yield curve, AAA-rated central government bonds, spot rate, 10-year maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "ecb"
+flow = "YC"
+key = "B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "bund_yield_2y"
+name = "Yield of listed Federal securities, term structure (Svensson method), 2-year residual maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "bundesbank"
+flow = "BBSIS"
+key = "D.I.ZST.ZI.EUR.S1311.B.A604.R02XX.R.A.A._Z._Z.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "bund_yield_5y"
+name = "Yield of listed Federal securities, term structure (Svensson method), 5-year residual maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "bundesbank"
+flow = "BBSIS"
+key = "D.I.ZST.ZI.EUR.S1311.B.A604.R05XX.R.A.A._Z._Z.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "bund_yield_10y"
+name = "Yield of listed Federal securities, term structure (Svensson method), 10-year residual maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "bundesbank"
+flow = "BBSIS"
+key = "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "bund_yield_30y"
+name = "Yield of listed Federal securities, term structure (Svensson method), 30-year residual maturity"
+topic = "interest_rates"
+frequency = "D"
+unit = "percent per annum"
+provider = "bundesbank"
+flow = "BBSIS"
+key = "D.I.ZST.ZI.EUR.S1311.B.A604.R30XX.R.A.A._Z._Z.A"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "long_term_interest_rate"
+name = "Long-term interest rate for convergence purposes (10-year government bonds), monthly average"
+topic = "interest_rates"
+frequency = "M"
+unit = "percent per annum"
+provider = "ecb"
+flow = "IRS"
+key = "M.{geo}.L.L40.CI.0000.EUR.N.Z"
+geos = ["DE", "FR", "IT", "ES", "NL"]
+added = 2026-10-25
+
+[[series]]
+concept = "expected_real_rate_10y"
+name = "Expected real interest rate of Federal securities with 10-year residual maturity (Bundesbank)"
+topic = "interest_rates"
+frequency = "M"
+unit = "percent per annum"
+provider = "bundesbank"
+flow = "BBSEI"
+key = "M.ERZ.GVB.DE._Z.R10XX"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "mortgage_rate_new_business"
+name = "MFI interest rate on loans to households for house purchase, new business, annualised agreed rate"
+topic = "interest_rates"
+frequency = "M"
+unit = "percent per annum"
+provider = "ecb"
+flow = "MIR"
+key = "M.{geo}.B.A2C.AM.R.A.2250.EUR.N"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "corporate_loan_rate_new_business"
+name = "MFI interest rate on loans to non-financial corporations, new business, annualised agreed rate"
+topic = "interest_rates"
+frequency = "M"
+unit = "percent per annum"
+provider = "ecb"
+flow = "MIR"
+key = "M.{geo}.B.A2A.A.R.A.2240.EUR.N"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+# =============================================================================
+# Money and credit
+# =============================================================================
+
+[[series]]
+concept = "m3_growth"
+name = "Monetary aggregate M3, annual growth rate"
+topic = "money_and_credit"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "ecb"
+flow = "BSI"
+key = "M.U2.Y.V.M30.X.I.U2.2300.Z01.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "corporate_loans_growth"
+name = "MFI loans to non-financial corporations, adjusted for sales and securitisation, annual growth rate"
+topic = "money_and_credit"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "ecb"
+flow = "BSI"
+key = "M.U2.Y.U.A20T.A.I.U2.2240.Z01.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "corporate_loans_growth"
+name = "MFI loans to non-financial corporations, adjusted for sales and securitisation, annual growth rate"
+topic = "money_and_credit"
+frequency = "M"
+unit = "percent change on the same month of the previous year"
+provider = "ecb"
+flow = "BSI"
+key = "M.DE.Y.A.A20T.A.I.U2.2240.Z01.A"
+geo = "DE"
+added = 2026-10-25
+notes = "German contribution to the euro area statistics; the key differs from the euro area series in the adjustment dimension."
+
+# =============================================================================
+# Exchange rates and financial stress
+# =============================================================================
+
+[[series]]
+concept = "eur_usd"
+name = "ECB euro reference exchange rate, US dollar per euro"
+topic = "exchange_rates"
+frequency = "D"
+unit = "US dollar per euro"
+provider = "ecb"
+flow = "EXR"
+key = "D.USD.EUR.SP00.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "eur_cny"
+name = "ECB euro reference exchange rate, Chinese yuan renminbi per euro"
+topic = "exchange_rates"
+frequency = "D"
+unit = "yuan renminbi per euro"
+provider = "ecb"
+flow = "EXR"
+key = "D.CNY.EUR.SP00.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "eur_gbp"
+name = "ECB euro reference exchange rate, pound sterling per euro"
+topic = "exchange_rates"
+frequency = "D"
+unit = "pound sterling per euro"
+provider = "ecb"
+flow = "EXR"
+key = "D.GBP.EUR.SP00.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "eur_chf"
+name = "ECB euro reference exchange rate, Swiss franc per euro"
+topic = "exchange_rates"
+frequency = "D"
+unit = "Swiss franc per euro"
+provider = "ecb"
+flow = "EXR"
+key = "D.CHF.EUR.SP00.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "eur_jpy"
+name = "ECB euro reference exchange rate, Japanese yen per euro"
+topic = "exchange_rates"
+frequency = "D"
+unit = "yen per euro"
+provider = "ecb"
+flow = "EXR"
+key = "D.JPY.EUR.SP00.A"
+geo = "EA"
+added = 2026-10-25
+
+[[series]]
+concept = "systemic_stress_index"
+name = "Composite Indicator of Systemic Stress (CISS)"
+topic = "financial_stress"
+frequency = "D"
+unit = "index (0 to 1)"
+provider = "ecb"
+flow = "CISS"
+key = "D.{geo}.Z0Z.4F.EC.SS_CIN.IDX"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+# =============================================================================
+# Trade (Eurostat, international trade in goods)
+# =============================================================================
+
+[[series]]
+concept = "goods_exports_value"
+name = "Exports of goods to all countries, seasonally and working-day adjusted"
+topic = "trade"
+frequency = "M"
+unit = "million euro"
+provider = "eurostat"
+flow = "ei_eteu27_2020_m"
+key = "M.EXP.MIO-EUR-SA.WORLD.ET-T.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "goods_imports_value"
+name = "Imports of goods from all countries, seasonally and working-day adjusted"
+topic = "trade"
+frequency = "M"
+unit = "million euro"
+provider = "eurostat"
+flow = "ei_eteu27_2020_m"
+key = "M.IMP.MIO-EUR-SA.WORLD.ET-T.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "goods_trade_balance"
+name = "Balance of trade in goods with all countries, seasonally and working-day adjusted"
+topic = "trade"
+frequency = "M"
+unit = "million euro"
+provider = "eurostat"
+flow = "ei_eteu27_2020_m"
+key = "M.BAL_RT.MIO-EUR-SA.WORLD.ET-T.DE"
+geo = "DE"
+added = 2026-10-25
+
+# =============================================================================
+# Sentiment and surveys (European Commission business and consumer surveys)
+# =============================================================================
+
+[[series]]
+concept = "economic_sentiment_indicator"
+name = "Economic sentiment indicator"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "index, long-term average = 100"
+provider = "eurostat"
+flow = "ei_bssi_m_r2"
+key = "M.BS-ESI-I.SA.{geo}"
+geos = ["DE", "EA", "FR", "IT"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "industry_confidence"
+name = "Industrial confidence indicator"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bssi_m_r2"
+key = "M.BS-ICI-BAL.SA.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "services_confidence"
+name = "Services confidence indicator"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bssi_m_r2"
+key = "M.BS-SCI-BAL.SA.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "retail_confidence"
+name = "Retail confidence indicator"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bssi_m_r2"
+key = "M.BS-RCI-BAL.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "construction_confidence"
+name = "Construction confidence indicator"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bssi_m_r2"
+key = "M.BS-CCI-BAL.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "consumer_confidence"
+name = "Consumer confidence indicator"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bssi_m_r2"
+key = "M.BS-CSMCI-BAL.SA.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "industry_production_expectations"
+name = "Industry survey: production expectations over the next three months"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bsin_m_r2"
+key = "M.BS-IPE.SA.BAL.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "industry_selling_price_expectations"
+name = "Industry survey: selling price expectations over the next three months"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bsin_m_r2"
+key = "M.BS-ISPE.SA.BAL.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "industry_employment_expectations"
+name = "Industry survey: employment expectations over the next three months"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bsin_m_r2"
+key = "M.BS-IEME-BAL.SA.BAL.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "consumer_price_expectations"
+name = "Consumer survey: price trends over the next 12 months"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bsco_m"
+key = "M.BS-PT-NY.SA.BAL.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "consumer_unemployment_expectations"
+name = "Consumer survey: unemployment expectations over the next 12 months"
+topic = "sentiment_and_surveys"
+frequency = "M"
+unit = "balance of positive and negative answers"
+provider = "eurostat"
+flow = "ei_bsco_m"
+key = "M.BS-UE-NY.SA.BAL.DE"
+geo = "DE"
+added = 2026-10-25
+
+# =============================================================================
+# Shortages (factors limiting production in the European Commission business surveys)
+# =============================================================================
+
+[[series]]
+concept = "industry_limited_by_material_equipment"
+name = "Industry survey: share of firms whose production is limited by shortage of material and/or equipment"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsin_q_r2"
+key = "Q.BS-FLP4-PC.SA.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "industry_limited_by_labour"
+name = "Industry survey: share of firms whose production is limited by shortage of labour"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsin_q_r2"
+key = "Q.BS-FLP3-PC.SA.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "industry_limited_by_demand"
+name = "Industry survey: share of firms whose production is limited by insufficient demand"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsin_q_r2"
+key = "Q.BS-FLP2-PC.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "industry_limited_by_financial_constraints"
+name = "Industry survey: share of firms whose production is limited by financial constraints"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsin_q_r2"
+key = "Q.BS-FLP6-PC.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "industry_not_limited"
+name = "Industry survey: share of firms whose production is not limited by any factor"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsin_q_r2"
+key = "Q.BS-FLP1-PC.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "services_limited_by_labour"
+name = "Services survey: share of firms whose business is limited by shortage of labour"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsse_q_r2"
+key = "Q.BS-FLB3-PC.SA.BAL.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "services_limited_by_space_equipment"
+name = "Services survey: share of firms whose business is limited by shortage of space and/or equipment"
+topic = "shortages"
+frequency = "Q"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsse_q_r2"
+key = "Q.BS-FLB4-PC.SA.BAL.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "construction_limited_by_material"
+name = "Construction survey: share of firms whose building activity is limited by shortage of material and/or equipment"
+topic = "shortages"
+frequency = "M"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsbu_m_r2"
+key = "M.BS-FLBA5-PC.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "construction_limited_by_labour"
+name = "Construction survey: share of firms whose building activity is limited by shortage of labour"
+topic = "shortages"
+frequency = "M"
+unit = "percent of firms"
+provider = "eurostat"
+flow = "ei_bsbu_m_r2"
+key = "M.BS-FLBA4-PC.SA.DE"
+geo = "DE"
+added = 2026-10-25
+
+# =============================================================================
+# Public finances, housing and business demography
+# =============================================================================
+
+[[series]]
+concept = "government_debt_ratio"
+name = "General government consolidated gross debt"
+topic = "public_finances"
+frequency = "Q"
+unit = "percent of GDP"
+provider = "eurostat"
+flow = "gov_10q_ggdebt"
+key = "Q.GD.S13.PC_GDP.{geo}"
+geos = ["DE", "EA", "FR", "IT"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "government_balance_ratio"
+name = "General government net lending (+) or net borrowing (-), seasonally and calendar adjusted"
+topic = "public_finances"
+frequency = "Q"
+unit = "percent of GDP"
+provider = "eurostat"
+flow = "gov_10q_ggnfa"
+key = "Q.PC_GDP.SCA.S13.B9.{geo}"
+geos = ["DE", "EA"]
+geo_codes = { EA = "EA21" }
+added = 2026-10-25
+
+[[series]]
+concept = "house_prices_yoy"
+name = "House price index, all dwellings, annual rate of change"
+topic = "housing"
+frequency = "Q"
+unit = "percent change on the same quarter of the previous year"
+provider = "eurostat"
+flow = "prc_hpi_q"
+key = "Q.TOTAL.RCH_A.{geo}"
+geos = ["DE", "EA"]
+added = 2026-10-25
+
+[[series]]
+concept = "house_price_index"
+name = "House price index, all dwellings"
+topic = "housing"
+frequency = "Q"
+unit = "index, 2015 = 100"
+provider = "eurostat"
+flow = "prc_hpi_q"
+key = "Q.TOTAL.I15_Q.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "bankruptcy_declarations_index"
+name = "Bankruptcy declarations, industry, construction and market services, seasonally and calendar adjusted"
+topic = "business_demography"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_rb_m"
+key = "M.BKRT.B-S_X_O_S94.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "business_registrations_index"
+name = "Business registrations, industry, construction and market services, seasonally and calendar adjusted"
+topic = "business_demography"
+frequency = "M"
+unit = "index, 2021 = 100"
+provider = "eurostat"
+flow = "sts_rb_m"
+key = "M.REG.B-S_X_O_S94.SCA.I21.DE"
+geo = "DE"
+added = 2026-10-25
+
+# =============================================================================
+# Commodities (World Bank Pink Sheet, monthly averages in nominal US dollars)
+# =============================================================================
+
+[[series]]
+concept = "brent_crude_oil_price"
+name = "Crude oil, UK Brent, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per barrel"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Crude oil, Brent"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "crude_oil_average_price"
+name = "Crude oil, average spot price of Brent, Dubai and West Texas Intermediate, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per barrel"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Crude oil, average"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "natural_gas_europe_price"
+name = "Natural gas, Europe (TTF), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per million British thermal units"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Natural gas, Europe"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "natural_gas_us_price"
+name = "Natural gas, United States (Henry Hub), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per million British thermal units"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Natural gas, US"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "coal_australia_price"
+name = "Thermal coal, Australia (Newcastle), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Coal, Australian"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "aluminium_price"
+name = "Aluminium (LME), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Aluminum"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "copper_price"
+name = "Copper (LME), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Copper"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "iron_ore_price"
+name = "Iron ore, CFR spot, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per dry metric ton unit"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Iron ore, cfr spot"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "nickel_price"
+name = "Nickel (LME), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Nickel"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "zinc_price"
+name = "Zinc (LME), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Zinc"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "lead_price"
+name = "Lead (LME), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Lead"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "tin_price"
+name = "Tin (LME), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Tin"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "gold_price"
+name = "Gold, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per troy ounce"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Gold"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "silver_price"
+name = "Silver, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per troy ounce"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Silver"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "platinum_price"
+name = "Platinum, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per troy ounce"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Platinum"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "wheat_price"
+name = "Wheat, US hard red winter, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Wheat, US HRW"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "maize_price"
+name = "Maize, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Maize"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "soybeans_price"
+name = "Soybeans, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Soybeans"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "palm_oil_price"
+name = "Palm oil, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Palm oil"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "sugar_world_price"
+name = "Sugar, world, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per kilogram"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Sugar, world"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "coffee_arabica_price"
+name = "Coffee, Arabica, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per kilogram"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Coffee, Arabica"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "cocoa_price"
+name = "Cocoa, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per kilogram"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Cocoa"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "cotton_price"
+name = "Cotton, A Index, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per kilogram"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Cotton, A Index"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "urea_price"
+name = "Urea, monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Urea"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "dap_fertilizer_price"
+name = "Diammonium phosphate (DAP), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "DAP"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "potassium_chloride_price"
+name = "Potassium chloride (potash), monthly average price"
+topic = "commodities"
+frequency = "M"
+unit = "US dollar per metric ton"
+provider = "worldbank_cmo"
+flow = "Monthly Prices"
+key = "Potassium chloride"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_total"
+name = "World Bank commodity price index, total"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Total Index"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_energy"
+name = "World Bank commodity price index, energy"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Energy"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_non_energy"
+name = "World Bank commodity price index, non-energy"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Non-energy"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_agriculture"
+name = "World Bank commodity price index, agriculture"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Agriculture"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_food"
+name = "World Bank commodity price index, food"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Food"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_fertilizers"
+name = "World Bank commodity price index, fertilizers"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Fertilizers"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_metals_minerals"
+name = "World Bank commodity price index, metals and minerals"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Metals & Minerals"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_base_metals"
+name = "World Bank commodity price index, base metals excluding iron ore"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Base Metals (ex. iron ore)"
+geo = "WLD"
+added = 2026-10-25
+
+[[series]]
+concept = "commodity_price_index_precious_metals"
+name = "World Bank commodity price index, precious metals"
+topic = "commodities"
+frequency = "M"
+unit = "index, 2010 = 100 (nominal US dollars)"
+provider = "worldbank_cmo"
+flow = "Monthly Indices"
+key = "Precious Metals"
+geo = "WLD"
+added = 2026-10-25
+
+# =============================================================================
+# Electricity (SMARD, Bundesnetzagentur; daily values)
+# =============================================================================
+
+[[series]]
+concept = "day_ahead_power_price"
+name = "Day-ahead wholesale electricity price, bidding zone Germany/Luxembourg, daily average"
+topic = "energy"
+frequency = "D"
+unit = "euro per MWh"
+provider = "smard"
+flow = "chart_data"
+key = "4169/DE-LU"
+geo = "DE"
+added = 2026-10-25
+notes = "The bidding zone Germany/Luxembourg exists since 2018-10-01; earlier days are not in this series."
+
+[[series]]
+concept = "grid_load"
+name = "Electricity consumption: grid load, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "410/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "residual_load"
+name = "Residual load (grid load minus wind and photovoltaic generation), Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4359/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_lignite"
+name = "Net electricity generation from lignite, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "1223/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_hard_coal"
+name = "Net electricity generation from hard coal, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4069/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_natural_gas"
+name = "Net electricity generation from natural gas, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4071/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_other_conventional"
+name = "Net electricity generation from other conventional sources, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "1227/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_wind_onshore"
+name = "Net electricity generation from onshore wind, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4067/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_wind_offshore"
+name = "Net electricity generation from offshore wind, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "1225/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_solar"
+name = "Net electricity generation from photovoltaics, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4068/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_biomass"
+name = "Net electricity generation from biomass, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4066/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_hydro"
+name = "Net electricity generation from hydropower, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "1226/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_pumped_storage"
+name = "Net electricity generation from pumped storage, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "4070/DE"
+geo = "DE"
+added = 2026-10-25
+
+[[series]]
+concept = "power_generation_other_renewable"
+name = "Net electricity generation from other renewable sources, Germany"
+topic = "energy"
+frequency = "D"
+unit = "MWh per day"
+provider = "smard"
+flow = "chart_data"
+key = "1228/DE"
+geo = "DE"
+added = 2026-10-25
