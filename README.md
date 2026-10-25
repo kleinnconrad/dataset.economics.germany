@@ -23,269 +23,278 @@ A dataset of the German economy for economic analysis and prediction. A pipeline
 
 ## Dataset Overview
 <!-- DATASET_OVERVIEW_START -->
-**Last updated:** 2026-10-25 15:24 UTC
+**Last updated:** 2026-10-25 15:54 UTC
 
 | Dataset | Records | Items | Files | Observed | Content |
 |---|---|---|---|---|---|
-| `economic_series` | 0 | 0 | 0 | none | A vintage of a statistical series: all values at the first observation, then the added, revised and removed periods. |
-| `series_catalog` | 0 | 0 | 0 | none | An entry of the series catalog, recorded when it appears or changes. |
-| `news_items` | 0 | 0 | 0 | none | Metadata of one news article. The text is not stored. |
-| `press_releases` | 0 | 0 | 0 | none | Metadata of one press release. The text is not stored. |
-| `text_annotations` | 0 | 0 | 0 | none | Gemini labels of one news article or press release. |
-| `companies` | 0 | 0 | 0 | none | An entry of the company registry, recorded when it appears or changes. |
-| `wikipedia_pageviews` | 0 | 0 | 0 | none | Daily views of the German Wikipedia article of a registered company. |
+| `economic_series` | 238 | 238 | 1 | 2026-10-25 to 2026-10-25 | A vintage of a statistical series: all values at the first observation, then the added, revised and removed periods. |
+| `series_catalog` | 238 | 238 | 1 | 2026-10-25 to 2026-10-25 | An entry of the series catalog, recorded when it appears or changes. |
+| `news_items` | 1,422 | 1,422 | 1 | 2026-10-25 to 2026-10-25 | Metadata of one news article. The text is not stored. |
+| `press_releases` | 23 | 23 | 1 | 2026-10-25 to 2026-10-25 | Metadata of one press release. The text is not stored. |
+| `text_annotations` | 400 | 400 | 1 | 2026-10-25 to 2026-10-25 | Gemini labels of one news article or press release. |
+| `companies` | 110 | 110 | 1 | 2026-10-25 to 2026-10-25 | An entry of the company registry, recorded when it appears or changes. |
+| `wikipedia_pageviews` | 110 | 110 | 1 | 2026-10-25 to 2026-10-25 | Daily views of the German Wikipedia article of a registered company. |
 
 **Runs**
 
-- No run yet.
+- **Latest run:** 2026-10-25 15:41 UTC (normal)
+  - `bundesbank`: ok (economic_series 19)
+  - `commodities`: ok (economic_series 35)
+  - `companies`: ok (companies 110)
+  - `ecb`: ok (economic_series 27)
+  - `electricity`: ok (economic_series 14)
+  - `eurostat`: ok (economic_series 143)
+  - `feeds`: ok (news_items 1,422, press_releases 23, text_annotations 400)
+  - `series_catalog`: ok (series_catalog 238)
+  - `wikipedia_pageviews`: ok (wikipedia_pageviews 110)
 
 **Statistical series**
 
-- **Active series:** 238 (eurostat 143, worldbank_cmo 35, ecb 27, bundesbank 19, smard 14); with stored values: 0
+- **Active series:** 238 (eurostat 143, worldbank_cmo 35, ecb 27, bundesbank 19, smard 14); with stored values: 238
 
 <details>
 <summary>Series: latest period and number of revisions</summary>
 
 | Series | Topic | Frequency | Unit | First period | Latest period | Periods | Revisions |
 |---|---|---|---|---|---|---|---|
-| `bankruptcy_declarations_index.DE` | business demography | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `business_registrations_index.DE` | business demography | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `aluminium_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `brent_crude_oil_price.WLD` | commodities | M | US dollar per barrel | none | none | 0 | 0 |
-| `coal_australia_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `cocoa_price.WLD` | commodities | M | US dollar per kilogram | none | none | 0 | 0 |
-| `coffee_arabica_price.WLD` | commodities | M | US dollar per kilogram | none | none | 0 | 0 |
-| `commodity_price_index_agriculture.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_base_metals.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_energy.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_fertilizers.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_food.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_metals_minerals.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_non_energy.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_precious_metals.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `commodity_price_index_total.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | none | none | 0 | 0 |
-| `copper_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `cotton_price.WLD` | commodities | M | US dollar per kilogram | none | none | 0 | 0 |
-| `crude_oil_average_price.WLD` | commodities | M | US dollar per barrel | none | none | 0 | 0 |
-| `dap_fertilizer_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `gold_price.WLD` | commodities | M | US dollar per troy ounce | none | none | 0 | 0 |
-| `iron_ore_price.WLD` | commodities | M | US dollar per dry metric ton unit | none | none | 0 | 0 |
-| `lead_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `maize_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `natural_gas_europe_price.WLD` | commodities | M | US dollar per million British thermal units | none | none | 0 | 0 |
-| `natural_gas_us_price.WLD` | commodities | M | US dollar per million British thermal units | none | none | 0 | 0 |
-| `nickel_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `palm_oil_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `platinum_price.WLD` | commodities | M | US dollar per troy ounce | none | none | 0 | 0 |
-| `potassium_chloride_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `silver_price.WLD` | commodities | M | US dollar per troy ounce | none | none | 0 | 0 |
-| `soybeans_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `sugar_world_price.WLD` | commodities | M | US dollar per kilogram | none | none | 0 | 0 |
-| `tin_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `urea_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `wheat_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `zinc_price.WLD` | commodities | M | US dollar per metric ton | none | none | 0 | 0 |
-| `day_ahead_power_price.DE` | energy | D | euro per MWh | none | none | 0 | 0 |
-| `grid_load.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_biomass.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_hard_coal.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_hydro.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_lignite.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_natural_gas.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_other_conventional.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_other_renewable.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_pumped_storage.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_solar.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_wind_offshore.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `power_generation_wind_onshore.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `residual_load.DE` | energy | D | MWh per day | none | none | 0 | 0 |
-| `eur_chf.EA` | exchange rates | D | Swiss franc per euro | none | none | 0 | 0 |
-| `eur_cny.EA` | exchange rates | D | yuan renminbi per euro | none | none | 0 | 0 |
-| `eur_gbp.EA` | exchange rates | D | pound sterling per euro | none | none | 0 | 0 |
-| `eur_jpy.EA` | exchange rates | D | yen per euro | none | none | 0 | 0 |
-| `eur_usd.EA` | exchange rates | D | US dollar per euro | none | none | 0 | 0 |
-| `systemic_stress_index.DE` | financial stress | D | index (0 to 1) | none | none | 0 | 0 |
-| `systemic_stress_index.EA` | financial stress | D | index (0 to 1) | none | none | 0 | 0 |
-| `truck_toll_mileage_index.DE` | high frequency activity | D | index, 2021 = 100 | none | none | 0 | 0 |
-| `weekly_activity_index.DE` | high frequency activity | W | percent | none | none | 0 | 0 |
-| `house_price_index.DE` | housing | Q | index, 2015 = 100 | none | none | 0 | 0 |
-| `house_prices_yoy.DE` | housing | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `house_prices_yoy.EA` | housing | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `bund_yield_10y.DE` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `bund_yield_2y.DE` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `bund_yield_30y.DE` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `bund_yield_5y.DE` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `corporate_loan_rate_new_business.DE` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `corporate_loan_rate_new_business.EA` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `ecb_deposit_facility_rate.EA` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `ecb_main_refinancing_rate.EA` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `ecb_marginal_lending_rate.EA` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `euribor_12m.EA` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `euribor_3m.EA` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `euro_area_aaa_yield_10y.EA` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `euro_area_aaa_yield_2y.EA` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `euro_short_term_rate.EA` | interest rates | D | percent per annum | none | none | 0 | 0 |
-| `expected_real_rate_10y.DE` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `long_term_interest_rate.DE` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `long_term_interest_rate.ES` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `long_term_interest_rate.FR` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `long_term_interest_rate.IT` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `long_term_interest_rate.NL` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `mortgage_rate_new_business.DE` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `mortgage_rate_new_business.EA` | interest rates | M | percent per annum | none | none | 0 | 0 |
-| `employment_persons.DE` | labour market | M | thousand persons | none | none | 0 | 0 |
-| `employment_qoq.DE` | labour market | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `employment_qoq.EA` | labour market | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `job_vacancy_rate.DE` | labour market | Q | percent of occupied and vacant posts | none | none | 0 | 0 |
-| `job_vacancy_rate.EA` | labour market | Q | percent of occupied and vacant posts | none | none | 0 | 0 |
-| `registered_unemployed.DE` | labour market | M | thousand persons | none | none | 0 | 0 |
-| `registered_unemployment_rate.DE` | labour market | M | percent of the civilian labour force | none | none | 0 | 0 |
-| `registered_vacancies.DE` | labour market | M | thousand | none | none | 0 | 0 |
-| `short_time_workers.DE` | labour market | M | persons | none | none | 0 | 0 |
-| `unemployment_rate.AT` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.DE` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.EA` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.ES` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.FR` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.IT` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.NL` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `unemployment_rate.PL` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `youth_unemployment_rate.DE` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `youth_unemployment_rate.EA` | labour market | M | percent of the labour force | none | none | 0 | 0 |
-| `corporate_loans_growth.DE` | money and credit | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `corporate_loans_growth.EA` | money and credit | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `m3_growth.EA` | money and credit | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `exports_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `fixed_investment_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_nominal_level.DE` | output and demand | Q | million euro, current prices | none | none | 0 | 0 |
-| `gdp_real_level.DE` | output and demand | Q | million euro, chain-linked volumes (2020) | none | none | 0 | 0 |
-| `gdp_real_level.EA` | output and demand | Q | million euro, chain-linked volumes (2020) | none | none | 0 | 0 |
-| `gdp_real_qoq.AT` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.EA` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.ES` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.FR` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.IT` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.NL` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_qoq.PL` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `gdp_real_yoy.AT` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.DE` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.EA` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.ES` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.FR` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.IT` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.NL` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `gdp_real_yoy.PL` | output and demand | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `government_consumption_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `household_consumption_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `imports_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | none | none | 0 | 0 |
-| `cpi_index.DE` | prices | M | index, 2020 = 100 | none | none | 0 | 0 |
-| `cpi_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_core_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_core_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_energy_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_energy_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_food_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_food_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_index.DE` | prices | M | index, 2025 = 100 | none | none | 0 | 0 |
-| `hicp_index.EA` | prices | M | index, 2025 = 100 | none | none | 0 | 0 |
-| `hicp_inflation_mom.DE` | prices | M | percent change on the previous month | none | none | 0 | 0 |
-| `hicp_inflation_mom.EA` | prices | M | percent change on the previous month | none | none | 0 | 0 |
-| `hicp_inflation_yoy.AT` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.ES` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.FR` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.IT` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.NL` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_inflation_yoy.PL` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_non_energy_goods_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_non_energy_goods_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_services_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `hicp_services_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `household_electricity_price.DE` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_electricity_price.EA` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_electricity_price.EU27_2020` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_electricity_price.FR` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_electricity_price.IT` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_gas_price.DE` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_gas_price.EA` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `household_gas_price.EU27_2020` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `import_prices_energy_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `import_prices_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `industrial_electricity_price.DE` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_electricity_price.EA` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_electricity_price.EU27_2020` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_electricity_price.FR` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_electricity_price.IT` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_gas_price.DE` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_gas_price.EA` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `industrial_gas_price.EU27_2020` | prices | S | euro per kWh | none | none | 0 | 0 |
-| `producer_prices_energy_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `producer_prices_index.DE` | prices | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `producer_prices_yoy.DE` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `producer_prices_yoy.EA` | prices | M | percent change on the same month of the previous year | none | none | 0 | 0 |
-| `automotive_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `basic_metals_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `capacity_utilization_industry.DE` | production and orders | Q | percent | none | none | 0 | 0 |
-| `capacity_utilization_industry.EA` | production and orders | Q | percent | none | none | 0 | 0 |
-| `chemicals_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `construction_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `construction_production_index.EA` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `industrial_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `industrial_production_index.EA` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `industrial_production_index.FR` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `industrial_production_index.IT` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `machinery_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `manufacturing_new_orders_domestic_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `manufacturing_new_orders_ex_large_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `manufacturing_new_orders_foreign_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `manufacturing_new_orders_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `manufacturing_production_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `retail_sales_volume_index.DE` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `retail_sales_volume_index.EA` | production and orders | M | index, 2021 = 100 | none | none | 0 | 0 |
-| `government_balance_ratio.DE` | public finances | Q | percent of GDP | none | none | 0 | 0 |
-| `government_balance_ratio.EA` | public finances | Q | percent of GDP | none | none | 0 | 0 |
-| `government_debt_ratio.DE` | public finances | Q | percent of GDP | none | none | 0 | 0 |
-| `government_debt_ratio.EA` | public finances | Q | percent of GDP | none | none | 0 | 0 |
-| `government_debt_ratio.FR` | public finances | Q | percent of GDP | none | none | 0 | 0 |
-| `government_debt_ratio.IT` | public finances | Q | percent of GDP | none | none | 0 | 0 |
-| `construction_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `consumer_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `consumer_confidence.EA` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `consumer_price_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `consumer_price_expectations.EA` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `consumer_unemployment_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `economic_sentiment_indicator.DE` | sentiment and surveys | M | index, long-term average = 100 | none | none | 0 | 0 |
-| `economic_sentiment_indicator.EA` | sentiment and surveys | M | index, long-term average = 100 | none | none | 0 | 0 |
-| `economic_sentiment_indicator.FR` | sentiment and surveys | M | index, long-term average = 100 | none | none | 0 | 0 |
-| `economic_sentiment_indicator.IT` | sentiment and surveys | M | index, long-term average = 100 | none | none | 0 | 0 |
-| `industry_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `industry_confidence.EA` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `industry_employment_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `industry_production_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `industry_selling_price_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `industry_selling_price_expectations.EA` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `retail_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `services_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `services_confidence.EA` | sentiment and surveys | M | balance of positive and negative answers | none | none | 0 | 0 |
-| `construction_limited_by_labour.DE` | shortages | M | percent of firms | none | none | 0 | 0 |
-| `construction_limited_by_material.DE` | shortages | M | percent of firms | none | none | 0 | 0 |
-| `industry_limited_by_demand.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `industry_limited_by_financial_constraints.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `industry_limited_by_labour.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `industry_limited_by_labour.EA` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `industry_limited_by_material_equipment.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `industry_limited_by_material_equipment.EA` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `industry_not_limited.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `services_limited_by_labour.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `services_limited_by_space_equipment.DE` | shortages | Q | percent of firms | none | none | 0 | 0 |
-| `goods_exports_value.DE` | trade | M | million euro | none | none | 0 | 0 |
-| `goods_imports_value.DE` | trade | M | million euro | none | none | 0 | 0 |
-| `goods_trade_balance.DE` | trade | M | million euro | none | none | 0 | 0 |
-| `labour_cost_index_yoy.DE` | wages and labour costs | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `labour_cost_index_yoy.EA` | wages and labour costs | Q | percent change on the same quarter of the previous year | none | none | 0 | 0 |
-| `negotiated_wages_index.DE` | wages and labour costs | M | index, 2020 = 100 | none | none | 0 | 0 |
+| `bankruptcy_declarations_index.DE` | business demography | M | index, 2021 = 100 | 2015-01 | 2026-07 | 139 | 0 |
+| `business_registrations_index.DE` | business demography | M | index, 2021 = 100 | 2015-01 | 2026-08 | 140 | 0 |
+| `aluminium_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `brent_crude_oil_price.WLD` | commodities | M | US dollar per barrel | 1960-01 | 2026-09 | 801 | 0 |
+| `coal_australia_price.WLD` | commodities | M | US dollar per metric ton | 1970-01 | 2026-09 | 681 | 0 |
+| `cocoa_price.WLD` | commodities | M | US dollar per kilogram | 1960-01 | 2026-09 | 801 | 0 |
+| `coffee_arabica_price.WLD` | commodities | M | US dollar per kilogram | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_agriculture.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_base_metals.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_energy.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_fertilizers.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_food.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_metals_minerals.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_non_energy.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_precious_metals.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `commodity_price_index_total.WLD` | commodities | M | index, 2010 = 100 (nominal US dollars) | 1960-01 | 2026-09 | 801 | 0 |
+| `copper_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `cotton_price.WLD` | commodities | M | US dollar per kilogram | 1960-01 | 2026-09 | 801 | 0 |
+| `crude_oil_average_price.WLD` | commodities | M | US dollar per barrel | 1960-01 | 2026-09 | 801 | 0 |
+| `dap_fertilizer_price.WLD` | commodities | M | US dollar per metric ton | 1967-01 | 2026-09 | 717 | 0 |
+| `gold_price.WLD` | commodities | M | US dollar per troy ounce | 1960-01 | 2026-09 | 801 | 0 |
+| `iron_ore_price.WLD` | commodities | M | US dollar per dry metric ton unit | 1960-01 | 2026-09 | 801 | 0 |
+| `lead_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `maize_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `natural_gas_europe_price.WLD` | commodities | M | US dollar per million British thermal units | 1960-01 | 2026-09 | 801 | 0 |
+| `natural_gas_us_price.WLD` | commodities | M | US dollar per million British thermal units | 1960-01 | 2026-09 | 801 | 0 |
+| `nickel_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `palm_oil_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `platinum_price.WLD` | commodities | M | US dollar per troy ounce | 1960-01 | 2026-09 | 801 | 0 |
+| `potassium_chloride_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `silver_price.WLD` | commodities | M | US dollar per troy ounce | 1960-01 | 2026-09 | 801 | 0 |
+| `soybeans_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `sugar_world_price.WLD` | commodities | M | US dollar per kilogram | 1960-01 | 2026-09 | 801 | 0 |
+| `tin_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `urea_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `wheat_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `zinc_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-09 | 801 | 0 |
+| `day_ahead_power_price.DE` | energy | D | euro per MWh | 2018-10-01 | 2026-10-24 | 2,946 | 0 |
+| `grid_load.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_biomass.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_hard_coal.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_hydro.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_lignite.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_natural_gas.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_other_conventional.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_other_renewable.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,314 | 0 |
+| `power_generation_pumped_storage.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,311 | 0 |
+| `power_generation_solar.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_wind_offshore.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `power_generation_wind_onshore.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `residual_load.DE` | energy | D | MWh per day | 2015-01-01 | 2026-10-24 | 4,315 | 0 |
+| `eur_chf.EA` | exchange rates | D | Swiss franc per euro | 1999-01-04 | 2026-10-23 | 7,121 | 0 |
+| `eur_cny.EA` | exchange rates | D | yuan renminbi per euro | 2000-01-13 | 2026-10-23 | 6,854 | 0 |
+| `eur_gbp.EA` | exchange rates | D | pound sterling per euro | 1999-01-04 | 2026-10-23 | 7,121 | 0 |
+| `eur_jpy.EA` | exchange rates | D | yen per euro | 1999-01-04 | 2026-10-23 | 7,121 | 0 |
+| `eur_usd.EA` | exchange rates | D | US dollar per euro | 1999-01-04 | 2026-10-23 | 7,121 | 0 |
+| `systemic_stress_index.DE` | financial stress | D | index (0 to 1) | 1980-01-04 | 2026-10-22 | 12,212 | 0 |
+| `systemic_stress_index.EA` | financial stress | D | index (0 to 1) | 1980-01-03 | 2026-10-22 | 12,219 | 0 |
+| `truck_toll_mileage_index.DE` | high frequency activity | D | index, 2021 = 100 | 2008-01-01 | 2026-10-17 | 6,865 | 0 |
+| `weekly_activity_index.DE` | high frequency activity | W | percent | 2004-W27 | 2026-W42 | 1,164 | 0 |
+| `house_price_index.DE` | housing | Q | index, 2015 = 100 | 2005-Q1 | 2026-Q2 | 86 | 0 |
+| `house_prices_yoy.DE` | housing | Q | percent change on the same quarter of the previous year | 2006-Q1 | 2026-Q2 | 82 | 0 |
+| `house_prices_yoy.EA` | housing | Q | percent change on the same quarter of the previous year | 2006-Q1 | 2026-Q2 | 82 | 0 |
+| `bund_yield_10y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-10-23 | 7,416 | 0 |
+| `bund_yield_2y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-10-23 | 7,416 | 0 |
+| `bund_yield_30y.DE` | interest rates | D | percent per annum | 2000-08-01 | 2026-10-23 | 6,664 | 0 |
+| `bund_yield_5y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-10-23 | 7,416 | 0 |
+| `corporate_loan_rate_new_business.DE` | interest rates | M | percent per annum | 2000-01 | 2026-08 | 320 | 0 |
+| `corporate_loan_rate_new_business.EA` | interest rates | M | percent per annum | 2000-01 | 2026-08 | 320 | 0 |
+| `ecb_deposit_facility_rate.EA` | interest rates | D | percent per annum | 1999-01-01 | 2026-09-16 | 69 | 0 |
+| `ecb_main_refinancing_rate.EA` | interest rates | D | percent per annum | 1999-01-01 | 2026-09-16 | 48 | 0 |
+| `ecb_marginal_lending_rate.EA` | interest rates | D | percent per annum | 1999-01-01 | 2026-09-16 | 69 | 0 |
+| `euribor_12m.EA` | interest rates | M | percent per annum | 1994-01 | 2026-09 | 393 | 0 |
+| `euribor_3m.EA` | interest rates | M | percent per annum | 1994-01 | 2026-09 | 393 | 0 |
+| `euro_area_aaa_yield_10y.EA` | interest rates | D | percent per annum | 2004-09-06 | 2026-10-22 | 5,658 | 0 |
+| `euro_area_aaa_yield_2y.EA` | interest rates | D | percent per annum | 2004-09-06 | 2026-10-22 | 5,658 | 0 |
+| `euro_short_term_rate.EA` | interest rates | D | percent per annum | 2019-10-01 | 2026-10-22 | 1,809 | 0 |
+| `expected_real_rate_10y.DE` | interest rates | M | percent per annum | 1989-10 | 2026-10 | 445 | 0 |
+| `long_term_interest_rate.DE` | interest rates | M | percent per annum | 1990-01 | 2026-09 | 441 | 0 |
+| `long_term_interest_rate.ES` | interest rates | M | percent per annum | 1991-11 | 2026-09 | 419 | 0 |
+| `long_term_interest_rate.FR` | interest rates | M | percent per annum | 1986-01 | 2026-09 | 489 | 0 |
+| `long_term_interest_rate.IT` | interest rates | M | percent per annum | 1991-03 | 2026-09 | 427 | 0 |
+| `long_term_interest_rate.NL` | interest rates | M | percent per annum | 1986-04 | 2026-09 | 486 | 0 |
+| `mortgage_rate_new_business.DE` | interest rates | M | percent per annum | 2003-01 | 2026-08 | 284 | 0 |
+| `mortgage_rate_new_business.EA` | interest rates | M | percent per annum | 2003-01 | 2026-08 | 284 | 0 |
+| `employment_persons.DE` | labour market | M | thousand persons | 1991-01 | 2026-08 | 428 | 0 |
+| `employment_qoq.DE` | labour market | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `employment_qoq.EA` | labour market | Q | percent change on the previous quarter | 1995-Q2 | 2026-Q2 | 125 | 0 |
+| `job_vacancy_rate.DE` | labour market | Q | percent of occupied and vacant posts | 2006-Q1 | 2026-Q2 | 82 | 0 |
+| `job_vacancy_rate.EA` | labour market | Q | percent of occupied and vacant posts | 2006-Q1 | 2026-Q2 | 82 | 0 |
+| `registered_unemployed.DE` | labour market | M | thousand persons | 1991-12 | 2026-09 | 418 | 0 |
+| `registered_unemployment_rate.DE` | labour market | M | percent of the civilian labour force | 1991-12 | 2026-09 | 418 | 0 |
+| `registered_vacancies.DE` | labour market | M | thousand | 2000-01 | 2026-09 | 321 | 0 |
+| `short_time_workers.DE` | labour market | M | persons | 1995-01 | 2026-07 | 379 | 0 |
+| `unemployment_rate.AT` | labour market | M | percent of the labour force | 1995-01 | 2026-08 | 380 | 0 |
+| `unemployment_rate.DE` | labour market | M | percent of the labour force | 1991-01 | 2026-08 | 428 | 0 |
+| `unemployment_rate.EA` | labour market | M | percent of the labour force | 2000-01 | 2026-08 | 320 | 0 |
+| `unemployment_rate.ES` | labour market | M | percent of the labour force | 1986-04 | 2026-08 | 485 | 0 |
+| `unemployment_rate.FR` | labour market | M | percent of the labour force | 1983-01 | 2026-08 | 524 | 0 |
+| `unemployment_rate.IT` | labour market | M | percent of the labour force | 1983-01 | 2026-08 | 524 | 0 |
+| `unemployment_rate.NL` | labour market | M | percent of the labour force | 1983-01 | 2026-09 | 525 | 0 |
+| `unemployment_rate.PL` | labour market | M | percent of the labour force | 1997-01 | 2026-08 | 356 | 0 |
+| `youth_unemployment_rate.DE` | labour market | M | percent of the labour force | 1991-01 | 2026-08 | 428 | 0 |
+| `youth_unemployment_rate.EA` | labour market | M | percent of the labour force | 2000-01 | 2026-08 | 320 | 0 |
+| `corporate_loans_growth.DE` | money and credit | M | percent change on the same month of the previous year | 2004-01 | 2026-08 | 272 | 0 |
+| `corporate_loans_growth.EA` | money and credit | M | percent change on the same month of the previous year | 2004-01 | 2026-08 | 272 | 0 |
+| `m3_growth.EA` | money and credit | M | percent change on the same month of the previous year | 1981-01 | 2026-08 | 548 | 0 |
+| `exports_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `fixed_investment_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `gdp_nominal_level.DE` | output and demand | Q | million euro, current prices | 1991-Q1 | 2026-Q2 | 142 | 0 |
+| `gdp_real_level.DE` | output and demand | Q | million euro, chain-linked volumes (2020) | 1991-Q1 | 2026-Q2 | 142 | 0 |
+| `gdp_real_level.EA` | output and demand | Q | million euro, chain-linked volumes (2020) | 1995-Q1 | 2026-Q2 | 126 | 0 |
+| `gdp_real_qoq.AT` | output and demand | Q | percent change on the previous quarter | 1995-Q2 | 2026-Q2 | 125 | 0 |
+| `gdp_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `gdp_real_qoq.EA` | output and demand | Q | percent change on the previous quarter | 1995-Q2 | 2026-Q2 | 125 | 0 |
+| `gdp_real_qoq.ES` | output and demand | Q | percent change on the previous quarter | 1995-Q2 | 2026-Q2 | 125 | 0 |
+| `gdp_real_qoq.FR` | output and demand | Q | percent change on the previous quarter | 1980-Q2 | 2026-Q2 | 185 | 0 |
+| `gdp_real_qoq.IT` | output and demand | Q | percent change on the previous quarter | 1996-Q2 | 2026-Q2 | 121 | 0 |
+| `gdp_real_qoq.NL` | output and demand | Q | percent change on the previous quarter | 1996-Q2 | 2026-Q2 | 121 | 0 |
+| `gdp_real_qoq.PL` | output and demand | Q | percent change on the previous quarter | 1995-Q2 | 2026-Q2 | 125 | 0 |
+| `gdp_real_yoy.AT` | output and demand | Q | percent change on the same quarter of the previous year | 1996-Q1 | 2026-Q2 | 122 | 0 |
+| `gdp_real_yoy.DE` | output and demand | Q | percent change on the same quarter of the previous year | 1992-Q1 | 2026-Q2 | 138 | 0 |
+| `gdp_real_yoy.EA` | output and demand | Q | percent change on the same quarter of the previous year | 1996-Q1 | 2026-Q2 | 122 | 0 |
+| `gdp_real_yoy.ES` | output and demand | Q | percent change on the same quarter of the previous year | 1996-Q1 | 2026-Q2 | 122 | 0 |
+| `gdp_real_yoy.FR` | output and demand | Q | percent change on the same quarter of the previous year | 1981-Q1 | 2026-Q2 | 182 | 0 |
+| `gdp_real_yoy.IT` | output and demand | Q | percent change on the same quarter of the previous year | 1997-Q1 | 2026-Q2 | 118 | 0 |
+| `gdp_real_yoy.NL` | output and demand | Q | percent change on the same quarter of the previous year | 1997-Q1 | 2026-Q2 | 118 | 0 |
+| `gdp_real_yoy.PL` | output and demand | Q | percent change on the same quarter of the previous year | 1996-Q1 | 2026-Q2 | 122 | 0 |
+| `government_consumption_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `household_consumption_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `imports_real_qoq.DE` | output and demand | Q | percent change on the previous quarter | 1991-Q2 | 2026-Q2 | 141 | 0 |
+| `cpi_index.DE` | prices | M | index, 2020 = 100 | 1991-01 | 2026-09 | 429 | 0 |
+| `cpi_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1949-06 | 2026-09 | 928 | 0 |
+| `hicp_core_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_core_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | 2000-12 | 2026-09 | 310 | 0 |
+| `hicp_energy_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_energy_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_food_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_food_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_index.DE` | prices | M | index, 2025 = 100 | 1996-01 | 2026-09 | 369 | 0 |
+| `hicp_index.EA` | prices | M | index, 2025 = 100 | 1996-01 | 2026-09 | 369 | 0 |
+| `hicp_inflation_mom.DE` | prices | M | percent change on the previous month | 1996-02 | 2026-09 | 368 | 0 |
+| `hicp_inflation_mom.EA` | prices | M | percent change on the previous month | 1996-02 | 2026-09 | 368 | 0 |
+| `hicp_inflation_yoy.AT` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.ES` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.FR` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.IT` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.NL` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_inflation_yoy.PL` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_non_energy_goods_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_non_energy_goods_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | 2000-12 | 2026-09 | 310 | 0 |
+| `hicp_services_inflation_yoy.DE` | prices | M | percent change on the same month of the previous year | 1997-01 | 2026-09 | 357 | 0 |
+| `hicp_services_inflation_yoy.EA` | prices | M | percent change on the same month of the previous year | 2000-12 | 2026-09 | 310 | 0 |
+| `household_electricity_price.DE` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `household_electricity_price.EA` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `household_electricity_price.EU27_2020` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `household_electricity_price.FR` | prices | S | euro per kWh | 2007-S2 | 2026-S1 | 38 | 0 |
+| `household_electricity_price.IT` | prices | S | euro per kWh | 2008-S1 | 2026-S1 | 37 | 0 |
+| `household_gas_price.DE` | prices | S | euro per kWh | 2007-S2 | 2026-S1 | 38 | 0 |
+| `household_gas_price.EA` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `household_gas_price.EU27_2020` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `import_prices_energy_yoy.DE` | prices | M | percent change on the same month of the previous year | 1996-01 | 2026-08 | 368 | 0 |
+| `import_prices_yoy.DE` | prices | M | percent change on the same month of the previous year | 1963-01 | 2026-08 | 764 | 0 |
+| `industrial_electricity_price.DE` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `industrial_electricity_price.EA` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `industrial_electricity_price.EU27_2020` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `industrial_electricity_price.FR` | prices | S | euro per kWh | 2007-S2 | 2026-S1 | 38 | 0 |
+| `industrial_electricity_price.IT` | prices | S | euro per kWh | 2008-S1 | 2026-S1 | 37 | 0 |
+| `industrial_gas_price.DE` | prices | S | euro per kWh | 2007-S2 | 2026-S1 | 38 | 0 |
+| `industrial_gas_price.EA` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `industrial_gas_price.EU27_2020` | prices | S | euro per kWh | 2007-S1 | 2026-S1 | 39 | 0 |
+| `producer_prices_energy_yoy.DE` | prices | M | percent change on the same month of the previous year | 2001-01 | 2026-08 | 308 | 0 |
+| `producer_prices_index.DE` | prices | M | index, 2021 = 100 | 2000-01 | 2026-08 | 320 | 0 |
+| `producer_prices_yoy.DE` | prices | M | percent change on the same month of the previous year | 2001-01 | 2026-08 | 308 | 0 |
+| `producer_prices_yoy.EA` | prices | M | percent change on the same month of the previous year | 2001-01 | 2026-08 | 308 | 0 |
+| `automotive_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `basic_metals_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `capacity_utilization_industry.DE` | production and orders | Q | percent | 1980-Q1 | 2026-Q3 | 187 | 0 |
+| `capacity_utilization_industry.EA` | production and orders | Q | percent | 1980-Q1 | 2026-Q3 | 187 | 0 |
+| `chemicals_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `construction_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `construction_production_index.EA` | production and orders | M | index, 2021 = 100 | 1995-01 | 2026-08 | 380 | 0 |
+| `industrial_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `industrial_production_index.EA` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `industrial_production_index.FR` | production and orders | M | index, 2021 = 100 | 1990-01 | 2026-08 | 440 | 0 |
+| `industrial_production_index.IT` | production and orders | M | index, 2021 = 100 | 1990-01 | 2026-08 | 440 | 0 |
+| `machinery_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `manufacturing_new_orders_domestic_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `manufacturing_new_orders_ex_large_index.DE` | production and orders | M | index, 2021 = 100 | 2010-01 | 2026-08 | 200 | 0 |
+| `manufacturing_new_orders_foreign_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `manufacturing_new_orders_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `manufacturing_production_index.DE` | production and orders | M | index, 2021 = 100 | 1991-01 | 2026-08 | 428 | 0 |
+| `retail_sales_volume_index.DE` | production and orders | M | index, 2021 = 100 | 1994-01 | 2026-08 | 392 | 0 |
+| `retail_sales_volume_index.EA` | production and orders | M | index, 2021 = 100 | 2000-01 | 2026-08 | 320 | 0 |
+| `government_balance_ratio.DE` | public finances | Q | percent of GDP | 2002-Q1 | 2026-Q2 | 98 | 0 |
+| `government_balance_ratio.EA` | public finances | Q | percent of GDP | 2002-Q1 | 2026-Q2 | 98 | 0 |
+| `government_debt_ratio.DE` | public finances | Q | percent of GDP | 2000-Q1 | 2026-Q2 | 106 | 0 |
+| `government_debt_ratio.EA` | public finances | Q | percent of GDP | 2000-Q1 | 2026-Q2 | 106 | 0 |
+| `government_debt_ratio.FR` | public finances | Q | percent of GDP | 2000-Q1 | 2026-Q2 | 106 | 0 |
+| `government_debt_ratio.IT` | public finances | Q | percent of GDP | 2000-Q1 | 2026-Q2 | 106 | 0 |
+| `construction_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | 1980-01 | 2026-09 | 561 | 0 |
+| `consumer_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | 1985-01 | 2026-09 | 501 | 0 |
+| `consumer_confidence.EA` | sentiment and surveys | M | balance of positive and negative answers | 1985-01 | 2026-09 | 501 | 0 |
+| `consumer_price_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | 1985-01 | 2026-09 | 501 | 0 |
+| `consumer_price_expectations.EA` | sentiment and surveys | M | balance of positive and negative answers | 1985-01 | 2026-09 | 501 | 0 |
+| `consumer_unemployment_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | 1985-01 | 2026-09 | 501 | 0 |
+| `economic_sentiment_indicator.DE` | sentiment and surveys | M | index, long-term average = 100 | 1980-01 | 2026-09 | 561 | 0 |
+| `economic_sentiment_indicator.EA` | sentiment and surveys | M | index, long-term average = 100 | 1980-01 | 2026-09 | 561 | 0 |
+| `economic_sentiment_indicator.FR` | sentiment and surveys | M | index, long-term average = 100 | 1985-01 | 2026-09 | 501 | 0 |
+| `economic_sentiment_indicator.IT` | sentiment and surveys | M | index, long-term average = 100 | 1980-01 | 2026-09 | 560 | 0 |
+| `industry_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | 1980-01 | 2026-09 | 561 | 0 |
+| `industry_confidence.EA` | sentiment and surveys | M | balance of positive and negative answers | 1980-01 | 2026-09 | 561 | 0 |
+| `industry_employment_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | 1982-03 | 2026-09 | 457 | 0 |
+| `industry_production_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | 1980-01 | 2026-09 | 561 | 0 |
+| `industry_selling_price_expectations.DE` | sentiment and surveys | M | balance of positive and negative answers | 1980-01 | 2026-09 | 561 | 0 |
+| `industry_selling_price_expectations.EA` | sentiment and surveys | M | balance of positive and negative answers | 1980-01 | 2026-09 | 561 | 0 |
+| `retail_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | 1984-02 | 2026-09 | 512 | 0 |
+| `services_confidence.DE` | sentiment and surveys | M | balance of positive and negative answers | 1995-04 | 2026-09 | 378 | 0 |
+| `services_confidence.EA` | sentiment and surveys | M | balance of positive and negative answers | 1995-04 | 2026-09 | 378 | 0 |
+| `construction_limited_by_labour.DE` | shortages | M | percent of firms | 1991-01 | 2026-09 | 429 | 0 |
+| `construction_limited_by_material.DE` | shortages | M | percent of firms | 1991-01 | 2026-09 | 429 | 0 |
+| `industry_limited_by_demand.DE` | shortages | Q | percent of firms | 1982-Q2 | 2026-Q3 | 178 | 0 |
+| `industry_limited_by_financial_constraints.DE` | shortages | Q | percent of firms | 1982-Q2 | 2026-Q3 | 135 | 0 |
+| `industry_limited_by_labour.DE` | shortages | Q | percent of firms | 1982-Q2 | 2026-Q3 | 178 | 0 |
+| `industry_limited_by_labour.EA` | shortages | Q | percent of firms | 1982-Q3 | 2026-Q3 | 177 | 0 |
+| `industry_limited_by_material_equipment.DE` | shortages | Q | percent of firms | 1982-Q2 | 2026-Q3 | 178 | 0 |
+| `industry_limited_by_material_equipment.EA` | shortages | Q | percent of firms | 1982-Q3 | 2026-Q3 | 177 | 0 |
+| `industry_not_limited.DE` | shortages | Q | percent of firms | 1982-Q2 | 2026-Q3 | 178 | 0 |
+| `services_limited_by_labour.DE` | shortages | Q | percent of firms | 2003-Q3 | 2026-Q3 | 93 | 0 |
+| `services_limited_by_space_equipment.DE` | shortages | Q | percent of firms | 2003-Q3 | 2026-Q3 | 93 | 0 |
+| `goods_exports_value.DE` | trade | M | million euro | 2002-01 | 2026-08 | 296 | 0 |
+| `goods_imports_value.DE` | trade | M | million euro | 2002-01 | 2026-08 | 296 | 0 |
+| `goods_trade_balance.DE` | trade | M | million euro | 2002-01 | 2026-08 | 296 | 0 |
+| `labour_cost_index_yoy.DE` | wages and labour costs | Q | percent change on the same quarter of the previous year | 1997-Q1 | 2026-Q2 | 118 | 0 |
+| `labour_cost_index_yoy.EA` | wages and labour costs | Q | percent change on the same quarter of the previous year | 2009-Q1 | 2026-Q2 | 70 | 0 |
+| `negotiated_wages_index.DE` | wages and labour costs | M | index, 2020 = 100 | 1991-01 | 2026-08 | 428 | 0 |
 
 </details>
 
@@ -314,66 +323,82 @@ A dataset of the German economy for economic analysis and prediction. A pipeline
 
 - **Registered companies:** 110 (90 listed, 82 with headquarters in Germany)
 
+**Companies named most often, last 30 days**
+
+| Company | Annotated items |
+|---|---|
+| Volkswagen | 18 |
+| Alphabet | 6 |
+| Lufthansa | 6 |
+| BMW | 5 |
+| Nvidia | 4 |
+| RWE | 3 |
+| Tesla | 3 |
+| Münchener Rück | 2 |
+| Mercedes-Benz Group | 2 |
+| Deutsche Bahn | 2 |
+
 **Sources**
 
-- **News outlets:** 50 configured (50 active)
-- **Press-release sources:** 18 configured (18 active)
+- **News outlets:** 51 configured (50 active, 1 blocked)
+- **Press-release sources:** 18 configured (17 active, 1 blocked)
 
 <details>
 <summary>News outlets: items per source</summary>
 
 | Source | Type | Status | Items | Last 30 days | Annotated | With lead text | Latest publication |
 |---|---|---|---|---|---|---|---|
-| agrarzeitung | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| airliners.de | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Augsburger Allgemeine | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Automobilwoche | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Berliner Zeitung | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Bild | tabloid | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| BR24 | public broadcaster regional | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Börsen-Zeitung | business daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Capital | business magazine | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| CHEManager | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Der Spiegel | weekly magazine | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Der Tagesspiegel | national daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Deutsche Handwerks Zeitung | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Deutschlandfunk | public broadcaster national | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Die Welt | national daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| DWDL.de | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| ES&T | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| FinanzNachrichten.de | financial portal | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Focus Online | weekly magazine | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Freie Presse | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Hamburger Abendblatt | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Handelsblatt | business daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| hessenschau.de | public broadcaster regional | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Immobilien Zeitung | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Kölner Stadt-Anzeiger | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| manager magazin | business magazine | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| MDR | public broadcaster regional | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| n-tv.de | online only | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Neue Osnabrücker Zeitung | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| onvista | financial portal | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| pv magazine Deutschland | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| rbb24 | public broadcaster regional | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Rheinische Post | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Stern | weekly magazine | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Stuttgarter Zeitung | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Süddeutsche Zeitung | national daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| t-online | online only | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| t3n | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| tagesschau.de | public broadcaster national | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| taz | national daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| teltarif.de | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Thüringer Allgemeine | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| VDI nachrichten | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Versicherungswirtschaft heute | trade press | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| wallstreet-online | financial portal | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| WAZ | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| WDR | public broadcaster regional | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Weser-Kurier | regional daily | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| WirtschaftsWoche | business magazine | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| ZDFheute | public broadcaster national | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| agrarzeitung | trade press | active | 31 | 31 | 25.8% (8) | 0.0% (0) | 2026-10-25 |
+| airliners.de | trade press | active | 50 | 50 | 16.0% (8) | 0.0% (0) | 2026-10-25 |
+| Augsburger Allgemeine | regional daily | active | 16 | 16 | 50.0% (8) | 0.0% (0) | 2026-10-25 |
+| Automobilwoche | trade press | active | 20 | 20 | 40.0% (8) | 35.0% (7) | 2026-10-25 |
+| Berliner Zeitung | regional daily | active | 21 | 21 | 38.1% (8) | 38.1% (8) | 2026-10-25 |
+| Bild | tabloid | active | 2 | 2 | 100.0% (2) | 100.0% (2) | 2026-10-25 |
+| BR24 | public broadcaster regional | active | 17 | 17 | 52.9% (9) | 0.0% (0) | 2026-10-25 |
+| Börsen-Zeitung | business daily | active | 107 | 107 | 8.4% (9) | 8.4% (9) | 2026-10-25 |
+| Capital | business magazine | active | 20 | 20 | 45.0% (9) | 0.0% (0) | 2026-10-25 |
+| CHEManager | trade press | active | 3 | 3 | 100.0% (3) | 100.0% (3) | 2026-10-23 |
+| Der Spiegel | weekly magazine | active | 25 | 25 | 36.0% (9) | 0.0% (0) | 2026-10-25 |
+| Der Tagesspiegel | national daily | active | 70 | 70 | 12.9% (9) | 0.0% (0) | 2026-10-25 |
+| Deutsche Handwerks Zeitung | trade press | active | 12 | 12 | 66.7% (8) | 0.0% (0) | 2026-10-23 |
+| Deutschlandfunk | public broadcaster national | active | 2 | 2 | 100.0% (2) | 100.0% (2) | 2026-10-22 |
+| Die Welt | national daily | active | 186 | 186 | 4.8% (9) | 4.8% (9) | 2026-10-25 |
+| DWDL.de | trade press | active | 30 | 30 | 26.7% (8) | 26.7% (8) | 2026-10-25 |
+| ES&T | trade press | active | 6 | 6 | 100.0% (6) | 100.0% (6) | 2026-10-25 |
+| FinanzNachrichten.de | financial portal | active | 20 | 20 | 40.0% (8) | 40.0% (8) | 2026-10-24 |
+| Focus Online | weekly magazine | active | 42 | 42 | 21.4% (9) | 21.4% (9) | 2026-10-25 |
+| Freie Presse | regional daily | active | 8 | 8 | 100.0% (8) | 0.0% (0) | 2026-10-25 |
+| Hamburger Abendblatt | regional daily | active | 25 | 25 | 32.0% (8) | 16.0% (4) | 2026-10-25 |
+| Handelsblatt | business daily | active | 93 | 93 | 9.7% (9) | 9.7% (9) | 2026-10-25 |
+| hessenschau.de | public broadcaster regional | active | 5 | 5 | 100.0% (5) | 0.0% (0) | 2026-10-25 |
+| Immobilien Zeitung | trade press | blocked | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| Kölner Stadt-Anzeiger | regional daily | active | 6 | 6 | 100.0% (6) | 100.0% (6) | 2026-10-24 |
+| manager magazin | business magazine | active | 27 | 27 | 33.3% (9) | 0.0% (0) | 2026-10-25 |
+| MDR | public broadcaster regional | active | 2 | 2 | 100.0% (2) | 0.0% (0) | 2026-10-23 |
+| n-tv.de | online only | active | 30 | 30 | 26.7% (8) | 26.7% (8) | 2026-10-25 |
+| Neue Osnabrücker Zeitung | regional daily | active | 27 | 27 | 29.6% (8) | 0.0% (0) | 2026-10-25 |
+| onvista | financial portal | active | 23 | 23 | 34.8% (8) | 0.0% (0) | 2026-10-23 |
+| Pharmazeutische Zeitung | trade press | active | 30 | 30 | 26.7% (8) | 0.0% (0) | 2026-10-25 |
+| pv magazine Deutschland | trade press | active | 10 | 10 | 80.0% (8) | 0.0% (0) | 2026-10-23 |
+| rbb24 | public broadcaster regional | active | 6 | 6 | 100.0% (6) | 0.0% (0) | 2026-10-24 |
+| Rheinische Post | regional daily | active | 20 | 20 | 40.0% (8) | 0.0% (0) | 2026-10-25 |
+| Stern | weekly magazine | active | 20 | 20 | 45.0% (9) | 0.0% (0) | 2026-10-25 |
+| Stuttgarter Zeitung | regional daily | active | 27 | 27 | 29.6% (8) | 0.0% (0) | 2026-10-25 |
+| Süddeutsche Zeitung | national daily | active | 15 | 15 | 60.0% (9) | 0.0% (0) | 2026-10-25 |
+| t-online | online only | active | 12 | 12 | 66.7% (8) | 0.0% (0) | 2026-10-25 |
+| t3n | trade press | active | 20 | 20 | 40.0% (8) | 0.0% (0) | 2026-10-25 |
+| tagesschau.de | public broadcaster national | active | 29 | 29 | 31.0% (9) | 0.0% (0) | 2026-10-25 |
+| taz | national daily | active | 29 | 29 | 31.0% (9) | 0.0% (0) | 2026-10-25 |
+| teltarif.de | trade press | active | 20 | 20 | 40.0% (8) | 0.0% (0) | 2026-10-25 |
+| Thüringer Allgemeine | regional daily | active | 23 | 23 | 34.8% (8) | 4.3% (1) | 2026-10-25 |
+| VDI nachrichten | trade press | active | 1 | 1 | 100.0% (1) | 100.0% (1) | 2026-10-22 |
+| Versicherungswirtschaft heute | trade press | active | 13 | 13 | 61.5% (8) | 61.5% (8) | 2026-10-23 |
+| wallstreet-online | financial portal | active | 85 | 85 | 9.4% (8) | 9.4% (8) | 2026-10-25 |
+| WAZ | regional daily | active | 16 | 16 | 50.0% (8) | 6.2% (1) | 2026-10-25 |
+| WDR | public broadcaster regional | active | 17 | 17 | 52.9% (9) | 0.0% (0) | 2026-10-25 |
+| Weser-Kurier | regional daily | active | 21 | 21 | 38.1% (8) | 0.0% (0) | 2026-10-25 |
+| WirtschaftsWoche | business magazine | active | 50 | 50 | 18.0% (9) | 18.0% (9) | 2026-10-25 |
+| ZDFheute | public broadcaster national | active | 32 | 32 | 28.1% (9) | 21.9% (7) | 2026-10-25 |
 
 </details>
 
@@ -382,30 +407,276 @@ A dataset of the German economy for economic analysis and prediction. A pipeline
 
 | Source | Type | Status | Items | Last 30 days | Annotated | With lead text | Latest publication |
 |---|---|---|---|---|---|---|---|
-| BMW Group | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Bundesanstalt für Finanzdienstleistungsaufsicht | public agency | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| BMW Group | company | active | 2 | 2 | 100.0% (2) | 100.0% (2) | 2026-10-25 |
+| Bundesanstalt für Finanzdienstleistungsaufsicht | public agency | active | 5 | 5 | 100.0% (5) | 100.0% (5) | 2026-10-23 |
 | Continental | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Deutsche Bundesbank | central bank | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| Deutsche Bundesbank | central bank | active | 3 | 3 | 100.0% (3) | 0.0% (0) | 2026-10-23 |
 | Deutsche Telekom | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Deutscher Gewerkschaftsbund | trade union | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Europäische Zentralbank | central bank | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| Deutscher Gewerkschaftsbund | trade union | active | 5 | 5 | 100.0% (5) | 100.0% (5) | 2026-10-23 |
+| Europäische Zentralbank | central bank | active | 2 | 2 | 100.0% (2) | 100.0% (2) | 2026-10-24 |
 | Gesamtverband der Deutschen Versicherungswirtschaft | business association | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
 | Handelsverband Deutschland | business association | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
 | Henkel | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| ifo Institut | research institute | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Institut der deutschen Wirtschaft | research institute | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| ifo Institut | research institute | active | 4 | 4 | 100.0% (4) | 100.0% (4) | 2026-10-25 |
+| Institut der deutschen Wirtschaft | research institute | blocked | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
 | Institut für Arbeitsmarkt- und Berufsforschung | research institute | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Lufthansa Group | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| Lufthansa Group | company | active | 1 | 1 | 100.0% (1) | 100.0% (1) | 2026-10-23 |
 | RWI - Leibniz-Institut für Wirtschaftsforschung | research institute | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
 | Sachverständigenrat zur Begutachtung der gesamtwirtschaftlichen Entwicklung | research institute | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
 | thyssenkrupp | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Volkswagen Group | company | active | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
+| Volkswagen Group | company | active | 1 | 1 | 100.0% (1) | 100.0% (1) | 2026-10-23 |
 
 </details>
 
 **Annotations**
 
-- No news articles or press releases yet.
+- **Annotated items:** 400 of 1,445 (27.7%)
+- **Text seen by the model:** title_teaser 1,070, title_only 222, lead_text 153
+
+**Main topics of economic items, last 30 days** (318 items)
+
+| Topic | Items | Share |
+|---|---|---|
+| Corporate strategy and results | 89 | 28.0% |
+| Labour market and wages | 26 | 8.2% |
+| Public finances and taxes | 25 | 7.9% |
+| Financial markets | 24 | 7.5% |
+| Consumption and retail | 23 | 7.2% |
+| Energy | 22 | 6.9% |
+| Digital economy and technology | 20 | 6.3% |
+| Regulation and competition | 14 | 4.4% |
+| Real estate and construction | 12 | 3.8% |
+| Banking and insurance | 11 | 3.5% |
+
+**Fields** (Filled: records with a value that is not null and not empty)
+
+<details>
+<summary><code>economic_series</code>: 26 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (238) | 238 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (238) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (238) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (238) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (238) | 207 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (238) | 5 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (238) | 204 |
+| `license` | License or terms of the source. | 100.0% (238) | 5 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (238) | 1 |
+| `series_id` | Id of the series in the catalog. | 100.0% (238) | 238 |
+| `concept` | What the series measures, independent of the country. | 100.0% (238) | 156 |
+| `topic` | Topic group of the series. | 100.0% (238) | 18 |
+| `geo` | Country or area of the series. | 100.0% (238) | 10 |
+| `frequency` | Frequency of the periods. | 100.0% (238) | 5 |
+| `unit` | Unit of the values. | 100.0% (238) | 39 |
+| `provider` | Organization and interface the series is read from. | 100.0% (238) | 5 |
+| `provider_flow` | Dataset or dataflow of the provider. | 100.0% (238) | 43 |
+| `provider_key` | Key of the series at the provider. | 100.0% (238) | 238 |
+| `provider_title` | Title of the series as given by the provider, if the response contains one. | 34.0% (81) | 74 |
+| `original_source` | Original compiler of the data if the provider redistributes it, e.g. 'Statistisches Bundesamt' for a Bundesbank series. | 5.5% (13) | 7 |
+| `values` | Values by period (YYYY-MM-DD, YYYY-Www, YYYY-MM, YYYY-Qn, YYYY-Sn or YYYY). Revision 0 holds all periods of the series; a later revision only the periods that were added or whose value changed. | 100.0% (238) | 16,494 |
+| `removed_periods` | Periods whose value disappeared at the provider since the previous revision. | 0.0% (0) | 0 |
+| `first_period` | First period of the complete series after this revision. | 100.0% (238) | 68 |
+| `last_period` | Last period of the complete series after this revision. | 100.0% (238) | 13 |
+| `observations` | Number of periods of the complete series after this revision. | 100.0% (238) | 82 |
+| `source_updated` | Last update of the dataset at the provider (UTC), if the provider states it. | 74.8% (178) | 18 |
+
+</details>
+
+<details>
+<summary><code>series_catalog</code>: 22 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (238) | 238 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (238) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (238) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (238) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (238) | 1 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (238) | 1 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (238) | 1 |
+| `license` | License or terms of the source. | 100.0% (238) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (238) | 1 |
+| `series_id` | Stable id of the series: concept and geo, e.g. 'hicp_inflation_yoy.DE'. | 100.0% (238) | 238 |
+| `concept` | What the series measures, independent of the country, e.g. 'hicp_inflation_yoy'. | 100.0% (238) | 156 |
+| `name` | Name of the series. | 100.0% (238) | 156 |
+| `topic` | Topic group of the series. | 100.0% (238) | 18 |
+| `geo` | Country or area: Eurostat country code (DE, FR, ...), EA for the euro area (changing composition), EU27_2020, or WLD for world prices. | 100.0% (238) | 10 |
+| `frequency` | Frequency of the periods: D daily, W weekly, M monthly, Q quarterly, S half-yearly, A annual. | 100.0% (238) | 5 |
+| `unit` | Unit of the values, e.g. 'percent change on the same period of the previous year'. | 100.0% (238) | 39 |
+| `provider` | Organization and interface the series is read from. | 100.0% (238) | 5 |
+| `provider_flow` | Dataset or dataflow of the provider, e.g. 'prc_hicp_minr' or 'FM'. | 100.0% (238) | 43 |
+| `provider_key` | Key of the series at the provider, e.g. an SDMX series key. | 100.0% (238) | 238 |
+| `added` | Day on which the series was added to the catalog; start of collection. | 100.0% (238) | 1 |
+| `removed` | Day on which the series was removed from the catalog; end of collection. | 0.0% (0) | 0 |
+| `removed_reason` | Why the series was removed. | 0.0% (0) | 0 |
+
+</details>
+
+<details>
+<summary><code>news_items</code>: 30 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (1,422) | 1,422 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (1,422) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (1,422) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (1,422) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (1,422) | 115 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (1,422) | 50 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (1,422) | 1,422 |
+| `license` | License or terms of the source. | 100.0% (1,422) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (1,422) | 1 |
+| `outlet_id` | Id of the outlet. | 100.0% (1,422) | 50 |
+| `outlet_type` | Type of the outlet. | 100.0% (1,422) | 11 |
+| `owner_group` | Publisher group of the outlet, or 'public' for public broadcasters. | 100.0% (1,422) | 33 |
+| `home_state` | State of a regional outlet; null for national outlets. | 18.1% (257) | 10 |
+| `outlet_sector` | Sector of a trade press outlet; null for general outlets. | 17.3% (246) | 13 |
+| `channel` | Where the article was found: RSS/Atom feed or news sitemap. | 100.0% (1,422) | 2 |
+| `url` | URL of the article. | 100.0% (1,422) | 1,422 |
+| `canonical_url` | Canonical URL declared by the article page. | 10.5% (150) | 150 |
+| `title` | Title of the article. | 100.0% (1,422) | 1,368 |
+| `published_at` | Publication time (UTC). | 100.0% (1,422) | 1,215 |
+| `updated_at` | Last modification time from the article page (UTC). | 8.6% (123) | 112 |
+| `section` | Section of the outlet, from the page or the feed. | 56.0% (797) | 208 |
+| `feed_categories` | Categories of the item in the feed. | 54.4% (774) | 662 |
+| `keywords` | Keywords from the article page or the news sitemap. | 13.5% (192) | 613 |
+| `jsonld_type` | schema.org type of the article page, e.g. NewsArticle or OpinionNewsArticle. | 8.8% (125) | 4 |
+| `is_agency_copy` | True if the article is credited to a news agency (dpa, AFP, Reuters, epd, KNA, AP). Null without page data. | 8.8% (125) | 2 |
+| `author_count` | Number of named authors. Author names are not stored. Null without page data. | 8.8% (125) | 5 |
+| `word_count` | Word count from the article page. Null if not given. | 0.6% (8) | 8 |
+| `is_paywalled` | True if the page marks the article as not accessible for free. Null without page data. | 6.3% (89) | 2 |
+| `has_video` | True if the article page embeds a video. Null without page data. | 10.8% (154) | 2 |
+| `content_basis` | Text available for the annotation: title only, title and teaser, or lead text of the page. | 100.0% (1,422) | 3 |
+
+</details>
+
+<details>
+<summary><code>press_releases</code>: 19 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (23) | 23 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (23) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (23) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (23) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (23) | 20 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (23) | 8 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (23) | 23 |
+| `license` | License or terms of the source. | 100.0% (23) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (23) | 1 |
+| `press_source_id` | Id of the press source. | 100.0% (23) | 8 |
+| `actor_type` | Type of the issuing actor. | 100.0% (23) | 5 |
+| `company_id` | Registry id of an issuing company; null for other actors. | 17.4% (4) | 3 |
+| `jurisdiction` | Level of the issuer: DE, a state (ISO 3166-2), EU or INT. | 100.0% (23) | 2 |
+| `url` | URL of the press release. | 100.0% (23) | 23 |
+| `canonical_url` | Canonical URL declared by the page. | 100.0% (23) | 23 |
+| `title` | Title of the press release. | 100.0% (23) | 23 |
+| `published_at` | Publication time (UTC). | 82.6% (19) | 18 |
+| `feed_categories` | Categories of the item in the feed. | 26.1% (6) | 3 |
+| `content_basis` | Text available for the annotation. | 100.0% (23) | 2 |
+
+</details>
+
+<details>
+<summary><code>text_annotations</code>: 41 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (400) | 400 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (400) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (400) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (400) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (400) | 37 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (400) | 58 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (400) | 400 |
+| `license` | License or terms of the source. | 100.0% (400) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (400) | 1 |
+| `item_dataset` | Dataset of the annotated item. | 100.0% (400) | 2 |
+| `item_id` | record_id of the annotated item. | 100.0% (400) | 400 |
+| `model` | Gemini model that produced the labels. | 100.0% (400) | 1 |
+| `extraction_hash` | Hash of the prompt, response schema and model settings. Labels with the same hash were produced under the same conditions. | 100.0% (400) | 1 |
+| `content_basis` | Text the model saw: title only, title and teaser, or lead text. | 100.0% (400) | 3 |
+| `is_economic` | Whether the item is about the economy. | 100.0% (400) | 2 |
+| `topic` | Main economic topic. | 100.0% (400) | 19 |
+| `topics_secondary` | Further economic topics. | 43.0% (172) | 17 |
+| `issue_detail` | Specific issue in a few words. | 79.5% (318) | 286 |
+| `article_type` | Form of the item. | 100.0% (400) | 7 |
+| `sectors` | Sectors the item is mainly about. | 65.2% (261) | 24 |
+| `mentioned_companies` | Registry ids of the named companies that are in the company registry. | 14.8% (59) | 28 |
+| `company_roles` | Role of each resolved company, by registry id. | 14.8% (59) | 28 |
+| `company_tone` | Tone toward each resolved company, by registry id. | 14.8% (59) | 28 |
+| `other_companies` | Names of further companies that are not in the registry, as returned by the model. | 36.0% (144) | 162 |
+| `institutions` | Institutions that act, decide or comment. | 24.0% (96) | 19 |
+| `countries` | Countries the item is mainly about (ISO 3166-1 alpha-2). | 60.2% (241) | 33 |
+| `states_concerned` | German states the item is mainly about. | 15.8% (63) | 13 |
+| `event_types` | Types of economic events reported. | 59.5% (238) | 28 |
+| `event_status` | Stage of the main event. | 100.0% (400) | 4 |
+| `indicators` | Reported indicators with their reported direction. | 15.8% (63) | 17 |
+| `commodities` | Discussed commodities with the reported direction of their price. | 3.8% (15) | 7 |
+| `shortages` | Reported shortages. | 3.5% (14) | 6 |
+| `overall_tone` | Overall tone of the item. | 100.0% (400) | 4 |
+| `economic_outlook` | Expected development as stated in the item. | 100.0% (400) | 5 |
+| `mentions_uncertainty` | Whether the item refers to economic or economic policy uncertainty. | 100.0% (400) | 2 |
+| `mentions_recession` | Whether the item refers to a recession. | 100.0% (400) | 1 |
+| `policy_level` | Main level of economic policy addressed. | 100.0% (400) | 6 |
+| `government_involved` | Whether a government or its members act or are addressed. | 100.0% (400) | 2 |
+| `frame` | Dominant news frame (Semetko and Valkenburg). | 100.0% (400) | 6 |
+| `upcoming_events` | Future events with event_type and date (YYYY-MM-DD). | 1.0% (4) | 5 |
+| `communication_type` | Purpose of a press release; 'Not applicable' for news. | 100.0% (400) | 6 |
+
+</details>
+
+<details>
+<summary><code>companies</code>: 20 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (110) | 110 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (110) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (110) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (110) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (110) | 1 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (110) | 1 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (110) | 1 |
+| `license` | License or terms of the source. | 100.0% (110) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (110) | 1 |
+| `company_id` | Stable id of the company in the registry, e.g. 'volkswagen'. | 100.0% (110) | 110 |
+| `name` | Name of the company or corporate group. | 100.0% (110) | 110 |
+| `aliases` | Further names under which the annotation resolves the company, e.g. brands or former names. | 38.2% (42) | 57 |
+| `sector` | Main sector of the company. | 100.0% (110) | 24 |
+| `country` | Country of the headquarters (ISO 3166-1 alpha-2). | 100.0% (110) | 14 |
+| `listed` | Whether the shares of the company are listed on a stock exchange. | 100.0% (110) | 2 |
+| `isin` | ISIN of the main share line of a listed company. | 81.8% (90) | 90 |
+| `wikidata_qid` | Wikidata id of the company. | 100.0% (110) | 110 |
+| `added` | Day on which the company was added to the registry. | 100.0% (110) | 1 |
+| `removed` | Day on which the company was removed from the registry. | 0.0% (0) | 0 |
+| `removed_reason` | Why the company was removed. | 0.0% (0) | 0 |
+
+</details>
+
+<details>
+<summary><code>wikipedia_pageviews</code>: 14 fields</summary>
+
+| Field | Description | Filled | Distinct values |
+|---|---|---|---|
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (110) | 110 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (110) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (110) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (110) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (110) | 35 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (110) | 1 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (110) | 110 |
+| `license` | License or terms of the source. | 100.0% (110) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (110) | 1 |
+| `company_id` | Id of the company in the registry. | 100.0% (110) | 110 |
+| `wikipedia_project` | Wikipedia edition, de.wikipedia. | 100.0% (110) | 1 |
+| `wikipedia_title` | Title of the article at the time of the request. | 100.0% (110) | 110 |
+| `wikidata_qid` | Wikidata id from which the article was resolved. | 100.0% (110) | 110 |
+| `daily_views` | Views by human users per day (UTC), for the days since the previous record. | 100.0% (110) | 4,134 |
+
+</details>
 <!-- DATASET_OVERVIEW_END -->
 
 ## Datasets

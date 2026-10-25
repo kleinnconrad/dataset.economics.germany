@@ -1,0 +1,14 @@
+{
+"version": 1,
+"collectors": {
+"bundesbank": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"commodities": {"consecutive_failures": 0, "cursor": {"etag": null, "last_modified": "Fri, 02 Oct 2026 18:57:55 GMT", "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx"}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"companies": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"ecb": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"electricity": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"eurostat": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"feeds": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"series_catalog": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"},
+"wikipedia_pageviews": {"consecutive_failures": 0, "cursor": {}, "first_run": "2026-10-25", "last_complete": "2026-10-25T15:41:08Z", "last_error": null, "last_run": "2026-10-25T15:41:08Z", "last_success": "2026-10-25T15:41:08Z"}
+}
+}
