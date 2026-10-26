@@ -4,6 +4,7 @@
 A dataset of the German economy for economic analysis and prediction. A pipeline in GitHub Actions runs twice a week (Tuesdays and Fridays) for at most 30 minutes. It collects statistical series (GDP, prices and inflation, interest rates, commodity prices, electricity, labour market, production, surveys including shortages), the public attention to large companies, and the economic news of German outlets and the press releases of economic institutions and companies. It labels the news and press releases with Google Gemini (`gemini-2.5-flash`) and stores everything as partitioned JSON files in this repository. Statistical series are stored as vintages, so that every past state of a revised series can be reconstructed.
 
 ## Table of Contents
+- [Variable Overview](#variable-overview)
 - [Dataset Overview](#dataset-overview)
 - [Datasets](#datasets)
   - [Statistical Series and Vintages](#statistical-series-and-vintages)
@@ -20,6 +21,86 @@ A dataset of the German economy for economic analysis and prediction. A pipeline
 - [Continuous Integration](#continuous-integration)
 - [Setup](#setup)
 - [Sources and Attribution](#sources-and-attribution)
+
+## Variable Overview
+
+The table lists the variables that carry content and the dataset (table) that stores them. Statistical series are grouped by topic: every concept of a topic is stored per country or area as a series `<concept>.<geo>` in `economic_series`, with its values by period in the field `values`; the example names a series, a period, the value and the unit. All series are listed in the [Dataset Overview](#dataset-overview) and in [config/series.toml](config/series.toml). Not listed are the fields that every record has, the series catalog, ids that link the datasets, keys of the providers, URLs, external identifiers (ISIN, Wikidata), coverage dates and the bookkeeping of revisions and annotations; all fields are in the [Data Model](#data-model).
+
+| Variable | Table | Description | Example |
+|---|---|---|---|
+| Series of topic `output_and_demand` | `economic_series` | GDP (real change on the previous quarter and year, real and nominal level), household and government consumption, fixed investment, exports and imports; quarterly; GDP growth for DE, EA, FR, IT, ES, NL, PL and AT | `gdp_real_qoq.DE` 2026-Q2: `0.3` (percent change on the previous quarter) |
+| Series of topic `production_and_orders` | `economic_series` | Production in industry, manufacturing (total, automotive, chemicals, machinery, basic metals) and construction, manufacturing new orders (domestic, foreign, without large orders), retail sales volume; monthly; capacity utilization in industry, quarterly | `industrial_production_index.DE` 2026-08: `90.7` (index, 2021 = 100) |
+| Series of topic `high_frequency_activity` | `economic_series` | Truck toll mileage index (daily) and weekly activity index of the Bundesbank | `weekly_activity_index.DE` 2026-W42: `0.1967` (percent) |
+| Series of topic `prices` | `economic_series` | HICP (headline, core, energy, food, services, non-energy goods) and national CPI, producer and import prices, electricity and gas prices for households and industry; monthly, energy prices half-yearly | `hicp_inflation_yoy.DE` 2026-09: `3.3` (percent change on the same month of the previous year) |
+| Series of topic `wages_and_labour_costs` | `economic_series` | Index of negotiated wages (monthly), change of the labour cost index (quarterly) | `negotiated_wages_index.DE` 2026-08: `113.7` (index, 2020 = 100) |
+| Series of topic `labour_market` | `economic_series` | Registered unemployed, registered unemployment rate and vacancies, short-time workers, employment, unemployment rate (ILO) total and of young people, job vacancy rate | `unemployment_rate.DE` 2026-08: `4.0` (percent of the labour force) |
+| Series of topic `interest_rates` | `economic_series` | ECB key rates, euro short-term rate, Euribor, yields of AAA euro area and German Federal securities (2 to 30 years), long-term interest rates, rates of new mortgage and corporate loans, expected real rate | `bund_yield_10y.DE` 2026-10-23: `3.39` (percent per annum) |
+| Series of topic `money_and_credit` | `economic_series` | Growth of the money supply M3 and of loans to non-financial corporations | `m3_growth.EA` 2026-08: `3.489572442704003` (percent change on the same month of the previous year) |
+| Series of topic `exchange_rates` | `economic_series` | ECB reference rates of the euro against the US dollar, yuan renminbi, pound sterling, Swiss franc and yen; daily | `eur_usd.EA` 2026-10-23: `1.1193` (US dollar per euro) |
+| Series of topic `financial_stress` | `economic_series` | Composite Indicator of Systemic Stress (CISS) of the ECB; daily | `systemic_stress_index.DE` 2026-10-22: `0.032584226541109484` (index, 0 to 1) |
+| Series of topic `public_finances` | `economic_series` | Government debt and government balance in percent of GDP; quarterly | `government_debt_ratio.DE` 2026-Q2: `63.4` (percent of GDP) |
+| Series of topic `trade` | `economic_series` | Value of goods exports and imports and the trade balance; monthly | `goods_trade_balance.DE` 2026-08: `18629.4` (million euro) |
+| Series of topic `sentiment_and_surveys` | `economic_series` | Economic sentiment indicator, confidence of industry, services, retail, construction and consumers, expectations of firms and consumers on production, prices, employment and unemployment; monthly | `consumer_confidence.DE` 2026-09: `-14.5` (balance of positive and negative answers) |
+| Series of topic `shortages` | `economic_series` | Share of firms in industry, services and construction whose activity is limited by material or equipment, labour, demand or financial constraints | `industry_limited_by_labour.DE` 2026-Q3: `16.4` (percent of firms) |
+| Series of topic `housing` | `economic_series` | House price index and its change on the previous year; quarterly | `house_prices_yoy.DE` 2026-Q2: `0.6` (percent change on the same quarter of the previous year) |
+| Series of topic `business_demography` | `economic_series` | Indices of bankruptcy declarations and business registrations; monthly | `bankruptcy_declarations_index.DE` 2026-07: `197.5` (index, 2021 = 100) |
+| Series of topic `commodities` | `economic_series` | World prices of energy, metals, agricultural products and fertilizers and the commodity price indices of the World Bank; monthly | `brent_crude_oil_price.WLD` 2026-09: `116.8` (US dollar per barrel) |
+| Series of topic `energy` | `economic_series` | German electricity market: day-ahead price, grid load, residual load and generation by energy source; daily | `day_ahead_power_price.DE` 2026-10-24: `30.12` (euro per MWh) |
+| `name` | `companies` | Name of the company or corporate group | `Commerzbank` |
+| `sector` | `companies` | Main sector of the company | `Automotive` |
+| `country` | `companies` | Country of the headquarters (ISO 3166-1 alpha-2) | `DE` |
+| `listed` | `companies` | Shares listed on a stock exchange | `true` |
+| `daily_views` | `wikipedia_pageviews` | Views by people per day of the German Wikipedia article of a company of the registry | `{"2026-10-23": 402, "2026-10-24": 446}` |
+| `outlet_id` | `news_items` | Outlet that published the article | `handelsblatt` |
+| `outlet_type` | `news_items` | Type of the outlet | `business_daily` |
+| `owner_group` | `news_items` | Publisher group of the outlet, or `public` | `Axel Springer` |
+| `home_state` | `news_items` | State of a regional outlet (ISO 3166-2) | `DE-NW` |
+| `outlet_sector` | `news_items` | Sector of a trade publication | `Aviation` |
+| `title` | `news_items` | Title of the article | `Verdi ruft bundesweit zu Warnstreiks bei privaten Banken auf` |
+| `published_at` | `news_items` | Publication time (UTC) | `2026-10-22T07:00:00Z` |
+| `updated_at` | `news_items` | Last modification time (UTC) | `2026-10-25T11:14:29Z` |
+| `section` | `news_items` | Section of the outlet | `Wirtschaft` |
+| `feed_categories` | `news_items` | Categories of the item in the feed | `["Wirtschaft"]` |
+| `keywords` | `news_items` | Keywords of the article page or news sitemap | `["Pflegereform", "Pflegeversicherung", "Pflege"]` |
+| `jsonld_type` | `news_items` | schema.org type of the page, e.g. news or opinion | `NewsArticle` |
+| `is_agency_copy` | `news_items` | Credited to a news agency | `false` |
+| `author_count` | `news_items` | Number of named authors (names are not stored) | `1` |
+| `word_count` | `news_items` | Word count of the article | `848` |
+| `is_paywalled` | `news_items` | Not accessible for free | `true` |
+| `has_video` | `news_items` | Page embeds a video | `false` |
+| `press_source_id` | `press_releases` | Institution, association, union or company that issued the release | `bundesbank` |
+| `actor_type` | `press_releases` | Type of the issuer | `central_bank` |
+| `jurisdiction` | `press_releases` | Level of the issuer: DE, a state, EU or INT | `DE` |
+| `title` | `press_releases` | Title of the release | `Ergebnisse der EZB-Umfrage zu den Verbrauchererwartungen: September 2026` |
+| `published_at` | `press_releases` | Publication time (UTC) | `2026-10-22T07:40:00Z` |
+| `feed_categories` | `press_releases` | Categories of the item in the feed | `["Tarifmeldung"]` |
+| `is_economic` | `text_annotations` | Item is about the economy | `true` |
+| `topic` | `text_annotations` | Main economic topic | `Corporate strategy and results` |
+| `topics_secondary` | `text_annotations` | Up to two further topics | `["Industry and manufacturing"]` |
+| `issue_detail` | `text_annotations` | Specific issue in a few words | `Hafen-Finanzierung` |
+| `article_type` | `text_annotations` | Form of the item: news, opinion, interview, analysis and others | `News` |
+| `sectors` | `text_annotations` | Sectors the item is mainly about | `["Automotive"]` |
+| `mentioned_companies` | `text_annotations` | Registry ids of the named companies | `["volkswagen"]` |
+| `company_roles` | `text_annotations` | Role of each named company: subject, affected or commentator | `{"volkswagen": "Subject"}` |
+| `company_tone` | `text_annotations` | Tone toward each named company | `{"volkswagen": "Negative"}` |
+| `other_companies` | `text_annotations` | Named companies that are not in the registry | `["Ryanair"]` |
+| `institutions` | `text_annotations` | Institutions that act, decide or comment | `["Federal government"]` |
+| `countries` | `text_annotations` | Countries the item is mainly about (ISO 3166-1 alpha-2) | `["US", "DE"]` |
+| `states_concerned` | `text_annotations` | German states the item is mainly about | `["DE-NW"]` |
+| `event_types` | `text_annotations` | Economic events reported | `["Investment or expansion"]` |
+| `event_status` | `text_annotations` | Stage of the main event | `Announced or planned` |
+| `indicators` | `text_annotations` | Reported indicators with their direction | `{"Energy prices": "Rising"}` |
+| `commodities` | `text_annotations` | Discussed commodities with the direction of their price | `{"Electricity": "Rising", "Natural gas": "Rising"}` |
+| `shortages` | `text_annotations` | Reported shortages | `["Skilled workers"]` |
+| `overall_tone` | `text_annotations` | Overall tone of the item | `Negative` |
+| `economic_outlook` | `text_annotations` | Expected development as stated in the item | `Deteriorating` |
+| `mentions_uncertainty` | `text_annotations` | Economic or economic policy uncertainty mentioned | `false` |
+| `mentions_recession` | `text_annotations` | Recession mentioned | `false` |
+| `policy_level` | `text_annotations` | Main level of economic policy addressed | `Federal` |
+| `government_involved` | `text_annotations` | A government or its members act or are addressed | `true` |
+| `frame` | `text_annotations` | Dominant news frame (Semetko and Valkenburg) | `Economic consequences` |
+| `upcoming_events` | `text_annotations` | Future events with type and date | `[{"date": "2026-10-27", "event_type": "Earnings report"}]` |
+| `communication_type` | `text_annotations` | Purpose of a press release; `Not applicable` for news | `Statistical release` |
 
 ## Dataset Overview
 <!-- DATASET_OVERVIEW_START -->
