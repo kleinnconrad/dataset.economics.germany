@@ -1,16 +1,19 @@
-"""Checks that the data model diagram and the example records of the README match the schema.
+"""Checks that the data model diagram, the example records and the variable overview of the README match the schema.
 
-The entity relationship diagram lists every field of every dataset, and the
-README shows one example record per dataset. These tests fail when a field
-is added, renamed or removed in ``schema.py`` without updating the README.
+The entity relationship diagram lists every field of every dataset, the
+README shows one example record per dataset, and the variable overview names
+fields of the datasets and the topics of the series. These tests fail when a
+field is added, renamed or removed in ``schema.py`` without updating the
+README.
 """
 import json
 import re
 from pathlib import Path
+from typing import get_args
 
 import pytest
 
-from schema import DATASET_MODELS, RecordBase
+from schema import DATASET_MODELS, RecordBase, SeriesTopic
 
 README = Path(__file__).resolve().parents[1] / "README.md"
 COMMON_ENTITY = "common_fields"
@@ -82,3 +85,33 @@ def test_example_record_validates_against_its_model(dataset: str) -> None:
     examples = example_records(_readme())
     assert len(examples.get(dataset, [])) == 1, f"README needs exactly one example of {dataset}"
     DATASET_MODELS[dataset].model_validate(examples[dataset][0])
+
+
+def variable_overview_rows(text: str) -> list[tuple[str, str]]:
+    """Returns the variable and the dataset of every row of the variable overview of the README.
+
+    Args:
+        text: The README.
+
+    Returns:
+        list[tuple[str, str]]: Text of the variable cell and dataset name, in table order.
+    """
+    section = text.split("## Variable Overview", 1)[1].split("\n## ", 1)[0]
+    return re.findall(r"^\| (.+?) \| `(\w+)` \|", section, flags=re.MULTILINE)
+
+
+def test_variable_overview_names_content_fields_of_the_datasets() -> None:
+    rows = [(variable, dataset) for variable, dataset in variable_overview_rows(_readme())
+            if not variable.startswith("Series of topic")]
+    assert rows
+    for variable, dataset in rows:
+        name = variable.strip("`")
+        assert name in DATASET_MODELS[dataset].model_fields, (variable, dataset)
+        assert name not in RecordBase.model_fields, (variable, dataset)
+
+
+def test_variable_overview_lists_every_series_topic() -> None:
+    rows = variable_overview_rows(_readme())
+    topics = [re.fullmatch(r"Series of topic `(\w+)`", variable).group(1) for variable, dataset in rows
+              if variable.startswith("Series of topic") and dataset == "economic_series"]
+    assert topics == list(get_args(SeriesTopic))
