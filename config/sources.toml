@@ -546,6 +546,8 @@ paywall_model = "mixed"
 feeds = ["https://www.iz.de/news/feed/", "https://www.iz.de/news/feed/unternehmen/", "https://www.iz.de/news/feed/maerkte/"]
 fetch_pages = false
 added = 2026-10-25
+removed = 2026-11-01
+removed_reason = "blocked since 2026-10-25: blocked (HTTP 403): https://www.iz.de/news/feed/"
 
 # feeds: 514 h; news sitemap: none; robots.txt states a TDM reservation (§ 44b UrhG) in natural language, therefore fetch_pages = false
 [[outlet]]
@@ -733,6 +735,8 @@ jurisdiction = "DE"
 feeds = ["https://www.iwkoeln.de/rss/arbeitsmarkt.xml", "https://www.iwkoeln.de/rss/einkommen-und-vermoegen.xml", "https://www.iwkoeln.de/rss/immobilienmaerkte.xml"]
 fetch_pages = true
 added = 2026-10-25
+removed = 2026-11-01
+removed_reason = "blocked since 2026-10-25: blocked (HTTP 403): https://www.iwkoeln.de/rss/immobilienmaerkte.xml"
 
 # feeds: 50298 h; the publication feed has no dates and is omitted
 [[press_source]]
@@ -872,6 +876,65 @@ jurisdiction = "DE"
 feeds = ["https://www.volkswagen-group.com/de/feeds/pressemitteilungen"]
 fetch_pages = true
 added = 2026-10-25
+
+# source review 2026-11-01: 45 items in the last 60 days
+[[press_source]]
+id = "wupperinst"
+name = "Wuppertal Institut für Klima, Umwelt, Energie"
+homepage = "https://wupperinst.org"
+actor_type = "research_institute"
+jurisdiction = "DE"
+feeds = ["http://wupperinst.org/rss_news.php", "http://wupperinst.org/rss_news_en.php", "http://wupperinst.org/rss_termine.php"]
+fetch_pages = true
+added = 2026-11-01
+
+# source review 2026-11-01: 20 items in the last 60 days
+[[press_source]]
+id = "alphabet_press"
+name = "Alphabet"
+homepage = "https://blog.google/"
+actor_type = "company"
+company_id = "alphabet"
+jurisdiction = "INT"
+feeds = ["https://blog.google/rss/"]
+fetch_pages = true
+added = 2026-11-01
+
+# source review 2026-11-01: 10 items in the last 60 days; robots.txt crawl-delay 10 s
+[[press_source]]
+id = "amazon_press"
+name = "Amazon"
+homepage = "https://aboutamazon.com/news"
+actor_type = "company"
+company_id = "amazon"
+jurisdiction = "INT"
+feeds = ["https://www.aboutamazon.com/rss/feed.rss"]
+fetch_pages = true
+added = 2026-11-01
+
+# source review 2026-11-01: 40 items in the last 60 days
+[[press_source]]
+id = "apple_press"
+name = "Apple"
+homepage = "https://www.apple.com/newsroom/"
+actor_type = "company"
+company_id = "apple"
+jurisdiction = "INT"
+feeds = ["https://www.apple.com/newsroom/rss-feed.rss", "https://www.apple.com/newsroom/rss-feed.rss"]
+fetch_pages = true
+added = 2026-11-01
+
+# source review 2026-11-01: 40 items in the last 60 days
+[[press_source]]
+id = "nvidia_press"
+name = "Nvidia"
+homepage = "https://nvidianews.nvidia.com/"
+actor_type = "company"
+company_id = "nvidia"
+jurisdiction = "INT"
+feeds = ["https://nvidianews.nvidia.com/releases.xml", "https://nvidianews.nvidia.com/rss.xml"]
+fetch_pages = true
+added = 2026-11-01
 
 # Candidates that were checked and not admitted.
 
@@ -1119,9 +1182,9 @@ kind = "press_source"
 actor_type = "public_agency"
 jurisdiction = "DE"
 feeds = ["https://www.bundeskartellamt.de/DE/Service/RSS/_documents/rssnewsfeed.xml"]
-status = "robots"
-reason = "the feeds are disallowed by robots.txt"
-checked = 2026-10-25
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
 
 [[excluded]]
 id = "bmwe"
@@ -1316,3 +1379,255 @@ jurisdiction = "DE"
 status = "robots"
 reason = "the newsroom is disallowed by robots.txt"
 checked = 2026-10-25
+
+[[excluded]]
+id = "bmwk"
+name = "Bundesministerium für Wirtschaft und Klimaschutz"
+homepage = "https://www.bmwk.de"
+kind = "press_source"
+actor_type = "federal_ministry"
+jurisdiction = "DE"
+status = "duplicate"
+reason = "homepage redirects to bundeswirtschaftsministerium.de, which is in the list"
+checked = 2026-11-01
+
+[[excluded]]
+id = "bitkom"
+name = "Bitkom"
+homepage = "https://www.bitkom.org"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.bitkom.org/rss/presseinformationen.xml"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "verdi"
+name = "ver.di (Vereinte Dienstleistungsgewerkschaft)"
+homepage = "https://www.verdi.de"
+kind = "press_source"
+actor_type = "trade_union"
+jurisdiction = "DE"
+feeds = ["https://www.verdi.de/++file++535695034151390000/index.rss"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "bpi"
+name = "Bundesverband der Pharmazeutischen Industrie (BPI)"
+homepage = "https://www.bpi.de"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.bpi.de/presse/medienmitteilungen/rss.xml"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "btw"
+name = "Bundesverband der Deutschen Tourismuswirtschaft (BTW)"
+homepage = "https://www.btw.de"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.btw.de/presse/pressemeldungen/feed/"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "bauernverband"
+name = "Deutscher Bauernverband (DBV)"
+homepage = "https://www.bauernverband.de"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.bauernverband.de/presse/pressemitteilungen?format=rss"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "vci"
+name = "Verband der Chemischen Industrie (VCI)"
+homepage = "https://www.vci.de"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.vci.de/presse/pressemitteilungen.jsp?format=rss"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "bdl"
+name = "Bundesverband der Deutschen Luftverkehrswirtschaft (BDL)"
+homepage = "https://www.bdl.aero"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.bdl.aero/de/presse/pressemitteilungen/feed/"]
+status = "inactive"
+reason = "no feed with recent items"
+checked = 2026-11-01
+
+[[excluded]]
+id = "vdma"
+name = "Verband Deutscher Maschinen- und Anlagenbau (VDMA)"
+homepage = "https://www.vdma.org"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.vdma.org/press/-/article/rss/pressemitteilungen"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "baustoffindustrie"
+name = "Bundesverband Baustoffe – Steine und Erden (BBS)"
+homepage = "https://www.baustoffindustrie.de"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.baustoffindustrie.de/presse/pressemitteilungen/rss.xml"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "dihk"
+name = "Deutscher Industrie- und Handelskammertag (DIHK)"
+homepage = "https://www.dihk.de"
+kind = "press_source"
+actor_type = "business_association"
+jurisdiction = "DE"
+feeds = ["https://www.dihk.de/de/presse/pressemitteilungen.rss"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "igbce"
+name = "IG BCE (Industriegewerkschaft Bergbau, Chemie, Energie)"
+homepage = "https://www.igbce.de"
+kind = "press_source"
+actor_type = "trade_union"
+jurisdiction = "DE"
+feeds = ["https://www.igbce.de/presse/pressemitteilungen?type=rss"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "microsoft_press"
+name = "Microsoft"
+homepage = "https://news.microsoft.com/"
+kind = "press_source"
+actor_type = "company"
+company_id = "microsoft"
+jurisdiction = "INT"
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-11-01
+
+[[excluded]]
+id = "porsche_ag_press"
+name = "Porsche"
+homepage = "https://newsroom.porsche.com/"
+kind = "press_source"
+actor_type = "company"
+company_id = "porsche_ag"
+jurisdiction = "DE"
+feeds = ["https://newsroom.porsche.com/rss/en/feed.rss"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "goldseiten"
+name = "GoldSeiten.de"
+homepage = "https://www.goldseiten.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "GoldSeiten.de"
+sector = "Mining and raw materials"
+paywall_model = "free"
+feeds = ["https://www.goldseiten.de/rss/news.xml"]
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-11-01
+
+[[excluded]]
+id = "elektropraktiker"
+name = "Elektropraktiker"
+homepage = "https://www.elektropraktiker.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Hüthig GmbH"
+sector = "Electrical and electronics"
+paywall_model = "mixed"
+feeds = ["https://www.elektropraktiker.de/rss/news/", "https://www.elektropraktiker.de/rss/fachartikel/", "https://www.elektropraktiker.de/rss/produkte/"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
+
+[[excluded]]
+id = "de"
+name = "InsideEVs.de"
+homepage = "https://de.insideevs.com/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Motorsport Network"
+sector = "Electrical and electronics"
+paywall_model = "free"
+feeds = ["https://de.insideevs.com/rss/all/", "https://de.insideevs.com/rss/news/", "https://de.insideevs.com/rss/reviews/", "https://de.insideevs.com/rss/features/", "https://de.insideevs.com/rss/videos/"]
+status = "blocked"
+reason = "homepage blocked (HTTP 403)"
+checked = 2026-11-01
+
+[[excluded]]
+id = "ar_profilstahl"
+name = "A+R Profilstahl (BranchenNews)"
+homepage = "https://www.ar-profilstahl.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Allgeier und Rösch GmbH"
+sector = "Metals and steel"
+paywall_model = "free"
+feeds = ["https://www.ar-profilstahl.de/feed/"]
+status = "inactive"
+reason = "no feed with recent items"
+checked = 2026-11-01
+
+[[excluded]]
+id = "springerprofessional"
+name = "Springer Professional (Maschinenbau + Werkstoffe)"
+homepage = "https://www.springerprofessional.de/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Springer Nature"
+sector = "Metals and steel"
+paywall_model = "mixed"
+feeds = ["https://www.springerprofessional.de/maschinenbau-werkstoffe/rss"]
+status = "tdm_reserved"
+reason = "TDM reservation (tdmrep.json)"
+checked = 2026-11-01
+
+[[excluded]]
+id = "dasinvestment"
+name = "DAS INVESTMENT.COM (Immobilien)"
+homepage = "https://www.dasinvestment.com/"
+kind = "outlet"
+outlet_type = "trade_press"
+owner_group = "Fonds & Friends Verlagsgesellschaft mbH"
+sector = "Real estate"
+paywall_model = "mixed"
+feeds = ["https://www.dasinvestment.com/rss/immobilien/"]
+status = "no_feed"
+reason = "no readable feed found"
+checked = 2026-11-01
