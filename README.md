@@ -1,7 +1,7 @@
 # German Economics Dataset
 [![CI](https://github.com/kleinnconrad/dataset.economics.germany/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kleinnconrad/dataset.economics.germany/actions/workflows/ci.yml)
 
-A dataset of the German economy for economic analysis and prediction. A pipeline in GitHub Actions runs twice a week (Tuesdays and Fridays) for at most 30 minutes. It collects statistical series (GDP, prices and inflation, interest rates, commodity prices, electricity, labour market, production, surveys including shortages), the public attention to large companies, and the economic news of German outlets and the press releases of economic institutions and companies. It labels the news and press releases with Google Gemini (`gemini-2.5-flash`) and stores everything as partitioned JSON files in this repository. Statistical series are stored as vintages, so that every past state of a revised series can be reconstructed.
+A dataset of the German economy for economic analysis and prediction. A pipeline in GitHub Actions runs twice a week (Tuesdays and Fridays) for at most 30 minutes. It collects statistical series (GDP, prices and inflation, interest rates, commodity prices, electricity, labour market, production, surveys including shortages), the public attention to large companies, and the economic news of German outlets and the press releases of economic institutions and companies. It labels the news and press releases with Google Gemini (`gemini-3.5-flash-lite`) and stores everything as partitioned JSON files in this repository. Statistical series are stored as vintages, so that every past state of a revised series can be reconstructed.
 
 ## Table of Contents
 - [Variable Overview](#variable-overview)
@@ -1391,7 +1391,7 @@ The input `collectors` restricts a manual run to a comma-separated list of colle
 | Variable | Default | Purpose |
 |---|---|---|
 | `GEMINI_API_KEY` | none | Gemini API key (required for the annotation of news and press releases and for the search of the source review) |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | Model for the annotation; stored in every annotation record |
+| `GEMINI_MODEL` | `gemini-3.5-flash-lite` | Model for the annotation and the search of the source review; stored in every annotation record. A Gemini 3 or later model: the requests set a thinking level, which Gemini 2.5 models reject |
 | `MAX_GEMINI_CALLS_PER_RUN` | 50 | Gemini requests per run, including retries |
 | `MAX_ANNOTATIONS_PER_RUN` | 400 | News articles and press releases annotated per run; further new items are stored without labels |
 | `GEMINI_CONCURRENCY` | 4 | Gemini requests sent at the same time; 1 for the free tier of the Gemini API |
