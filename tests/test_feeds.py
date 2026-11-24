@@ -202,6 +202,20 @@ def test_blocked_source_is_marked_and_skipped(fake_web, make_ctx) -> None:
     assert read_dataset(ctx.settings.output_dir, "press_releases") == []
 
 
+def test_page_with_a_redirect_loop_is_stored_without_the_page(fake_web, make_ctx) -> None:
+    setup_sources(fake_web)
+    fake_web.add("https://news.example/panorama/strategie.html", "", status=302,
+                 headers={"location": "https://news.example/panorama/strategie.html"})
+    ctx = make_ctx()
+
+    result = collector(FakeAnnotator()).collect(ctx, CollectorEntry(first_run=ctx.today))
+
+    news = read_dataset(ctx.settings.output_dir, "news_items")
+    strategy = next(item for item in news if item["title"].startswith("Ministerin"))
+    assert strategy["content_basis"] == "title_only"
+    assert result.counters["annotated"] == 4 and result.error is None and result.complete
+
+
 def test_tdm_reservation_excludes_the_source(fake_web, make_ctx) -> None:
     setup_sources(fake_web)
     fake_web.add("https://news.example/.well-known/tdmrep.json", [{"location": "/", "tdm-reservation": 1}])
