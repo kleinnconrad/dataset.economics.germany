@@ -396,12 +396,13 @@ class WebClient:
 
         Raises:
             FetchError: If the robots.txt cannot be fetched because of a server or network error;
-                RFC 9309 then requires to assume that everything is disallowed.
+                RFC 9309 then requires to assume that everything is disallowed. A redirect loop
+                is treated the same way.
         """
         url = f"{host}/robots.txt"
         try:
             response = self._send(url, None, None, timeout_s=RULES_TIMEOUT_S)
-        except httpx.TransportError as e:
+        except httpx.RequestError as e:
             raise FetchError(url, f"robots.txt unreachable ({e.__class__.__name__})") from e
         if response.status_code >= 500:
             raise FetchError(url, "robots.txt returned a server error", response.status_code)
@@ -472,7 +473,7 @@ class WebClient:
         url = f"{host}/.well-known/tdmrep.json"
         try:
             response = self._send(url, None, None, timeout_s=RULES_TIMEOUT_S)
-        except httpx.TransportError:
+        except httpx.RequestError:
             return []
         if response.status_code != 200:
             return []
@@ -549,6 +550,9 @@ class WebClient:
                     attempt += 1
                     continue
                 raise FetchError(url, f"network error ({e.__class__.__name__})") from e
+            except httpx.RequestError as e:
+                # Redirect loops and undecodable bodies; a retry would get the same result
+                raise FetchError(url, f"request failed ({e.__class__.__name__})") from e
             response_headers = {key.lower(): value for key, value in raw.headers.items()}
             if is_rate_limited(raw.status_code, response_headers):
                 # An exhausted quota (remaining 0) resets only after up to an hour; retrying would not help

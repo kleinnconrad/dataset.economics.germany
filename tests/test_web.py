@@ -125,6 +125,29 @@ def test_network_errors_become_fetch_errors(fake_web) -> None:
         fake_web.client().get(PAGE)
 
 
+def test_redirect_loops_become_fetch_errors_without_retry(fake_web) -> None:
+    fake_web.add(PAGE, "", status=302, headers={"location": "https://site.example/loop"})
+    fake_web.add("https://site.example/loop", "", status=302, headers={"location": PAGE})
+    client = fake_web.client()
+
+    with pytest.raises(FetchError) as excinfo:
+        client.get(PAGE)
+
+    assert type(excinfo.value) is FetchError and "TooManyRedirects" in excinfo.value.reason
+    # One chain: the first request and the 20 redirects that httpx follows
+    assert len([url for url in fake_web.requested if not url.endswith("/robots.txt")]) == 21
+
+
+def test_redirect_loop_of_robots_txt_counts_as_unreachable(fake_web) -> None:
+    fake_web.add("https://site.example/robots.txt", "", status=301,
+                 headers={"location": "https://site.example/robots.txt"})
+
+    with pytest.raises(FetchError):
+        fake_web.client().get(PAGE)
+
+    assert PAGE not in fake_web.requested
+
+
 def test_robots_txt_sitemaps_and_tdm_statements_are_read() -> None:
     robots = parse_robots("# Text and data mining is reserved\nUser-agent: *\nDisallow: /a\n"
                           "Sitemap: https://site.example/sitemap.xml\nSitemap: https://site.example/sitemap.xml\n")
