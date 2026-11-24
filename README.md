@@ -104,30 +104,30 @@ The table lists the variables that carry content and the dataset (table) that st
 
 ## Dataset Overview
 <!-- DATASET_OVERVIEW_START -->
-**Last updated:** 2026-11-20 08:39 UTC
+**Last updated:** 2026-11-24 11:01 UTC
 
 | Dataset | Records | Items | Files | Observed | Content |
 |---|---|---|---|---|---|
-| `economic_series` | 657 | 238 | 9 | 2026-10-25 to 2026-11-20 | A vintage of a statistical series: all values at the first observation, then the added, revised and removed periods. |
+| `economic_series` | 686 | 238 | 10 | 2026-10-25 to 2026-11-24 | A vintage of a statistical series: all values at the first observation, then the added, revised and removed periods. |
 | `series_catalog` | 238 | 238 | 1 | 2026-10-25 to 2026-10-25 | An entry of the series catalog, recorded when it appears or changes. |
-| `news_items` | 14,173 | 14,173 | 9 | 2026-10-25 to 2026-11-20 | Metadata of one news article. The text is not stored. |
-| `press_releases` | 600 | 600 | 9 | 2026-10-25 to 2026-11-20 | Metadata of one press release. The text is not stored. |
-| `text_annotations` | 3,597 | 3,597 | 9 | 2026-10-25 to 2026-11-20 | Gemini labels of one news article or press release. |
+| `news_items` | 14,432 | 14,432 | 10 | 2026-10-25 to 2026-11-24 | Metadata of one news article. The text is not stored. |
+| `press_releases` | 641 | 641 | 10 | 2026-10-25 to 2026-11-24 | Metadata of one press release. The text is not stored. |
+| `text_annotations` | 3,897 | 3,897 | 10 | 2026-10-25 to 2026-11-24 | Gemini labels of one news article or press release. |
 | `companies` | 110 | 110 | 1 | 2026-10-25 to 2026-10-25 | An entry of the company registry, recorded when it appears or changes. |
-| `wikipedia_pageviews` | 440 | 440 | 4 | 2026-10-25 to 2026-11-17 | Daily views of the German Wikipedia article of a registered company. |
+| `wikipedia_pageviews` | 550 | 550 | 5 | 2026-10-25 to 2026-11-24 | Daily views of the German Wikipedia article of a registered company. |
 
 **Runs**
 
-- **Latest run:** 2026-11-20 08:27 UTC (normal)
-  - `bundesbank`: ok (economic_series 8)
-  - `commodities`: not_due
+- **Latest run:** 2026-11-24 10:51 UTC (normal)
+  - `bundesbank`: ok (economic_series 5)
+  - `commodities`: ok
   - `companies`: ok
   - `ecb`: ok (economic_series 10)
   - `electricity`: ok (economic_series 14)
-  - `eurostat`: ok (economic_series 15)
-  - `feeds`: ok (news_items 1,776, press_releases 104, text_annotations 400)
+  - `eurostat`: ok
+  - `feeds`: failed (news_items 259, press_releases 41, text_annotations 300); TooManyRedirects: Exceeded maximum allowed redirects.
   - `series_catalog`: ok
-  - `wikipedia_pageviews`: not_due
+  - `wikipedia_pageviews`: ok (wikipedia_pageviews 110)
 
 **Statistical series**
 
@@ -175,36 +175,36 @@ The table lists the variables that carry content and the dataset (table) that st
 | `urea_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-10 | 802 | 1 |
 | `wheat_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-10 | 802 | 1 |
 | `zinc_price.WLD` | commodities | M | US dollar per metric ton | 1960-01 | 2026-10 | 802 | 1 |
-| `day_ahead_power_price.DE` | energy | D | euro per MWh | 2018-10-01 | 2026-11-19 | 2,972 | 8 |
-| `grid_load.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_biomass.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_hard_coal.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_hydro.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_lignite.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_natural_gas.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_other_conventional.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_other_renewable.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,340 | 8 |
-| `power_generation_pumped_storage.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,337 | 8 |
-| `power_generation_solar.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_wind_offshore.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `power_generation_wind_onshore.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `residual_load.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-19 | 4,341 | 8 |
-| `eur_chf.EA` | exchange rates | D | Swiss franc per euro | 1999-01-04 | 2026-11-19 | 7,140 | 8 |
-| `eur_cny.EA` | exchange rates | D | yuan renminbi per euro | 2000-01-13 | 2026-11-19 | 6,873 | 8 |
-| `eur_gbp.EA` | exchange rates | D | pound sterling per euro | 1999-01-04 | 2026-11-19 | 7,140 | 8 |
-| `eur_jpy.EA` | exchange rates | D | yen per euro | 1999-01-04 | 2026-11-19 | 7,140 | 8 |
-| `eur_usd.EA` | exchange rates | D | US dollar per euro | 1999-01-04 | 2026-11-19 | 7,140 | 8 |
-| `systemic_stress_index.DE` | financial stress | D | index (0 to 1) | 1980-01-04 | 2026-11-18 | 12,231 | 8 |
-| `systemic_stress_index.EA` | financial stress | D | index (0 to 1) | 1980-01-03 | 2026-11-18 | 12,238 | 8 |
+| `day_ahead_power_price.DE` | energy | D | euro per MWh | 2018-10-01 | 2026-11-23 | 2,974 | 9 |
+| `grid_load.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_biomass.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_hard_coal.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_hydro.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_lignite.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_natural_gas.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_other_conventional.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_other_renewable.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,343 | 9 |
+| `power_generation_pumped_storage.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,340 | 9 |
+| `power_generation_solar.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_wind_offshore.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `power_generation_wind_onshore.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `residual_load.DE` | energy | D | MWh per day | 2015-01-01 | 2026-11-22 | 4,344 | 9 |
+| `eur_chf.EA` | exchange rates | D | Swiss franc per euro | 1999-01-04 | 2026-11-23 | 7,142 | 9 |
+| `eur_cny.EA` | exchange rates | D | yuan renminbi per euro | 2000-01-13 | 2026-11-23 | 6,875 | 9 |
+| `eur_gbp.EA` | exchange rates | D | pound sterling per euro | 1999-01-04 | 2026-11-23 | 7,142 | 9 |
+| `eur_jpy.EA` | exchange rates | D | yen per euro | 1999-01-04 | 2026-11-23 | 7,142 | 9 |
+| `eur_usd.EA` | exchange rates | D | US dollar per euro | 1999-01-04 | 2026-11-23 | 7,142 | 9 |
+| `systemic_stress_index.DE` | financial stress | D | index (0 to 1) | 1980-01-04 | 2026-11-20 | 12,233 | 9 |
+| `systemic_stress_index.EA` | financial stress | D | index (0 to 1) | 1980-01-03 | 2026-11-20 | 12,240 | 9 |
 | `truck_toll_mileage_index.DE` | high frequency activity | D | index, 2021 = 100 | 2008-01-01 | 2026-11-14 | 6,893 | 4 |
-| `weekly_activity_index.DE` | high frequency activity | W | percent | 2004-W27 | 2026-W46 | 1,168 | 4 |
+| `weekly_activity_index.DE` | high frequency activity | W | percent | 2004-W27 | 2026-W47 | 1,169 | 5 |
 | `house_price_index.DE` | housing | Q | index, 2015 = 100 | 2005-Q1 | 2026-Q2 | 86 | 0 |
 | `house_prices_yoy.DE` | housing | Q | percent change on the same quarter of the previous year | 2006-Q1 | 2026-Q2 | 82 | 0 |
 | `house_prices_yoy.EA` | housing | Q | percent change on the same quarter of the previous year | 2006-Q1 | 2026-Q2 | 82 | 0 |
-| `bund_yield_10y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-11-19 | 7,435 | 8 |
-| `bund_yield_2y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-11-19 | 7,435 | 8 |
-| `bund_yield_30y.DE` | interest rates | D | percent per annum | 2000-08-01 | 2026-11-19 | 6,683 | 8 |
-| `bund_yield_5y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-11-19 | 7,435 | 8 |
+| `bund_yield_10y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-11-23 | 7,437 | 9 |
+| `bund_yield_2y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-11-23 | 7,437 | 9 |
+| `bund_yield_30y.DE` | interest rates | D | percent per annum | 2000-08-01 | 2026-11-23 | 6,685 | 9 |
+| `bund_yield_5y.DE` | interest rates | D | percent per annum | 1997-08-07 | 2026-11-23 | 7,437 | 9 |
 | `corporate_loan_rate_new_business.DE` | interest rates | M | percent per annum | 2000-01 | 2026-09 | 321 | 1 |
 | `corporate_loan_rate_new_business.EA` | interest rates | M | percent per annum | 2000-01 | 2026-09 | 321 | 1 |
 | `ecb_deposit_facility_rate.EA` | interest rates | D | percent per annum | 1999-01-01 | 2026-09-16 | 69 | 0 |
@@ -212,9 +212,9 @@ The table lists the variables that carry content and the dataset (table) that st
 | `ecb_marginal_lending_rate.EA` | interest rates | D | percent per annum | 1999-01-01 | 2026-09-16 | 69 | 0 |
 | `euribor_12m.EA` | interest rates | M | percent per annum | 1994-01 | 2026-10 | 394 | 1 |
 | `euribor_3m.EA` | interest rates | M | percent per annum | 1994-01 | 2026-10 | 394 | 1 |
-| `euro_area_aaa_yield_10y.EA` | interest rates | D | percent per annum | 2004-09-06 | 2026-11-18 | 5,677 | 8 |
-| `euro_area_aaa_yield_2y.EA` | interest rates | D | percent per annum | 2004-09-06 | 2026-11-18 | 5,677 | 8 |
-| `euro_short_term_rate.EA` | interest rates | D | percent per annum | 2019-10-01 | 2026-11-19 | 1,829 | 8 |
+| `euro_area_aaa_yield_10y.EA` | interest rates | D | percent per annum | 2004-09-06 | 2026-11-20 | 5,679 | 9 |
+| `euro_area_aaa_yield_2y.EA` | interest rates | D | percent per annum | 2004-09-06 | 2026-11-20 | 5,679 | 9 |
+| `euro_short_term_rate.EA` | interest rates | D | percent per annum | 2019-10-01 | 2026-11-23 | 1,831 | 9 |
 | `expected_real_rate_10y.DE` | interest rates | M | percent per annum | 1989-10 | 2026-11 | 446 | 1 |
 | `long_term_interest_rate.DE` | interest rates | M | percent per annum | 1990-01 | 2026-10 | 442 | 1 |
 | `long_term_interest_rate.ES` | interest rates | M | percent per annum | 1991-11 | 2026-10 | 420 | 1 |
@@ -408,15 +408,15 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Company | Annotated items |
 |---|---|
-| Nvidia | 152 |
-| Alphabet | 112 |
-| Volkswagen | 106 |
-| Lufthansa | 67 |
-| Amazon | 61 |
-| Microsoft | 42 |
+| Nvidia | 186 |
+| Alphabet | 121 |
+| Volkswagen | 119 |
+| Lufthansa | 76 |
+| Amazon | 67 |
+| Microsoft | 46 |
+| Mercedes-Benz Group | 41 |
+| Deutsche Bank | 41 |
 | Apple | 40 |
-| Mercedes-Benz Group | 39 |
-| Deutsche Bank | 39 |
 | Deutsche Telekom | 36 |
 
 **Sources**
@@ -429,57 +429,57 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Source | Type | Status | Items | Last 30 days | Annotated | With lead text | Latest publication |
 |---|---|---|---|---|---|---|---|
-| agrarzeitung | trade press | active | 250 | 250 | 24.0% (60) | 0.0% (0) | 2026-11-20 |
-| airliners.de | trade press | active | 435 | 435 | 14.5% (63) | 1.4% (6) | 2026-11-20 |
-| Augsburger Allgemeine | regional daily | active | 167 | 167 | 37.7% (63) | 0.0% (0) | 2026-11-20 |
-| Automobilwoche | trade press | active | 220 | 220 | 28.6% (63) | 28.2% (62) | 2026-11-20 |
-| Berliner Zeitung | regional daily | active | 169 | 169 | 36.7% (62) | 36.7% (62) | 2026-11-20 |
-| Bild | tabloid | active | 53 | 53 | 83.0% (44) | 83.0% (44) | 2026-11-19 |
-| BR24 | public broadcaster regional | active | 181 | 181 | 36.5% (66) | 0.0% (0) | 2026-11-20 |
-| Börsen-Zeitung | business daily | active | 1,009 | 1,009 | 6.7% (68) | 6.7% (68) | 2026-11-20 |
-| Capital | business magazine | active | 178 | 178 | 36.0% (64) | 0.0% (0) | 2026-11-20 |
-| CHEManager | trade press | active | 63 | 63 | 76.2% (48) | 76.2% (48) | 2026-11-19 |
-| Der Spiegel | weekly magazine | active | 240 | 240 | 26.7% (64) | 0.0% (0) | 2026-11-20 |
-| Der Tagesspiegel | national daily | active | 551 | 551 | 12.3% (68) | 0.0% (0) | 2026-11-20 |
-| Deutsche Handwerks Zeitung | trade press | active | 129 | 129 | 47.3% (61) | 0.0% (0) | 2026-11-20 |
-| Deutschlandfunk | public broadcaster national | active | 9 | 9 | 100.0% (9) | 100.0% (9) | 2026-11-14 |
-| Die Welt | national daily | active | 2,049 | 2,049 | 3.4% (69) | 3.2% (66) | 2026-11-20 |
-| DWDL.de | trade press | active | 250 | 250 | 24.4% (61) | 24.4% (61) | 2026-11-20 |
-| ES&T | trade press | active | 54 | 54 | 100.0% (54) | 100.0% (54) | 2026-11-20 |
-| FinanzNachrichten.de | financial portal | active | 180 | 180 | 35.0% (63) | 35.0% (63) | 2026-11-20 |
-| Focus Online | weekly magazine | active | 436 | 436 | 14.7% (64) | 14.7% (64) | 2026-11-20 |
-| Freie Presse | regional daily | active | 89 | 89 | 70.8% (63) | 0.0% (0) | 2026-11-20 |
-| Hamburger Abendblatt | regional daily | active | 294 | 294 | 20.4% (60) | 8.8% (26) | 2026-11-20 |
-| Handelsblatt | business daily | active | 1,357 | 1,357 | 5.0% (68) | 4.9% (67) | 2026-11-20 |
-| hessenschau.de | public broadcaster regional | active | 53 | 53 | 88.7% (47) | 0.0% (0) | 2026-11-19 |
+| agrarzeitung | trade press | active | 255 | 255 | 25.5% (65) | 0.0% (0) | 2026-11-24 |
+| airliners.de | trade press | active | 440 | 440 | 15.5% (68) | 2.5% (11) | 2026-11-24 |
+| Augsburger Allgemeine | regional daily | active | 172 | 172 | 39.5% (68) | 0.0% (0) | 2026-11-24 |
+| Automobilwoche | trade press | active | 225 | 225 | 30.2% (68) | 29.8% (67) | 2026-11-24 |
+| Berliner Zeitung | regional daily | active | 174 | 174 | 38.5% (67) | 38.5% (67) | 2026-11-24 |
+| Bild | tabloid | active | 54 | 54 | 83.3% (45) | 83.3% (45) | 2026-11-21 |
+| BR24 | public broadcaster regional | active | 187 | 187 | 38.5% (72) | 0.0% (0) | 2026-11-24 |
+| Börsen-Zeitung | business daily | active | 1,015 | 1,015 | 7.3% (74) | 7.3% (74) | 2026-11-24 |
+| Capital | business magazine | active | 184 | 184 | 38.0% (70) | 0.0% (0) | 2026-11-24 |
+| CHEManager | trade press | active | 68 | 68 | 77.9% (53) | 77.9% (53) | 2026-11-23 |
+| Der Spiegel | weekly magazine | active | 246 | 246 | 28.5% (70) | 0.0% (0) | 2026-11-24 |
+| Der Tagesspiegel | national daily | active | 557 | 557 | 13.3% (74) | 0.0% (0) | 2026-11-24 |
+| Deutsche Handwerks Zeitung | trade press | active | 134 | 134 | 49.3% (66) | 0.0% (0) | 2026-11-24 |
+| Deutschlandfunk | public broadcaster national | active | 10 | 10 | 100.0% (10) | 100.0% (10) | 2026-11-23 |
+| Die Welt | national daily | active | 2,055 | 2,055 | 3.6% (75) | 3.5% (72) | 2026-11-24 |
+| DWDL.de | trade press | active | 255 | 255 | 25.9% (66) | 25.9% (66) | 2026-11-24 |
+| ES&T | trade press | active | 59 | 59 | 100.0% (59) | 100.0% (59) | 2026-11-24 |
+| FinanzNachrichten.de | financial portal | active | 185 | 185 | 36.8% (68) | 36.8% (68) | 2026-11-24 |
+| Focus Online | weekly magazine | active | 442 | 442 | 15.8% (70) | 15.8% (70) | 2026-11-24 |
+| Freie Presse | regional daily | active | 94 | 94 | 72.3% (68) | 0.0% (0) | 2026-11-24 |
+| Hamburger Abendblatt | regional daily | active | 299 | 299 | 21.7% (65) | 9.4% (28) | 2026-11-24 |
+| Handelsblatt | business daily | active | 1,363 | 1,363 | 5.4% (74) | 5.4% (73) | 2026-11-24 |
+| hessenschau.de | public broadcaster regional | active | 59 | 59 | 89.8% (53) | 0.0% (0) | 2026-11-24 |
 | Immobilien Zeitung | trade press | removed | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Kölner Stadt-Anzeiger | regional daily | active | 111 | 111 | 54.1% (60) | 54.1% (60) | 2026-11-20 |
-| manager magazin | business magazine | active | 249 | 249 | 26.5% (66) | 0.0% (0) | 2026-11-20 |
-| MDR | public broadcaster regional | active | 37 | 37 | 97.3% (36) | 0.0% (0) | 2026-11-20 |
-| n-tv.de | online only | active | 253 | 253 | 24.9% (63) | 24.9% (63) | 2026-11-20 |
-| Neue Osnabrücker Zeitung | regional daily | active | 242 | 242 | 26.0% (63) | 0.0% (0) | 2026-11-20 |
-| onvista | financial portal | active | 342 | 342 | 18.4% (63) | 0.0% (0) | 2026-11-20 |
-| Pharmazeutische Zeitung | trade press | active | 227 | 227 | 23.3% (53) | 0.0% (0) | 2026-11-20 |
-| pv magazine Deutschland | trade press | active | 87 | 87 | 70.1% (61) | 23.0% (20) | 2026-11-20 |
-| rbb24 | public broadcaster regional | active | 66 | 66 | 72.7% (48) | 0.0% (0) | 2026-11-19 |
-| Rheinische Post | regional daily | active | 172 | 172 | 36.6% (63) | 0.0% (0) | 2026-11-20 |
-| Stern | weekly magazine | active | 180 | 180 | 35.6% (64) | 0.0% (0) | 2026-11-20 |
-| Stuttgarter Zeitung | regional daily | active | 356 | 356 | 17.7% (63) | 0.0% (0) | 2026-11-20 |
-| Süddeutsche Zeitung | national daily | active | 134 | 134 | 51.5% (69) | 0.0% (0) | 2026-11-20 |
-| t-online | online only | active | 107 | 107 | 58.9% (63) | 0.0% (0) | 2026-11-20 |
-| t3n | trade press | active | 180 | 180 | 35.0% (63) | 0.0% (0) | 2026-11-20 |
-| tagesschau.de | public broadcaster national | active | 219 | 219 | 31.5% (69) | 0.0% (0) | 2026-11-20 |
-| taz | national daily | active | 233 | 233 | 28.3% (66) | 0.0% (0) | 2026-11-20 |
-| teltarif.de | trade press | active | 180 | 180 | 33.3% (60) | 0.0% (0) | 2026-11-20 |
-| Thüringer Allgemeine | regional daily | active | 231 | 231 | 27.3% (63) | 3.5% (8) | 2026-11-20 |
-| VDI nachrichten | trade press | active | 44 | 44 | 93.2% (41) | 93.2% (41) | 2026-11-20 |
-| Versicherungswirtschaft heute | trade press | active | 151 | 151 | 41.1% (62) | 41.1% (62) | 2026-11-19 |
-| wallstreet-online | financial portal | active | 780 | 780 | 8.1% (63) | 8.1% (63) | 2026-11-20 |
-| WAZ | regional daily | active | 192 | 192 | 32.8% (63) | 3.6% (7) | 2026-11-20 |
-| WDR | public broadcaster regional | active | 140 | 140 | 48.6% (68) | 0.0% (0) | 2026-11-20 |
-| Weser-Kurier | regional daily | active | 158 | 158 | 36.1% (57) | 0.0% (0) | 2026-11-17 |
-| WirtschaftsWoche | business magazine | active | 415 | 415 | 15.9% (66) | 15.9% (66) | 2026-11-20 |
-| ZDFheute | public broadcaster national | active | 271 | 271 | 25.5% (69) | 21.8% (59) | 2026-11-20 |
+| Kölner Stadt-Anzeiger | regional daily | active | 116 | 116 | 56.0% (65) | 56.0% (65) | 2026-11-24 |
+| manager magazin | business magazine | active | 255 | 255 | 28.2% (72) | 0.0% (0) | 2026-11-24 |
+| MDR | public broadcaster regional | active | 43 | 43 | 97.7% (42) | 0.0% (0) | 2026-11-24 |
+| n-tv.de | online only | active | 259 | 259 | 26.6% (69) | 26.6% (69) | 2026-11-24 |
+| Neue Osnabrücker Zeitung | regional daily | active | 247 | 247 | 27.5% (68) | 0.0% (0) | 2026-11-24 |
+| onvista | financial portal | active | 347 | 347 | 19.6% (68) | 0.0% (0) | 2026-11-24 |
+| Pharmazeutische Zeitung | trade press | active | 232 | 232 | 25.0% (58) | 0.0% (0) | 2026-11-24 |
+| pv magazine Deutschland | trade press | active | 92 | 92 | 71.7% (66) | 27.2% (25) | 2026-11-24 |
+| rbb24 | public broadcaster regional | active | 72 | 72 | 75.0% (54) | 0.0% (0) | 2026-11-24 |
+| Rheinische Post | regional daily | active | 177 | 177 | 38.4% (68) | 0.0% (0) | 2026-11-24 |
+| Stern | weekly magazine | active | 186 | 186 | 37.6% (70) | 0.0% (0) | 2026-11-24 |
+| Stuttgarter Zeitung | regional daily | active | 361 | 361 | 18.8% (68) | 0.0% (0) | 2026-11-24 |
+| Süddeutsche Zeitung | national daily | active | 140 | 140 | 53.6% (75) | 0.0% (0) | 2026-11-24 |
+| t-online | online only | active | 113 | 113 | 61.1% (69) | 0.0% (0) | 2026-11-24 |
+| t3n | trade press | active | 185 | 185 | 36.8% (68) | 0.0% (0) | 2026-11-24 |
+| tagesschau.de | public broadcaster national | active | 225 | 225 | 33.3% (75) | 0.0% (0) | 2026-11-24 |
+| taz | national daily | active | 239 | 239 | 30.1% (72) | 0.0% (0) | 2026-11-24 |
+| teltarif.de | trade press | active | 185 | 185 | 35.1% (65) | 0.0% (0) | 2026-11-24 |
+| Thüringer Allgemeine | regional daily | active | 236 | 236 | 28.8% (68) | 3.8% (9) | 2026-11-24 |
+| VDI nachrichten | trade press | active | 45 | 45 | 93.3% (42) | 93.3% (42) | 2026-11-20 |
+| Versicherungswirtschaft heute | trade press | active | 156 | 156 | 42.9% (67) | 42.9% (67) | 2026-11-24 |
+| wallstreet-online | financial portal | active | 785 | 785 | 8.7% (68) | 8.7% (68) | 2026-11-24 |
+| WAZ | regional daily | active | 197 | 197 | 34.5% (68) | 4.1% (8) | 2026-11-24 |
+| WDR | public broadcaster regional | active | 146 | 146 | 50.7% (74) | 0.0% (0) | 2026-11-24 |
+| Weser-Kurier | regional daily | active | 163 | 163 | 38.0% (62) | 0.0% (0) | 2026-11-24 |
+| WirtschaftsWoche | business magazine | active | 421 | 421 | 17.1% (72) | 17.1% (72) | 2026-11-24 |
+| ZDFheute | public broadcaster national | active | 277 | 277 | 27.1% (75) | 23.5% (65) | 2026-11-24 |
 
 </details>
 
@@ -488,51 +488,51 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Source | Type | Status | Items | Last 30 days | Annotated | With lead text | Latest publication |
 |---|---|---|---|---|---|---|---|
-| Alphabet | company | active | 78 | 78 | 100.0% (78) | 100.0% (78) | 2026-11-19 |
-| Amazon | company | active | 39 | 39 | 100.0% (39) | 97.4% (38) | 2026-11-19 |
+| Alphabet | company | active | 83 | 83 | 100.0% (83) | 100.0% (83) | 2026-11-24 |
+| Amazon | company | active | 43 | 43 | 100.0% (43) | 95.3% (41) | 2026-11-24 |
 | Apple | company | active | 11 | 11 | 100.0% (11) | 100.0% (11) | 2026-11-19 |
 | BMW Group | company | broken | 2 | 2 | 100.0% (2) | 100.0% (2) | 2026-10-25 |
-| Bundesanstalt für Finanzdienstleistungsaufsicht | public agency | active | 91 | 91 | 100.0% (91) | 100.0% (91) | 2026-11-20 |
+| Bundesanstalt für Finanzdienstleistungsaufsicht | public agency | active | 96 | 96 | 100.0% (96) | 100.0% (96) | 2026-11-24 |
 | Continental | company | active | 5 | 5 | 100.0% (5) | 100.0% (5) | 2026-11-19 |
-| Deutsche Bundesbank | central bank | active | 90 | 90 | 100.0% (90) | 30.0% (27) | 2026-11-19 |
+| Deutsche Bundesbank | central bank | active | 95 | 95 | 100.0% (95) | 28.4% (27) | 2026-11-24 |
 | Deutsche Telekom | company | active | 21 | 21 | 100.0% (21) | 0.0% (0) | 2026-11-19 |
-| Deutscher Gewerkschaftsbund | trade union | active | 45 | 45 | 100.0% (45) | 100.0% (45) | 2026-11-20 |
-| Europäische Zentralbank | central bank | active | 26 | 26 | 100.0% (26) | 92.3% (24) | 2026-11-18 |
-| Gesamtverband der Deutschen Versicherungswirtschaft | business association | active | 21 | 21 | 100.0% (21) | 100.0% (21) | 2026-11-19 |
-| Handelsverband Deutschland | business association | active | 21 | 21 | 100.0% (21) | 100.0% (21) | 2026-11-19 |
-| Henkel | company | active | 9 | 9 | 100.0% (9) | 100.0% (9) | 2026-11-11 |
-| ifo Institut | research institute | active | 26 | 26 | 100.0% (26) | 100.0% (26) | 2026-11-20 |
+| Deutscher Gewerkschaftsbund | trade union | active | 47 | 47 | 100.0% (47) | 100.0% (47) | 2026-11-23 |
+| Europäische Zentralbank | central bank | active | 28 | 28 | 100.0% (28) | 89.3% (25) | 2026-11-23 |
+| Gesamtverband der Deutschen Versicherungswirtschaft | business association | active | 24 | 24 | 100.0% (24) | 100.0% (24) | 2026-11-24 |
+| Handelsverband Deutschland | business association | active | 22 | 22 | 100.0% (22) | 100.0% (22) | 2026-11-24 |
+| Henkel | company | active | 10 | 10 | 100.0% (10) | 100.0% (10) | 2026-11-23 |
+| ifo Institut | research institute | active | 28 | 28 | 100.0% (28) | 100.0% (28) | 2026-11-24 |
 | Institut der deutschen Wirtschaft | research institute | removed | 0 | 0 | 0.0% (0) | 0.0% (0) | none |
-| Institut für Arbeitsmarkt- und Berufsforschung | research institute | active | 14 | 14 | 100.0% (14) | 100.0% (14) | 2026-11-20 |
-| Lufthansa Group | company | active | 13 | 13 | 100.0% (13) | 100.0% (13) | 2026-11-18 |
-| Nvidia | company | active | 43 | 43 | 100.0% (43) | 69.8% (30) | 2026-11-19 |
+| Institut für Arbeitsmarkt- und Berufsforschung | research institute | active | 15 | 15 | 100.0% (15) | 100.0% (15) | 2026-11-24 |
+| Lufthansa Group | company | active | 15 | 15 | 100.0% (15) | 100.0% (15) | 2026-11-23 |
+| Nvidia | company | active | 45 | 45 | 100.0% (45) | 68.9% (31) | 2026-11-23 |
 | RWI - Leibniz-Institut für Wirtschaftsforschung | research institute | active | 1 | 1 | 100.0% (1) | 100.0% (1) | 2026-11-09 |
 | Sachverständigenrat zur Begutachtung der gesamtwirtschaftlichen Entwicklung | research institute | active | 9 | 9 | 100.0% (9) | 55.6% (5) | 2026-11-11 |
-| thyssenkrupp | company | active | 3 | 3 | 100.0% (3) | 0.0% (0) | 2026-10-30 |
-| Volkswagen Group | company | active | 7 | 7 | 100.0% (7) | 100.0% (7) | 2026-11-19 |
-| Wuppertal Institut für Klima, Umwelt, Energie | research institute | active | 25 | 25 | 100.0% (25) | 100.0% (25) | 2026-11-19 |
+| thyssenkrupp | company | active | 5 | 5 | 100.0% (5) | 0.0% (0) | 2026-11-23 |
+| Volkswagen Group | company | active | 8 | 8 | 100.0% (8) | 100.0% (8) | 2026-11-24 |
+| Wuppertal Institut für Klima, Umwelt, Energie | research institute | active | 28 | 28 | 100.0% (28) | 100.0% (28) | 2026-11-23 |
 
 </details>
 
 **Annotations**
 
-- **Annotated items:** 3,597 of 14,773 (24.3%)
-- **Text seen by the model:** title_teaser 10,073, title_only 3,058, lead_text 1,642
+- **Annotated items:** 3,897 of 15,073 (25.9%)
+- **Text seen by the model:** title_teaser 10,217, title_only 3,079, lead_text 1,777
 
-**Main topics of economic items, last 30 days** (3,284 items)
+**Main topics of economic items, last 30 days** (3,571 items)
 
 | Topic | Items | Share |
 |---|---|---|
-| Corporate strategy and results | 662 | 20.2% |
-| Digital economy and technology | 353 | 10.7% |
-| Labour market and wages | 324 | 9.9% |
-| Financial markets | 285 | 8.7% |
-| Banking and insurance | 197 | 6.0% |
-| Energy | 195 | 5.9% |
-| Public finances and taxes | 188 | 5.7% |
-| Industry and manufacturing | 180 | 5.5% |
-| Consumption and retail | 164 | 5.0% |
-| Regulation and competition | 139 | 4.2% |
+| Corporate strategy and results | 713 | 20.0% |
+| Digital economy and technology | 376 | 10.5% |
+| Labour market and wages | 357 | 10.0% |
+| Financial markets | 302 | 8.5% |
+| Banking and insurance | 213 | 6.0% |
+| Public finances and taxes | 205 | 5.7% |
+| Energy | 203 | 5.7% |
+| Industry and manufacturing | 188 | 5.3% |
+| Consumption and retail | 180 | 5.0% |
+| Regulation and competition | 163 | 4.6% |
 
 **Fields** (Filled: records with a value that is not null and not empty)
 
@@ -541,32 +541,32 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Field | Description | Filled | Distinct values |
 |---|---|---|---|
-| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (657) | 238 |
-| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (657) | 9 |
-| `dataset` | Name of the dataset. | 100.0% (657) | 1 |
-| `schema_version` | Version of the record schema. | 100.0% (657) | 1 |
-| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (657) | 591 |
-| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (657) | 5 |
-| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (657) | 204 |
-| `license` | License or terms of the source. | 100.0% (657) | 5 |
-| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (657) | 2 |
-| `series_id` | Id of the series in the catalog. | 100.0% (657) | 238 |
-| `concept` | What the series measures, independent of the country. | 100.0% (657) | 156 |
-| `topic` | Topic group of the series. | 100.0% (657) | 18 |
-| `geo` | Country or area of the series. | 100.0% (657) | 10 |
-| `frequency` | Frequency of the periods. | 100.0% (657) | 5 |
-| `unit` | Unit of the values. | 100.0% (657) | 39 |
-| `provider` | Organization and interface the series is read from. | 100.0% (657) | 5 |
-| `provider_flow` | Dataset or dataflow of the provider. | 100.0% (657) | 43 |
-| `provider_key` | Key of the series at the provider. | 100.0% (657) | 238 |
-| `provider_title` | Title of the series as given by the provider, if the response contains one. | 40.2% (264) | 74 |
-| `original_source` | Original compiler of the data if the provider redistributes it, e.g. 'Statistisches Bundesamt' for a Bundesbank series. | 5.0% (33) | 7 |
-| `values` | Values by period (YYYY-MM-DD, YYYY-Www, YYYY-MM, YYYY-Qn, YYYY-Sn or YYYY). Revision 0 holds all periods of the series; a later revision only the periods that were added or whose value changed. | 100.0% (657) | 16,526 |
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (686) | 238 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (686) | 10 |
+| `dataset` | Name of the dataset. | 100.0% (686) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (686) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (686) | 620 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (686) | 5 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (686) | 204 |
+| `license` | License or terms of the source. | 100.0% (686) | 5 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (686) | 2 |
+| `series_id` | Id of the series in the catalog. | 100.0% (686) | 238 |
+| `concept` | What the series measures, independent of the country. | 100.0% (686) | 156 |
+| `topic` | Topic group of the series. | 100.0% (686) | 18 |
+| `geo` | Country or area of the series. | 100.0% (686) | 10 |
+| `frequency` | Frequency of the periods. | 100.0% (686) | 5 |
+| `unit` | Unit of the values. | 100.0% (686) | 39 |
+| `provider` | Organization and interface the series is read from. | 100.0% (686) | 5 |
+| `provider_flow` | Dataset or dataflow of the provider. | 100.0% (686) | 43 |
+| `provider_key` | Key of the series at the provider. | 100.0% (686) | 238 |
+| `provider_title` | Title of the series as given by the provider, if the response contains one. | 40.7% (279) | 74 |
+| `original_source` | Original compiler of the data if the provider redistributes it, e.g. 'Statistisches Bundesamt' for a Bundesbank series. | 5.0% (34) | 7 |
+| `values` | Values by period (YYYY-MM-DD, YYYY-Www, YYYY-MM, YYYY-Qn, YYYY-Sn or YYYY). Revision 0 holds all periods of the series; a later revision only the periods that were added or whose value changed. | 100.0% (686) | 16,531 |
 | `removed_periods` | Periods whose value disappeared at the provider since the previous revision. | 0.0% (0) | 0 |
-| `first_period` | First period of the complete series after this revision. | 100.0% (657) | 68 |
-| `last_period` | Last period of the complete series after this revision. | 100.0% (657) | 38 |
-| `observations` | Number of periods of the complete series after this revision. | 100.0% (657) | 215 |
-| `source_updated` | Last update of the dataset at the provider (UTC), if the provider states it. | 51.3% (337) | 36 |
+| `first_period` | First period of the complete series after this revision. | 100.0% (686) | 68 |
+| `last_period` | Last period of the complete series after this revision. | 100.0% (686) | 42 |
+| `observations` | Number of periods of the complete series after this revision. | 100.0% (686) | 226 |
+| `source_updated` | Last update of the dataset at the provider (UTC), if the provider states it. | 49.1% (337) | 36 |
 
 </details>
 
@@ -605,36 +605,36 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Field | Description | Filled | Distinct values |
 |---|---|---|---|
-| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (14,173) | 14,173 |
-| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (14,173) | 1 |
-| `dataset` | Name of the dataset. | 100.0% (14,173) | 1 |
-| `schema_version` | Version of the record schema. | 100.0% (14,173) | 1 |
-| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (14,173) | 961 |
-| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (14,173) | 50 |
-| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (14,173) | 14,173 |
-| `license` | License or terms of the source. | 100.0% (14,173) | 1 |
-| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (14,173) | 1 |
-| `outlet_id` | Id of the outlet. | 100.0% (14,173) | 50 |
-| `outlet_type` | Type of the outlet. | 100.0% (14,173) | 11 |
-| `owner_group` | Publisher group of the outlet, or 'public' for public broadcasters. | 100.0% (14,173) | 33 |
-| `home_state` | State of a regional outlet; null for national outlets. | 18.8% (2,658) | 10 |
-| `outlet_sector` | Sector of a trade press outlet; null for general outlets. | 16.0% (2,270) | 13 |
-| `channel` | Where the article was found: RSS/Atom feed or news sitemap. | 100.0% (14,173) | 2 |
-| `url` | URL of the article. | 100.0% (14,173) | 14,173 |
-| `canonical_url` | Canonical URL declared by the article page. | 8.9% (1,260) | 1,257 |
-| `title` | Title of the article. | 100.0% (14,173) | 13,232 |
-| `published_at` | Publication time (UTC). | 100.0% (14,172) | 12,015 |
-| `updated_at` | Last modification time from the article page (UTC). | 7.3% (1,034) | 957 |
-| `section` | Section of the outlet, from the page or the feed. | 53.1% (7,524) | 766 |
-| `feed_categories` | Categories of the item in the feed. | 51.8% (7,344) | 3,164 |
-| `keywords` | Keywords from the article page or the news sitemap. | 17.4% (2,463) | 4,712 |
-| `jsonld_type` | schema.org type of the article page, e.g. NewsArticle or OpinionNewsArticle. | 7.5% (1,056) | 4 |
-| `is_agency_copy` | True if the article is credited to a news agency (dpa, AFP, Reuters, epd, KNA, AP). Null without page data. | 7.5% (1,056) | 2 |
-| `author_count` | Number of named authors. Author names are not stored. Null without page data. | 7.5% (1,056) | 6 |
-| `word_count` | Word count from the article page. Null if not given. | 0.9% (123) | 116 |
-| `is_paywalled` | True if the page marks the article as not accessible for free. Null without page data. | 5.2% (738) | 2 |
-| `has_video` | True if the article page embeds a video. Null without page data. | 9.2% (1,309) | 2 |
-| `content_basis` | Text available for the annotation: title only, title and teaser, or lead text of the page. | 100.0% (14,173) | 3 |
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (14,432) | 14,432 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (14,432) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (14,432) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (14,432) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (14,432) | 1,031 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (14,432) | 50 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (14,432) | 14,432 |
+| `license` | License or terms of the source. | 100.0% (14,432) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (14,432) | 1 |
+| `outlet_id` | Id of the outlet. | 100.0% (14,432) | 50 |
+| `outlet_type` | Type of the outlet. | 100.0% (14,432) | 11 |
+| `owner_group` | Publisher group of the outlet, or 'public' for public broadcasters. | 100.0% (14,432) | 33 |
+| `home_state` | State of a regional outlet; null for national outlets. | 19.0% (2,743) | 10 |
+| `outlet_sector` | Sector of a trade press outlet; null for general outlets. | 16.2% (2,331) | 13 |
+| `channel` | Where the article was found: RSS/Atom feed or news sitemap. | 100.0% (14,432) | 2 |
+| `url` | URL of the article. | 100.0% (14,432) | 14,432 |
+| `canonical_url` | Canonical URL declared by the article page. | 9.5% (1,369) | 1,366 |
+| `title` | Title of the article. | 100.0% (14,432) | 13,467 |
+| `published_at` | Publication time (UTC). | 100.0% (14,430) | 12,226 |
+| `updated_at` | Last modification time from the article page (UTC). | 7.8% (1,127) | 1,045 |
+| `section` | Section of the outlet, from the page or the feed. | 53.3% (7,688) | 785 |
+| `feed_categories` | Categories of the item in the feed. | 51.9% (7,493) | 3,233 |
+| `keywords` | Keywords from the article page or the news sitemap. | 17.4% (2,517) | 4,849 |
+| `jsonld_type` | schema.org type of the article page, e.g. NewsArticle or OpinionNewsArticle. | 8.0% (1,152) | 4 |
+| `is_agency_copy` | True if the article is credited to a news agency (dpa, AFP, Reuters, epd, KNA, AP). Null without page data. | 8.0% (1,152) | 2 |
+| `author_count` | Number of named authors. Author names are not stored. Null without page data. | 8.0% (1,152) | 7 |
+| `word_count` | Word count from the article page. Null if not given. | 0.9% (134) | 127 |
+| `is_paywalled` | True if the page marks the article as not accessible for free. Null without page data. | 5.5% (793) | 2 |
+| `has_video` | True if the article page embeds a video. Null without page data. | 9.9% (1,424) | 2 |
+| `content_basis` | Text available for the annotation: title only, title and teaser, or lead text of the page. | 100.0% (14,432) | 3 |
 
 </details>
 
@@ -643,25 +643,25 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Field | Description | Filled | Distinct values |
 |---|---|---|---|
-| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (600) | 600 |
-| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (600) | 1 |
-| `dataset` | Name of the dataset. | 100.0% (600) | 1 |
-| `schema_version` | Version of the record schema. | 100.0% (600) | 1 |
-| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (600) | 435 |
-| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (600) | 22 |
-| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (600) | 600 |
-| `license` | License or terms of the source. | 100.0% (600) | 1 |
-| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (600) | 1 |
-| `press_source_id` | Id of the press source. | 100.0% (600) | 22 |
-| `actor_type` | Type of the issuing actor. | 100.0% (600) | 6 |
-| `company_id` | Registry id of an issuing company; null for other actors. | 38.5% (231) | 11 |
-| `jurisdiction` | Level of the issuer: DE, a state (ISO 3166-2), EU or INT. | 100.0% (600) | 3 |
-| `url` | URL of the press release. | 100.0% (600) | 600 |
-| `canonical_url` | Canonical URL declared by the page. | 95.5% (573) | 572 |
-| `title` | Title of the press release. | 100.0% (600) | 584 |
-| `published_at` | Publication time (UTC). | 98.8% (593) | 475 |
-| `feed_categories` | Categories of the item in the feed. | 45.5% (273) | 87 |
-| `content_basis` | Text available for the annotation. | 100.0% (600) | 3 |
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (641) | 641 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (641) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (641) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (641) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (641) | 467 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (641) | 22 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (641) | 641 |
+| `license` | License or terms of the source. | 100.0% (641) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (641) | 1 |
+| `press_source_id` | Id of the press source. | 100.0% (641) | 22 |
+| `actor_type` | Type of the issuing actor. | 100.0% (641) | 6 |
+| `company_id` | Registry id of an issuing company; null for other actors. | 38.7% (248) | 11 |
+| `jurisdiction` | Level of the issuer: DE, a state (ISO 3166-2), EU or INT. | 100.0% (641) | 3 |
+| `url` | URL of the press release. | 100.0% (641) | 641 |
+| `canonical_url` | Canonical URL declared by the page. | 95.5% (612) | 611 |
+| `title` | Title of the press release. | 100.0% (641) | 622 |
+| `published_at` | Publication time (UTC). | 98.6% (632) | 508 |
+| `feed_categories` | Categories of the item in the feed. | 45.2% (290) | 91 |
+| `content_basis` | Text available for the annotation. | 100.0% (641) | 3 |
 
 </details>
 
@@ -670,47 +670,47 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Field | Description | Filled | Distinct values |
 |---|---|---|---|
-| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (3,597) | 3,597 |
-| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (3,597) | 1 |
-| `dataset` | Name of the dataset. | 100.0% (3,597) | 1 |
-| `schema_version` | Version of the record schema. | 100.0% (3,597) | 1 |
-| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (3,597) | 339 |
-| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (3,597) | 72 |
-| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (3,597) | 3,597 |
-| `license` | License or terms of the source. | 100.0% (3,597) | 1 |
-| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (3,597) | 1 |
-| `item_dataset` | Dataset of the annotated item. | 100.0% (3,597) | 2 |
-| `item_id` | record_id of the annotated item. | 100.0% (3,597) | 3,597 |
-| `model` | Gemini model that produced the labels. | 100.0% (3,597) | 2 |
-| `extraction_hash` | Hash of the prompt, response schema and model settings. Labels with the same hash were produced under the same conditions. | 100.0% (3,597) | 4 |
-| `content_basis` | Text the model saw: title only, title and teaser, or lead text. | 100.0% (3,597) | 3 |
-| `is_economic` | Whether the item is about the economy. | 100.0% (3,597) | 2 |
-| `topic` | Main economic topic. | 100.0% (3,597) | 20 |
-| `topics_secondary` | Further economic topics. | 59.0% (2,122) | 20 |
-| `issue_detail` | Specific issue in a few words. | 91.4% (3,286) | 3,025 |
-| `article_type` | Form of the item. | 100.0% (3,597) | 8 |
-| `sectors` | Sectors the item is mainly about. | 79.3% (2,852) | 26 |
-| `mentioned_companies` | Registry ids of the named companies that are in the company registry. | 26.9% (967) | 83 |
-| `company_roles` | Role of each resolved company, by registry id. | 26.9% (967) | 83 |
-| `company_tone` | Tone toward each resolved company, by registry id. | 26.9% (967) | 83 |
-| `other_companies` | Names of further companies that are not in the registry, as returned by the model. | 31.8% (1,144) | 1,133 |
-| `institutions` | Institutions that act, decide or comment. | 30.0% (1,079) | 24 |
-| `countries` | Countries the item is mainly about (ISO 3166-1 alpha-2). | 70.8% (2,547) | 85 |
-| `states_concerned` | German states the item is mainly about. | 16.8% (604) | 16 |
-| `event_types` | Types of economic events reported. | 68.6% (2,466) | 31 |
-| `event_status` | Stage of the main event. | 100.0% (3,597) | 4 |
-| `indicators` | Reported indicators with their reported direction. | 23.5% (847) | 22 |
-| `commodities` | Discussed commodities with the reported direction of their price. | 7.0% (251) | 18 |
-| `shortages` | Reported shortages. | 3.0% (109) | 11 |
-| `overall_tone` | Overall tone of the item. | 100.0% (3,597) | 4 |
-| `economic_outlook` | Expected development as stated in the item. | 100.0% (3,597) | 5 |
-| `mentions_uncertainty` | Whether the item refers to economic or economic policy uncertainty. | 100.0% (3,597) | 2 |
-| `mentions_recession` | Whether the item refers to a recession. | 100.0% (3,597) | 2 |
-| `policy_level` | Main level of economic policy addressed. | 100.0% (3,597) | 6 |
-| `government_involved` | Whether a government or its members act or are addressed. | 100.0% (3,597) | 2 |
-| `frame` | Dominant news frame (Semetko and Valkenburg). | 100.0% (3,597) | 6 |
-| `upcoming_events` | Future events with event_type and date (YYYY-MM-DD). | 4.4% (158) | 109 |
-| `communication_type` | Purpose of a press release; 'Not applicable' for news. | 100.0% (3,597) | 12 |
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (3,897) | 3,897 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (3,897) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (3,897) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (3,897) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (3,897) | 366 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (3,897) | 72 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (3,897) | 3,897 |
+| `license` | License or terms of the source. | 100.0% (3,897) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (3,897) | 1 |
+| `item_dataset` | Dataset of the annotated item. | 100.0% (3,897) | 2 |
+| `item_id` | record_id of the annotated item. | 100.0% (3,897) | 3,897 |
+| `model` | Gemini model that produced the labels. | 100.0% (3,897) | 2 |
+| `extraction_hash` | Hash of the prompt, response schema and model settings. Labels with the same hash were produced under the same conditions. | 100.0% (3,897) | 4 |
+| `content_basis` | Text the model saw: title only, title and teaser, or lead text. | 100.0% (3,897) | 3 |
+| `is_economic` | Whether the item is about the economy. | 100.0% (3,897) | 2 |
+| `topic` | Main economic topic. | 100.0% (3,897) | 20 |
+| `topics_secondary` | Further economic topics. | 59.0% (2,299) | 20 |
+| `issue_detail` | Specific issue in a few words. | 91.7% (3,573) | 3,288 |
+| `article_type` | Form of the item. | 100.0% (3,897) | 8 |
+| `sectors` | Sectors the item is mainly about. | 79.6% (3,101) | 26 |
+| `mentioned_companies` | Registry ids of the named companies that are in the company registry. | 27.3% (1,065) | 84 |
+| `company_roles` | Role of each resolved company, by registry id. | 27.3% (1,065) | 84 |
+| `company_tone` | Tone toward each resolved company, by registry id. | 27.3% (1,065) | 84 |
+| `other_companies` | Names of further companies that are not in the registry, as returned by the model. | 31.6% (1,231) | 1,206 |
+| `institutions` | Institutions that act, decide or comment. | 31.0% (1,210) | 24 |
+| `countries` | Countries the item is mainly about (ISO 3166-1 alpha-2). | 72.0% (2,805) | 87 |
+| `states_concerned` | German states the item is mainly about. | 17.2% (671) | 16 |
+| `event_types` | Types of economic events reported. | 69.2% (2,697) | 31 |
+| `event_status` | Stage of the main event. | 100.0% (3,897) | 4 |
+| `indicators` | Reported indicators with their reported direction. | 23.5% (915) | 22 |
+| `commodities` | Discussed commodities with the reported direction of their price. | 6.7% (263) | 18 |
+| `shortages` | Reported shortages. | 3.0% (118) | 11 |
+| `overall_tone` | Overall tone of the item. | 100.0% (3,897) | 4 |
+| `economic_outlook` | Expected development as stated in the item. | 100.0% (3,897) | 5 |
+| `mentions_uncertainty` | Whether the item refers to economic or economic policy uncertainty. | 100.0% (3,897) | 2 |
+| `mentions_recession` | Whether the item refers to a recession. | 100.0% (3,897) | 2 |
+| `policy_level` | Main level of economic policy addressed. | 100.0% (3,897) | 6 |
+| `government_involved` | Whether a government or its members act or are addressed. | 100.0% (3,897) | 2 |
+| `frame` | Dominant news frame (Semetko and Valkenburg). | 100.0% (3,897) | 6 |
+| `upcoming_events` | Future events with event_type and date (YYYY-MM-DD). | 4.4% (173) | 120 |
+| `communication_type` | Purpose of a press release; 'Not applicable' for news. | 100.0% (3,897) | 12 |
 
 </details>
 
@@ -747,20 +747,20 @@ The table lists the variables that carry content and the dataset (table) that st
 
 | Field | Description | Filled | Distinct values |
 |---|---|---|---|
-| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (440) | 440 |
-| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (440) | 1 |
-| `dataset` | Name of the dataset. | 100.0% (440) | 1 |
-| `schema_version` | Version of the record schema. | 100.0% (440) | 1 |
-| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (440) | 89 |
-| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (440) | 1 |
-| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (440) | 440 |
-| `license` | License or terms of the source. | 100.0% (440) | 1 |
-| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (440) | 2 |
-| `company_id` | Id of the company in the registry. | 100.0% (440) | 110 |
-| `wikipedia_project` | Wikipedia edition, de.wikipedia. | 100.0% (440) | 1 |
-| `wikipedia_title` | Title of the article at the time of the request. | 100.0% (440) | 110 |
-| `wikidata_qid` | Wikidata id from which the article was resolved. | 100.0% (440) | 110 |
-| `daily_views` | Views by human users per day (UTC), for the days since the previous record. | 100.0% (440) | 4,157 |
+| `record_id` | Stable id of the item. Together with revision it identifies a record. | 100.0% (550) | 550 |
+| `revision` | 0 for the first observation; incremented each time the source changes the item. | 100.0% (550) | 1 |
+| `dataset` | Name of the dataset. | 100.0% (550) | 1 |
+| `schema_version` | Version of the record schema. | 100.0% (550) | 1 |
+| `observed_at` | UTC time at which the pipeline observed this version of the item. Filtering observed_at <= t gives the state of knowledge at time t. | 100.0% (550) | 103 |
+| `source_id` | Id of the source (API, file, outlet or press source). | 100.0% (550) | 1 |
+| `source_url` | URL of the item or of the API resource it was read from. | 100.0% (550) | 550 |
+| `license` | License or terms of the source. | 100.0% (550) | 1 |
+| `backfilled` | True if the item is older than the start of collection for its dataset, so that observed_at does not reflect when it became public. | 100.0% (550) | 2 |
+| `company_id` | Id of the company in the registry. | 100.0% (550) | 110 |
+| `wikipedia_project` | Wikipedia edition, de.wikipedia. | 100.0% (550) | 1 |
+| `wikipedia_title` | Title of the article at the time of the request. | 100.0% (550) | 110 |
+| `wikidata_qid` | Wikidata id from which the article was resolved. | 100.0% (550) | 110 |
+| `daily_views` | Views by human users per day (UTC), for the days since the previous record. | 100.0% (550) | 4,164 |
 
 </details>
 <!-- DATASET_OVERVIEW_END -->
